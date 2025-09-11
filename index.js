@@ -23,6 +23,7 @@ const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
 server.use(router)
-server.listen(3000, () => {
-  console.log('JSON Server está em execução!')
+const PORT = process.env.PORT || 5000
+server.listen(PORT, () => {
+  console.log(`JSON Server está em execução na porta ${PORT}!`)
 })
