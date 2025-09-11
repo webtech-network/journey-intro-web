@@ -338,12 +338,6 @@
       "cidade": "Fortaleza",
       "estado": "CE",
       "populacao": 2100000
-    },
-    {
-      "id": 6,
-      "cidade": "Joao Pessoa",
-      "estado": "CE",
-      "populacao": 45000
     }
   ]
 }
