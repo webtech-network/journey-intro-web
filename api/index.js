@@ -15,7 +15,7 @@
 
 const jsonServer = require('json-server')
 const server = jsonServer.create()
-const router = jsonServer.router('./db/db.json')
+const router = jsonServer.router('../db/db.json')
 
 // Para permitir que os dados sejam alterados, altere a linha abaixo
 // colocando o atributo readOnly como false.
@@ -23,7 +23,7 @@ const middlewares = jsonServer.defaults()
 
 server.use(middlewares)
 server.use(router)
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 server.listen(PORT, () => {
   console.log(`JSON Server está em execução na porta ${PORT}!`)
 })
