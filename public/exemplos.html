@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplos de Código · DIW</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- NAVEGAÇÃO -->
+  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+          <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
+          <span class="hidden sm:block">Dev. Interfaces Web</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"    class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Início</a>
+          <a href="modulos.html"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Módulos</a>
+          <a href="ambiente.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Ambiente</a>
+          <a href="exemplos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Exemplos</a>
+          <a href="recursos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Recursos</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-indigo-800">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-indigo-800">
+      <div class="px-4 py-2 space-y-1">
+        <a href="index.html"    class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Início</a>
+        <a href="modulos.html"  class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Módulos</a>
+        <a href="ambiente.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Ambiente</a>
+        <a href="exemplos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Exemplos</a>
+        <a href="recursos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Recursos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="bg-amber-900 text-white py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-2 text-amber-300 text-sm mb-3">
+        <a href="index.html" class="hover:text-white">Início</a>
+        <span>/</span>
+        <span>Exemplos de Código</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black mb-3">💻 Exemplos de Código</h1>
+      <p class="text-amber-100 text-lg max-w-2xl">
+        Aplicações completas e trechos de código para você estudar, copiar e adaptar.
+        Todos integrados com o JSON Server.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- MINI SANDBOX — seção educativa -->
+    <div class="mb-14">
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Experimente: Mini Sandbox Interativo</h2>
+      <p class="text-gray-500 text-sm mb-6">
+        Edite o código abaixo e clique em <strong>▶ Executar</strong> para ver o resultado em tempo real.
+        Este é o mesmo princípio que ferramentas como CodePen e JSFiddle usam!
+      </p>
+
+      <!-- SANDBOX 1: HTML + CSS + JS básico -->
+      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+        <div class="sandbox-tabs">
+          <button class="sandbox-tab active" data-lang="html">HTML</button>
+          <button class="sandbox-tab" data-lang="css">CSS</button>
+          <button class="sandbox-tab" data-lang="js">JavaScript</button>
+          <button class="sandbox-run-btn">▶ Executar</button>
+        </div>
+
+        <div class="sandbox-panel active" data-lang="html">
+          <pre><code class="language-html">&lt;!-- Lista de cards com Tailwind --&gt;
+&lt;div class="container"&gt;
+  &lt;h1&gt;Lista de Tarefas&lt;/h1&gt;
+
+  &lt;form id="form-tarefa"&gt;
+    &lt;input type="text" id="input-tarefa"
+           placeholder="Nova tarefa..." /&gt;
+    &lt;button type="submit"&gt;Adicionar&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;ul id="lista"&gt;&lt;/ul&gt;
+
+  &lt;p id="contagem"&gt;0 tarefas&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="css">
+          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; padding: 20px; background: #f8fafc; }
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+h1 { font-size: 1.4rem; margin-bottom: 16px; color: #1e293b; }
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+}
+input:focus { border-color: #6366f1; }
+
+button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover { background: #4f46e5; }
+
+#lista { list-style: none; margin-bottom: 12px; }
+
+#lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#lista li:hover { border-color: #6366f1; }
+#lista li.feito {
+  text-decoration: line-through;
+  color: #94a3b8;
+  background: #f1f5f9;
+}
+.btn-del {
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+#contagem { font-size: 0.8rem; color: #94a3b8; text-align: right; }</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="js">
+          <pre><code class="language-javascript">const form   = document.getElementById('form-tarefa');
+const input  = document.getElementById('input-tarefa');
+const lista  = document.getElementById('lista');
+const contagem = document.getElementById('contagem');
+
+let tarefas = [];
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const texto = input.value.trim();
+  if (!texto) return;
+
+  tarefas.push({ id: Date.now(), texto, feito: false });
+  input.value = '';
+  renderizar();
+});
+
+function renderizar() {
+  lista.innerHTML = '';
+
+  tarefas.forEach(t => {
+    const li  = document.createElement('li');
+    if (t.feito) li.classList.add('feito');
+
+    const span = document.createElement('span');
+    span.textContent = t.texto;
+    span.addEventListener('click', () => {
+      t.feito = !t.feito;
+      renderizar();
+    });
+
+    const btn = document.createElement('button');
+    btn.textContent = 'Excluir';
+    btn.className   = 'btn-del';
+    btn.addEventListener('click', () => {
+      tarefas = tarefas.filter(x => x.id !== t.id);
+      renderizar();
+    });
+
+    li.appendChild(span);
+    li.appendChild(btn);
+    lista.appendChild(li);
+  });
+
+  const feitas = tarefas.filter(t => t.feito).length;
+  contagem.textContent = `${feitas} / ${tarefas.length} concluídas`;
+}</code></pre>
+        </div>
+
+        <div class="sandbox-preview" style="display:none">
+          <div class="sandbox-preview-label">
+            <span>▶</span> Resultado
+          </div>
+          <iframe></iframe>
+        </div>
+      </div>
+      <!-- SANDBOX 2: Calculadora -->
+      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+        <div class="sandbox-tabs">
+          <button class="sandbox-tab active" data-lang="html">HTML</button>
+          <button class="sandbox-tab" data-lang="css">CSS</button>
+          <button class="sandbox-tab" data-lang="js">JavaScript</button>
+          <button class="sandbox-run-btn">▶ Executar</button>
+        </div>
+
+        <div class="sandbox-panel active" data-lang="html">
+          <pre><code class="language-html">&lt;div class="calc"&gt;
+  &lt;div id="display"&gt;0&lt;/div&gt;
+  &lt;div class="teclado"&gt;
+    &lt;button class="btn-cinza" onclick="limpar()"&gt;C&lt;/button&gt;
+    &lt;button class="btn-cinza" onclick="apagar()"&gt;⌫&lt;/button&gt;
+    &lt;button class="btn-cinza" onclick="inserir('%')"&gt;%&lt;/button&gt;
+    &lt;button class="btn-op"    onclick="inserir('/')"&gt;÷&lt;/button&gt;
+    &lt;button onclick="inserir('7')"&gt;7&lt;/button&gt;
+    &lt;button onclick="inserir('8')"&gt;8&lt;/button&gt;
+    &lt;button onclick="inserir('9')"&gt;9&lt;/button&gt;
+    &lt;button class="btn-op" onclick="inserir('*')"&gt;×&lt;/button&gt;
+    &lt;button onclick="inserir('4')"&gt;4&lt;/button&gt;
+    &lt;button onclick="inserir('5')"&gt;5&lt;/button&gt;
+    &lt;button onclick="inserir('6')"&gt;6&lt;/button&gt;
+    &lt;button class="btn-op" onclick="inserir('-')"&gt;−&lt;/button&gt;
+    &lt;button onclick="inserir('1')"&gt;1&lt;/button&gt;
+    &lt;button onclick="inserir('2')"&gt;2&lt;/button&gt;
+    &lt;button onclick="inserir('3')"&gt;3&lt;/button&gt;
+    &lt;button class="btn-op" onclick="inserir('+')"&gt;+&lt;/button&gt;
+    &lt;button class="btn-zero" onclick="inserir('0')"&gt;0&lt;/button&gt;
+    &lt;button onclick="inserir('.')"&gt;.&lt;/button&gt;
+    &lt;button class="btn-igual" onclick="calcular()"&gt;=&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="css">
+          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #1c1c2e; display: flex; justify-content: center; padding: 24px; font-family: sans-serif; }
+
+.calc { width: 260px; background: #16213e; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+#display {
+  padding: 16px 20px 8px;
+  text-align: right;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: white;
+  min-height: 70px;
+  word-break: break-all;
+}
+
+.teclado { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #0f3460; }
+
+button {
+  padding: 18px;
+  font-size: 1rem;
+  background: #16213e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+button:hover  { background: #0f3460; }
+button:active { background: #e94560; }
+
+.btn-cinza { background: #1a1a2e; color: #a0a0a0; }
+.btn-op    { color: #e94560; font-weight: bold; }
+.btn-zero  { grid-column: span 2; }
+.btn-igual { background: #e94560; font-weight: bold; }
+.btn-igual:hover { background: #c73652; }</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="js">
+          <pre><code class="language-javascript">let expr = '';
+let novo  = true; // true = próximo dígito reinicia a expressão
+
+function inserir(tecla) {
+  if (novo) { expr = ''; novo = false; }
+  expr += tecla;
+  document.getElementById('display').textContent = expr;
+}
+
+function limpar() {
+  expr = '';
+  novo = false;
+  document.getElementById('display').textContent = '0';
+}
+
+function apagar() {
+  expr = expr.slice(0, -1);
+  document.getElementById('display').textContent = expr || '0';
+}
+
+function calcular() {
+  try {
+    // Function() é mais seguro que eval() para expressões simples
+    const resultado = Function('"use strict"; return (' + expr + ')')();
+    document.getElementById('display').textContent =
+      Number.isFinite(resultado) ? +resultado.toFixed(10) : 'Erro';
+    expr = String(resultado);
+    novo = true; // próximo dígito começa nova expressão
+  } catch {
+    document.getElementById('display').textContent = 'Erro';
+    expr = '';
+  }
+}</code></pre>
+        </div>
+
+        <div class="sandbox-preview" style="display:none">
+          <div class="sandbox-preview-label"><span>▶</span> Resultado — Calculadora</div>
+          <iframe></iframe>
+        </div>
+      </div>
+
+      <!-- SANDBOX 3: Cronômetro -->
+      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+        <div class="sandbox-tabs">
+          <button class="sandbox-tab active" data-lang="html">HTML</button>
+          <button class="sandbox-tab" data-lang="css">CSS</button>
+          <button class="sandbox-tab" data-lang="js">JavaScript</button>
+          <button class="sandbox-run-btn">▶ Executar</button>
+        </div>
+
+        <div class="sandbox-panel active" data-lang="html">
+          <pre><code class="language-html">&lt;div class="crono"&gt;
+  &lt;h2&gt;⏱ Cronômetro&lt;/h2&gt;
+  &lt;div id="display"&gt;00:00&lt;/div&gt;
+  &lt;div class="controles"&gt;
+    &lt;button id="btn-play"  onclick="iniciar()"&gt;▶ Iniciar&lt;/button&gt;
+    &lt;button id="btn-pause" onclick="pausar()" disabled&gt;⏸ Pausar&lt;/button&gt;
+    &lt;button onclick="zerar()"&gt;↺ Zerar&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="historico"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="css">
+          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; background: #0f172a; min-height: 100px; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+.crono {
+  text-align: center;
+  background: #1e293b;
+  border-radius: 20px;
+  padding: 28px 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  min-width: 260px;
+}
+
+h2 { color: #94a3b8; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+
+#display {
+  font-family: 'Courier New', monospace;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.controles { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+
+button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  background: #334155;
+  color: #e2e8f0;
+  transition: background 0.2s;
+}
+button:hover:not(:disabled) { background: #475569; }
+button:disabled { opacity: 0.35; cursor: default; }
+#btn-play { background: #0ea5e9; color: white; }
+#btn-play:hover:not(:disabled) { background: #0284c7; }
+
+#historico { font-size: 0.8rem; color: #475569; }
+.volta { padding: 4px 0; border-top: 1px solid #334155; display: flex; justify-content: space-between; }</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="js">
+          <pre><code class="language-javascript">let segundos  = 0;
+let intervalo = null;
+
+// setInterval executa uma função repetidamente a cada N milissegundos
+function iniciar() {
+  if (intervalo) return; // evita criar dois intervalos
+  document.getElementById('btn-play').disabled  = true;
+  document.getElementById('btn-pause').disabled = false;
+
+  intervalo = setInterval(() => {
+    segundos++;
+    atualizar();
+  }, 1000); // dispara a cada 1000ms = 1 segundo
+}
+
+// clearInterval cancela o intervalo criado por setInterval
+function pausar() {
+  clearInterval(intervalo);
+  intervalo = null;
+  document.getElementById('btn-play').disabled  = false;
+  document.getElementById('btn-pause').disabled = true;
+
+  // Registra volta no histórico
+  const div = document.createElement('div');
+  div.className = 'volta';
+  const num = document.querySelectorAll('.volta').length + 1;
+  div.innerHTML = `&lt;span&gt;Volta ${num}&lt;/span&gt;&lt;span&gt;${formatar(segundos)}&lt;/span&gt;`;
+  document.getElementById('historico').prepend(div);
+}
+
+function zerar() {
+  clearInterval(intervalo);
+  intervalo = null;
+  segundos  = 0;
+  atualizar();
+  document.getElementById('historico').innerHTML = '';
+  document.getElementById('btn-play').disabled  = false;
+  document.getElementById('btn-pause').disabled = true;
+}
+
+function atualizar() {
+  document.getElementById('display').textContent = formatar(segundos);
+}
+
+// padStart(2, '0') garante 2 dígitos: 5 → "05"
+function formatar(s) {
+  const min = String(Math.floor(s / 60)).padStart(2, '0');
+  const seg = String(s % 60).padStart(2, '0');
+  return `${min}:${seg}`;
+}</code></pre>
+        </div>
+
+        <div class="sandbox-preview" style="display:none">
+          <div class="sandbox-preview-label"><span>▶</span> Resultado — Cronômetro</div>
+          <iframe></iframe>
+        </div>
+      </div>
+
+      <!-- SANDBOX 4: Conversor de Temperatura -->
+      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+        <div class="sandbox-tabs">
+          <button class="sandbox-tab active" data-lang="html">HTML</button>
+          <button class="sandbox-tab" data-lang="css">CSS</button>
+          <button class="sandbox-tab" data-lang="js">JavaScript</button>
+          <button class="sandbox-run-btn">▶ Executar</button>
+        </div>
+
+        <div class="sandbox-panel active" data-lang="html">
+          <pre><code class="language-html">&lt;div class="conversor"&gt;
+  &lt;h2&gt;🌡️ Conversor de Temperatura&lt;/h2&gt;
+
+  &lt;div class="campo"&gt;
+    &lt;label&gt;Celsius (°C)&lt;/label&gt;
+    &lt;input type="number" id="celsius"
+           oninput="converter('celsius')" placeholder="0"&gt;
+  &lt;/div&gt;
+  &lt;div class="campo"&gt;
+    &lt;label&gt;Fahrenheit (°F)&lt;/label&gt;
+    &lt;input type="number" id="fahrenheit"
+           oninput="converter('fahrenheit')" placeholder="32"&gt;
+  &lt;/div&gt;
+  &lt;div class="campo"&gt;
+    &lt;label&gt;Kelvin (K)&lt;/label&gt;
+    &lt;input type="number" id="kelvin"
+           oninput="converter('kelvin')" placeholder="273.15"&gt;
+  &lt;/div&gt;
+
+  &lt;div id="info"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="css">
+          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; background: linear-gradient(135deg, #1e1b4b, #312e81); min-height: 100px; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+.conversor {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+h2 { font-size: 1rem; color: #1e1b4b; margin-bottom: 20px; text-align: center; }
+
+.campo { margin-bottom: 14px; }
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  outline: none;
+  transition: border 0.2s;
+}
+input:focus { border-color: #6366f1; }
+
+#info {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: #6366f1;
+  text-align: center;
+  min-height: 20px;
+  font-weight: 600;
+}</code></pre>
+        </div>
+
+        <div class="sandbox-panel" data-lang="js">
+          <pre><code class="language-javascript">// oninput dispara a cada caractere digitado — ideal para conversão em tempo real
+function converter(origem) {
+  const val = parseFloat(document.getElementById(origem).value);
+
+  if (isNaN(val)) {
+    // Limpa os outros campos se o input estiver vazio
+    ['celsius', 'fahrenheit', 'kelvin']
+      .filter(id => id !== origem)
+      .forEach(id => document.getElementById(id).value = '');
+    document.getElementById('info').textContent = '';
+    return;
+  }
+
+  // 1. Converte tudo para Celsius primeiro (base comum)
+  let celsius;
+  if      (origem === 'celsius')    celsius = val;
+  else if (origem === 'fahrenheit') celsius = (val - 32) * 5 / 9;
+  else                              celsius = val - 273.15; // kelvin
+
+  // 2. Calcula as outras escalas a partir de Celsius
+  const fahrenheit = celsius * 9 / 5 + 32;
+  const kelvin     = celsius + 273.15;
+
+  // 3. Preenche os campos (exceto o que o usuário está digitando)
+  if (origem !== 'celsius')    document.getElementById('celsius').value    = celsius.toFixed(2);
+  if (origem !== 'fahrenheit') document.getElementById('fahrenheit').value = fahrenheit.toFixed(2);
+  if (origem !== 'kelvin')     document.getElementById('kelvin').value     = kelvin.toFixed(2);
+
+  // 4. Curiosidade contextual
+  let info = '';
+  if      (celsius &lt;= 0)             info = '🧊 Ponto de congelamento da água';
+  else if (celsius &gt;= 100)           info = '♨️ Ponto de ebulição da água';
+  else if (celsius &gt;= 36 && celsius &lt;= 37.5) info = '🧑 Temperatura corporal normal';
+  else if (celsius &gt;= 20 && celsius &lt;= 26)   info = '😊 Temperatura ambiente agradável';
+  document.getElementById('info').textContent = info;
+}</code></pre>
+        </div>
+
+        <div class="sandbox-preview" style="display:none">
+          <div class="sandbox-preview-label"><span>▶</span> Resultado — Conversor de Temperatura</div>
+          <iframe></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====================================================
+         APLICAÇÕES COMPLETAS (cards)
+    ==================================================== -->
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">Aplicações Completas</h2>
+    <p class="text-gray-500 text-sm mb-6">
+      Estas aplicações estão disponíveis no servidor local. Certifique-se de que o JSON Server está rodando
+      (<code class="bg-gray-100 px-1 rounded text-xs">npm start</code>).
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+
+      <!-- App 1: Contatos CRUD -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_contatos_crud.png"
+             alt="Cadastro de Contatos CRUD"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.src=''; this.className='w-full h-44 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center text-5xl'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Cadastro de Contatos – CRUD</h3>
+            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M06/M07</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            CRUD completo de contatos com inserção, edição, exclusão e listagem via JSON Server.
+            Usa Fetch API com async/await e manipulação dinâmica do DOM.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">HTML</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">CSS</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JavaScript</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Fetch API</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/contatos.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/contatos/" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 2: Filtro/Pesquisa -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_contatos_filter.png"
+             alt="Filtro de Contatos"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.style.display='none'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Contatos – Filtro/Pesquisa</h3>
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M07</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Filtragem de contatos por cidade e categoria usando os parâmetros de query do JSON Server.
+            Demonstra busca com filtros combinados.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Filtros</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Query Params</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/pesquisa.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/contatos/search.html" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 3: Login -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_login.png"
+             alt="Login do Sistema"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.style.display='none'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Sistema de Login</h3>
+            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M08</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Login e registro de usuários com JSON Server. Sessão mantida no
+            sessionStorage. Permite cadastro de novos usuários e logout.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Autenticação</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">sessionStorage</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/login.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/login/login.html" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 4: Mapa -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_mapa.png"
+             alt="Mapa com Mapbox"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.style.display='none'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Mapas com Mapbox</h3>
+            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M09</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Exibição de locais no mapa usando a API Mapbox. Os dados dos locais
+            vêm do JSON Server (coleção locais). Requer conta Mapbox.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Mapbox GL JS</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">API Key</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">GeoJSON</span>
+          </div>
+
+          <div class="callout callout-info py-2 px-3 mb-3" style="margin:0 0 12px">
+            <p class="text-xs text-indigo-700">
+              Crie conta gratuita com o e-mail <strong>XXXXXX@sga.pucminas.br</strong>
+              em <a href="https://mapbox.com" target="_blank" class="underline">mapbox.com</a>
+              para obter a API Key.
+            </p>
+          </div>
+
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/mapa.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/mapa/" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 5: Gráficos -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_grafico.png"
+             alt="Gráficos com Chart.js"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.style.display='none'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Gráficos com Chart.js</h3>
+            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M09</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Dashboard de gráficos usando Chart.js com dados vindos do JSON Server
+            (coleção lancamentos). Gráficos de barras e pizza.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Chart.js</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Canvas API</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/graficos.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/graficos/" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- App 6: Passagem de parâmetros -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+        <img src="assets/images/app_cidades.png"
+             alt="Passagem de Parâmetros"
+             class="w-full h-44 object-cover bg-gray-100"
+             onerror="this.style.display='none'">
+        <div class="p-5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-bold text-gray-900">Passagem de Parâmetros</h3>
+            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M07</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+            Técnica de navegar entre páginas passando dados via URL (query string).
+            Lista de cidades carregada do JSON Server com página de detalhes.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">URLSearchParams</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Query String</span>
+            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Roteamento</span>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <a href="exemplos/cidades.html"
+               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Ver Detalhes
+            </a>
+            <a href="/diw/apps/cidades/" target="_blank"
+               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+              Abrir App
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- fim dos cards -->
+
+    <!-- ====================================================
+         TRECHOS DE CÓDIGO (referência rápida)
+    ==================================================== -->
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">Referência Rápida</h2>
+    <p class="text-gray-500 text-sm mb-6">Padrões de código que você usará com frequência na disciplina.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+      <!-- Padrão: Renderizar lista -->
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">1</span>
+          Renderizar lista de itens
+        </h3>
+        <div class="code-block">
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <pre><code class="language-javascript">function renderizarLista(itens, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; // Limpa antes de renderizar
+
+  if (itens.length === 0) {
+    container.innerHTML =
+      '&lt;p class="vazio"&gt;Nenhum item encontrado.&lt;/p&gt;';
+    return;
+  }
+
+  itens.forEach(item => {
+    const el = document.createElement('div');
+    el.className  = 'card';
+    el.dataset.id = item.id; // Guarda o ID no elemento
+
+    el.innerHTML = `
+      &lt;h3&gt;${item.nome}&lt;/h3&gt;
+      &lt;p&gt;${item.descricao}&lt;/p&gt;
+    `;
+
+    container.appendChild(el);
+  });
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- Padrão: Formulário -->
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">2</span>
+          Capturar e enviar formulário
+        </h3>
+        <div class="code-block">
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <pre><code class="language-javascript">document
+  .getElementById('meu-form')
+  .addEventListener('submit', async (e) => {
+    e.preventDefault(); // Evita reload da página
+
+    // Lê os valores dos campos
+    const nome  = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    // Validação básica
+    if (!nome || !email) {
+      alert('Preencha todos os campos!');
+      return;
+    }
+
+    const novoItem = { nome, email };
+
+    try {
+      const resposta = await fetch('/api/itens', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(novoItem)
+      });
+
+      if (resposta.ok) {
+        e.target.reset();  // Limpa o formulário
+        await carregarItens(); // Atualiza a lista
+      }
+    } catch (erro) {
+      alert('Erro ao salvar: ' + erro.message);
+    }
+  });</code></pre>
+        </div>
+      </div>
+
+      <!-- Padrão: Modal de edição -->
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">3</span>
+          Modal de edição (preencher e salvar)
+        </h3>
+        <div class="code-block">
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <pre><code class="language-javascript">// Guarda o ID do item sendo editado
+let idEditando = null;
+
+async function abrirEdicao(id) {
+  idEditando = id;
+
+  // Busca os dados atuais do item
+  const resposta = await fetch(`/api/contatos/${id}`);
+  const contato  = await resposta.json();
+
+  // Preenche o formulário do modal
+  document.getElementById('edit-nome').value  = contato.nome;
+  document.getElementById('edit-email').value = contato.email;
+
+  // Exibe o modal
+  document.getElementById('modal').style.display = 'flex';
+}
+
+async function salvarEdicao() {
+  const dadosAtualizados = {
+    nome:  document.getElementById('edit-nome').value,
+    email: document.getElementById('edit-email').value
+  };
+
+  await fetch(`/api/contatos/${idEditando}`, {
+    method:  'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(dadosAtualizados)
+  });
+
+  document.getElementById('modal').style.display = 'none';
+  carregarContatos(); // Atualiza a lista
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- Padrão: Loading state -->
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
+          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">4</span>
+          Estado de carregamento (Loading)
+        </h3>
+        <div class="code-block">
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <pre><code class="language-javascript">function mostrarLoading(containerId) {
+  document.getElementById(containerId).innerHTML = `
+    &lt;div class="loading"&gt;
+      &lt;div class="spinner"&gt;&lt;/div&gt;
+      &lt;p&gt;Carregando...&lt;/p&gt;
+    &lt;/div&gt;
+  `;
+}
+
+function mostrarErro(containerId, msg) {
+  document.getElementById(containerId).innerHTML = `
+    &lt;div class="erro"&gt;
+      &lt;p&gt;❌ ${msg}&lt;/p&gt;
+      &lt;button onclick="carregarDados()"&gt;Tentar novamente&lt;/button&gt;
+    &lt;/div&gt;
+  `;
+}
+
+async function carregarDados() {
+  mostrarLoading('container');
+
+  try {
+    const dados = await fetch('/api/itens')
+      .then(r => r.json());
+    renderizarLista(dados, 'container');
+  } catch (e) {
+    mostrarErro('container', 'Não foi possível carregar os dados.');
+  }
+}</code></pre>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-indigo-950 text-indigo-300 py-10 px-4 mt-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <p class="font-bold text-white text-sm">Desenvolvimento de Interfaces Web</p>
+          <p class="text-xs mt-1 text-indigo-400">PUC Minas · Cursos de Tecnologia da Informação</p>
+        </div>
+        <div class="flex gap-6 text-xs">
+          <a href="modulos.html"  class="hover:text-white">Módulos</a>
+          <a href="ambiente.html" class="hover:text-white">Ambiente</a>
+          <a href="exemplos.html" class="hover:text-white">Exemplos</a>
+          <a href="recursos.html" class="hover:text-white">Recursos</a>
+        </div>
+      </div>
+      <div class="border-t border-indigo-900 mt-6 pt-6 text-center text-xs text-indigo-500">
+        Powered by <a href="https://webtech.network" target="_blank" class="hover:text-white">WebTech PUC Minas</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

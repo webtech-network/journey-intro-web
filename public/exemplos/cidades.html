@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo – Lista de Cidades · DIW</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
+    <div class="max-w-full w-full flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
+        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
+        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
+      </a>
+      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
+      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
+      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
+      <span class="text-white text-sm font-semibold">Parâmetros de URL – Cidades</span>
+      <div class="ml-auto">
+        <a href="/diw/apps/cidades/" target="_blank"
+           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+          ↗ Abrir em nova aba
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SPLIT VIEW -->
+  <div class="detail-split" id="splitView">
+
+    <div class="preview-pane">
+      <div class="pane-header">
+        <span class="text-amber-400 font-semibold">▶ Preview</span>
+        <span class="text-gray-500">/diw/apps/cidades/</span>
+        <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
+      </div>
+      <iframe src="/diw/apps/cidades/" title="App Cidades"></iframe>
+    </div>
+
+    <div class="code-pane">
+      <div class="pane-header">
+        <span class="text-amber-400 font-semibold">{ } Código</span>
+        <button class="file-tab active" onclick="loadFile('app.js','javascript',this)">app.js</button>
+        <button class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
+        <button class="file-tab" onclick="loadFile('detalhes.html','markup',this)">detalhes.html</button>
+        <button class="file-tab" onclick="loadFile('style.css','css',this)">style.css</button>
+        <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
+      </div>
+      <div class="code-scroll">
+        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-javascript"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO EDUCATIVO -->
+  <div class="bg-white text-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+
+      <div class="flex items-center gap-3 mb-6">
+        <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full">M05</span>
+        <h1 class="text-2xl font-black text-gray-900">Passagem de Parâmetros entre Páginas</h1>
+      </div>
+      <p class="text-gray-600 text-base leading-relaxed mb-8">
+        Demonstra como passar dados de uma página para outra usando a
+        <strong>query string</strong> da URL. A lista de cidades linka para
+        <code>detalhes.html?id=3</code>, e a página de detalhes usa
+        <code>URLSearchParams</code> para ler o parâmetro <code>id</code> e
+        buscar o registro específico no JSON Server.
+      </p>
+
+      <!-- FLUXO -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Fluxo de navegação</h2>
+      <div class="step-list mb-10">
+        <div class="step-item">
+          <strong>index.html — Lista todas as cidades</strong>
+          <p class="text-sm text-gray-600 mt-1">
+            Faz <code>GET /api/cidades</code> e renderiza um link para cada cidade:
+            <code>href="detalhes.html?id=${cidade.id}"</code>.
+          </p>
+        </div>
+        <div class="step-item">
+          <strong>O usuário clica em uma cidade</strong>
+          <p class="text-sm text-gray-600 mt-1">
+            O navegador navega para <code>detalhes.html?id=3</code>.
+            O ID está na URL — sem sessão, sem localStorage necessário.
+          </p>
+        </div>
+        <div class="step-item">
+          <strong>detalhes.html — Lê o parâmetro da URL</strong>
+          <p class="text-sm text-gray-600 mt-1">
+            <code>new URLSearchParams(window.location.search).get('id')</code>
+            extrai o valor <code>"3"</code> da query string.
+          </p>
+        </div>
+        <div class="step-item">
+          <strong>Busca o registro específico no JSON Server</strong>
+          <p class="text-sm text-gray-600 mt-1">
+            <code>GET /api/cidades/3</code> retorna apenas a cidade com ID 3.
+            Os dados são exibidos na página de detalhes.
+          </p>
+        </div>
+      </div>
+
+      <!-- CONCEITOS -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Conceitos trabalhados</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="callout callout-info">
+          <p class="callout-title">URLSearchParams</p>
+          <p class="text-sm text-gray-600">
+            <code>new URLSearchParams(window.location.search)</code> parseia
+            automaticamente a query string. <code>.get('id')</code> retorna o valor
+            ou <code>null</code> se o parâmetro não existir.
+          </p>
+        </div>
+        <div class="callout callout-tip">
+          <p class="callout-title">GET /api/recurso/:id</p>
+          <p class="text-sm text-gray-600">
+            Buscar um único registro por ID é mais eficiente que buscar todos
+            e filtrar no cliente. O JSON Server retorna <code>404</code> se não encontrar.
+          </p>
+        </div>
+        <div class="callout callout-warning">
+          <p class="callout-title">Validação do parâmetro</p>
+          <p class="text-sm text-gray-600">
+            Sempre verifique se o parâmetro existe antes de fazer o fetch.
+            Se <code>id</code> for <code>null</code>, exiba uma mensagem de erro ao usuário.
+          </p>
+        </div>
+        <div class="callout callout-info">
+          <p class="callout-title">Separação de responsabilidades</p>
+          <p class="text-sm text-gray-600">
+            O <code>app.js</code> é compartilhado entre <code>index.html</code> e
+            <code>detalhes.html</code>, definindo as funções de acesso à API separadamente
+            da lógica de exibição.
+          </p>
+        </div>
+      </div>
+
+      <!-- DADOS JSON -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Dados do JSON Server</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <p class="text-sm text-gray-500 mb-3">
+            <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/cidades</code> — retorna todas
+          </p>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="lang-badge">json</span>
+              <span class="text-gray-400 text-xs">lista</span>
+            </div>
+            <pre><code class="language-javascript">[
+  {
+    "id": 1,
+    "cidade": "Belo Horizonte",
+    "estado": "MG",
+    "regiao": "Sudeste",
+    "populacao": 2315560,
+    "area": "331 km²",
+    "clima": "Tropical"
+  },
+  { "id": 2, "cidade": "São Paulo", ... },
+  { "id": 3, "cidade": "Rio de Janeiro", ... }
+]</code></pre>
+          </div>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-3">
+            <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/cidades/1</code> — retorna um
+          </p>
+          <div class="code-block">
+            <div class="code-header">
+              <span class="lang-badge">json</span>
+              <span class="text-gray-400 text-xs">único registro</span>
+            </div>
+            <pre><code class="language-javascript">{
+  "id": 1,
+  "cidade": "Belo Horizonte",
+  "estado": "MG",
+  "regiao": "Sudeste",
+  "populacao": 2315560,
+  "area": "331 km²",
+  "clima": "Tropical"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- PADRÃO: Ler param da URL -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2 mt-8">Padrão: ler parâmetro e buscar no servidor</h2>
+      <div class="code-block mb-10">
+        <div class="code-header">
+          <span class="lang-badge">javascript</span>
+          <span class="text-gray-400 text-xs">detalhes.html</span>
+          <button class="btn-copy">⎘ Copiar</button>
+        </div>
+        <pre><code class="language-javascript">// 1. Ler o parâmetro "id" da URL (detalhes.html?id=3)
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+
+if (!id) {
+  // Parâmetro ausente — exibir erro
+  document.body.innerHTML = '&lt;p&gt;ID não informado na URL.&lt;/p&gt;';
+} else {
+  // 2. Buscar o registro específico no JSON Server
+  fetch(`/api/cidades/${id}`)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(cidade => {
+      // 3. Preencher a página com os dados
+      document.getElementById('nome').textContent  = cidade.cidade;
+      document.getElementById('estado').textContent = cidade.estado;
+      document.title = `Detalhes – ${cidade.cidade}`;
+    })
+    .catch(err => {
+      document.body.innerHTML = `&lt;p&gt;Erro: ${err.message}&lt;/p&gt;`;
+    });
+}</code></pre>
+      </div>
+
+      <!-- EXERCÍCIOS -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+        <li>Adicione navegação entre cidades na página de detalhes: botões "Cidade anterior" e "Próxima cidade".</li>
+        <li>Exiba na lista o número de cidades carregadas: <em>"5 cidades encontradas"</em>.</li>
+        <li>Adicione um campo <code>curiosidade</code> ao JSON e exiba-o na página de detalhes.</li>
+        <li>Implemente um mapa Mapbox na página de detalhes, posicionado nas coordenadas da cidade.</li>
+        <li>Adicione passagem de múltiplos parâmetros: <code>detalhes.html?id=1&origem=lista</code>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    const BASE = '/diw/apps/cidades/';
+
+    async function loadFile(filename, lang, btn) {
+      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const loading = document.getElementById('codeLoading');
+      const block   = document.getElementById('codeBlock');
+      const content = document.getElementById('codeContent');
+
+      loading.style.display = 'block';
+      block.style.display   = 'none';
+
+      try {
+        const res  = await fetch(BASE + filename);
+        const text = await res.text();
+        content.className = `language-${lang}`;
+        content.textContent = text;
+        Prism.highlightElement(content);
+        loading.style.display = 'none';
+        block.style.display   = 'block';
+      } catch (e) {
+        loading.textContent = `❌ Erro ao carregar ${filename}`;
+      }
+    }
+
+    function toggleView(pane) {
+      const split = document.getElementById('splitView');
+      if (pane === 'preview') {
+        split.classList.toggle('preview-only');
+        split.classList.remove('code-only');
+      } else {
+        split.classList.toggle('code-only');
+        split.classList.remove('preview-only');
+      }
+    }
+
+    window.addEventListener('load', () => {
+      loadFile('app.js', 'javascript', document.querySelector('.file-tab'));
+    });
+  </script>
+</body>
+</html>

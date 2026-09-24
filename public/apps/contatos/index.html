@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW | Cadastro de Contatos – CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body onload="init()">
+    <h1>Cadastro de Contatos (CRUD)</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1"></div>
+        </div>
+
+        <form id="form-contato">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-8">
+                    <label for="inputNome">Nome (*)</label>
+                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o nome do contato">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="inputTelefone">Telefone (*)</label>
+                    <input type="text" class="form-control" id="inputTelefone" required placeholder="Telefone">
+                </div>
+                <div class="col-sm-7">
+                    <label for="inputEmail">E-mail (*)</label>
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputCidade">Cidade</label>
+                    <input type="text" class="form-control" id="inputCidade" placeholder="Informe a cidade">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCategoria">Categoria</label>
+                    <input type="text" class="form-control" id="inputCategoria" required placeholder="amigos / familia / trabalho">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="inputSite">Web Site (*)</label>
+                    <input type="text" class="form-control" id="inputSite" required placeholder="Web Site">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <div class="col-sm-4">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row mt-1">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger"  id="btnDelete" value="Excluir">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar">
+                    <a href="search.html"><input type="button" class="btn btn-info" value="Pesquisar"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <table id="grid-contatos" class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Cidade</th>
+                            <th>Categoria</th>
+                            <th>Site</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script>
+        function exibeContatos() {
+            const tableContatos = document.getElementById("table-contatos");
+            tableContatos.innerHTML = "";
+
+            readContato(dados => {
+                dados.forEach(contato => {
+                    tableContatos.innerHTML +=
+                        `<tr>
+                            <td>${contato.id}</td>
+                            <td>${contato.nome}</td>
+                            <td>${contato.telefone}</td>
+                            <td>${contato.email}</td>
+                            <td>${contato.cidade}</td>
+                            <td>${contato.categoria}</td>
+                            <td>${contato.website}</td>
+                        </tr>`;
+                });
+            });
+        }
+
+        function init() {
+            formContato = document.getElementById("form-contato");
+
+            // Botão Inserir
+            document.getElementById("btnInsert").addEventListener('click', function () {
+                if (!formContato.checkValidity()) {
+                    displayMessage("Preencha o formulário corretamente.");
+                    return;
+                }
+                const contato = {
+                    nome:      document.getElementById('inputNome').value,
+                    telefone:  document.getElementById('inputTelefone').value,
+                    email:     document.getElementById('inputEmail').value,
+                    cidade:    document.getElementById('inputCidade').value,
+                    categoria: document.getElementById('inputCategoria').value,
+                    website:   document.getElementById('inputSite').value
+                };
+                createContato(contato, exibeContatos);
+                formContato.reset();
+            });
+
+            // Botão Alterar
+            document.getElementById("btnUpdate").addEventListener('click', function () {
+                const campoId = document.getElementById("inputId").value;
+                if (!campoId) { displayMessage("Selecione um contato para alterar."); return; }
+                const contato = {
+                    nome:      document.getElementById('inputNome').value,
+                    telefone:  document.getElementById('inputTelefone').value,
+                    email:     document.getElementById('inputEmail').value,
+                    cidade:    document.getElementById('inputCidade').value,
+                    categoria: document.getElementById('inputCategoria').value,
+                    website:   document.getElementById('inputSite').value
+                };
+                updateContato(parseInt(campoId), contato, exibeContatos);
+                formContato.reset();
+            });
+
+            // Botão Excluir
+            document.getElementById('btnDelete').addEventListener('click', function () {
+                const campoId = document.getElementById('inputId').value;
+                if (!campoId) { displayMessage("Selecione um contato para excluir."); return; }
+                deleteContato(parseInt(campoId), exibeContatos);
+                formContato.reset();
+            });
+
+            // Botão Limpar
+            document.getElementById('btnClear').addEventListener('click', () => formContato.reset());
+
+            // Auto-oculta mensagem após 5s
+            const msg = document.getElementById('msg');
+            msg.addEventListener("DOMSubtreeModified", function (e) {
+                if (e.target.innerHTML === "") return;
+                setTimeout(() => {
+                    const alert = msg.querySelector(".alert");
+                    if (alert) alert.remove();
+                }, 5000);
+            });
+
+            // Clique na linha preenche o formulário
+            document.getElementById("grid-contatos").addEventListener('click', function (e) {
+                if (e.target.tagName === "TD") {
+                    const cols = e.target.parentNode.querySelectorAll("td");
+                    document.getElementById('inputId').value        = cols[0].innerText;
+                    document.getElementById('inputNome').value      = cols[1].innerText;
+                    document.getElementById('inputTelefone').value  = cols[2].innerText;
+                    document.getElementById('inputEmail').value     = cols[3].innerText;
+                    document.getElementById('inputCidade').value    = cols[4].innerText;
+                    document.getElementById('inputCategoria').value = cols[5].innerText;
+                    document.getElementById('inputSite').value      = cols[6].innerText;
+                }
+            });
+
+            exibeContatos();
+        }
+    </script>
+</body>
+</html>

@@ -1,22 +1,13 @@
 {
   "contatos": [
     {
-      "nome": "Cleiton Silva",
+      "nome": "Bernardo Guerra",
       "telefone": "1-770-736-8031",
       "email": "Sincere@april.biz",
       "cidade": "Belo Horizonte",
-      "categoria": "amigos",
+      "categoria": "trabalho",
       "website": "hildegard.org",
       "id": 1
-    },
-    {
-      "id": 2,
-      "nome": "Ervin Howell",
-      "cidade": "Betim",
-      "categoria": "familia",
-      "email": "Shanna@melissa.tv",
-      "telefone": "010-692-6593",
-      "website": "anastasia.net"
     },
     {
       "id": 3,
@@ -64,13 +55,13 @@
       "website": "elvis.io"
     },
     {
-      "id": 8,
-      "nome": "Nicholas Runolfsdottir V",
+      "nome": "Luciana Vieira Carneiro",
+      "telefone": "586.493.6943",
+      "email": "Sherwood@rosamond.me",
       "cidade": "Belo Horizonte",
       "categoria": "familia",
-      "email": "Sherwood@rosamond.me",
-      "telefone": "586.493.6943",
-      "website": "jacynthe.com"
+      "website": "jacynthe.com",
+      "id": 8
     },
     {
       "nome": "João Caetano",
@@ -100,7 +91,7 @@
       "id": 11
     },
     {
-      "nome": "Simone Alves Nogueira",
+      "nome": "José Antônio da Silva",
       "telefone": "21-73737626526",
       "email": "sidosamba@rio.com",
       "cidade": "Rio de Janeiro",
@@ -116,6 +107,24 @@
       "categoria": "trabalho",
       "website": "http://joao.com",
       "id": 13
+    },
+    {
+      "nome": "Pedro Bastos",
+      "telefone": "319999999999",
+      "email": "pedro@com.br",
+      "cidade": "Belo Horizonte",
+      "categoria": "trabalho",
+      "website": "hildegard.org",
+      "id": 14
+    },
+    {
+      "nome": "Francisco Lage Berutti",
+      "telefone": "31988888888",
+      "email": "berutti@italia.com.br",
+      "cidade": "Belo Horizonte",
+      "categoria": "trabalho",
+      "website": "berutti.com.br",
+      "id": 15
     }
   ],
   "usuarios": [
@@ -139,13 +148,27 @@
       "senha": "12345",
       "nome": "Rommel Carneiro",
       "email": "rommel@abc.com"
+    },
+    {
+      "nome": "Fulano",
+      "email": "rommel@pucminas.br",
+      "login": "fulano",
+      "senha": "abc",
+      "id": "8Q2bnhn"
+    },
+    {
+      "login": "trump",
+      "senha": "soudoidomesmo",
+      "nome": "Donald Trump da Silva",
+      "email": "trump@whitehouse.gov",
+      "id": "NseIqhk"
     }
   ],
   "locais": [
     {
       "id": 1,
       "descricao": "PUC Minas - Coração Eucarístico",
-      "endereco": "Rua Dom José Gaspar, 500",
+      "endereco": "Rua Dom José Gaspar, 2500",
       "favorito": true,
       "cidade": "Belo Horizonte",
       "latlong": [
@@ -282,10 +305,53 @@
     }
   ],
   "cidades": [
-       { "id": 1, "cidade": "Belo Horizonte", "estado": "MG", "populacao": 3800000 },
-       { "id": 2, "cidade": "São Paulo", "estado": "SP", "populacao": 11800000 },
-       { "id": 3, "cidade": "Rio de Janeiro", "estado": "RJ", "populacao": 5300000 },
-       { "id": 4, "cidade": "Curitiba", "estado": "PR", "populacao": 1200000 },
-       { "id": 5, "cidade": "Fortaleza", "estado": "CE", "populacao": 2100000 }
-   ]
+    {
+      "id": 1,
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "populacao": 3800000
+    },
+    {
+      "id": 2,
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "populacao": 11800000
+    },
+    {
+      "id": 3,
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "populacao": 5300000
+    },
+    {
+      "id": 4,
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "populacao": 1200000
+    },
+    {
+      "id": 5,
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "populacao": 2100000
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "descricao": "Amigos"
+    },
+    {
+      "id": 2,
+      "descricao": "Familia"
+    },
+    {
+      "id": 3,
+      "descricao": "Trabalho"
+    },
+    {
+      "descricao": "Fraternidade",
+      "id": 4
+    }
+  ]
 }

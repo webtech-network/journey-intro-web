@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW | Pesquisa de Contatos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Pesquisa de Contatos</h1>
+
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-2 offset-sm-10">
+                <a href="index.html"><input type="button" class="btn btn-warning w-100" value="← Cadastro"></a>
+            </div>
+        </div>
+
+        <form id="form-filtro">
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <label for="filtro_cidade">Cidade</label>
+                    <select name="filtro_cidade" id="filtro_cidade" onchange="ListaContatos()" class="form-control">
+                        <option value="">Todas as cidades</option>
+                        <option value="Betim">Betim</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="São Paulo">São Paulo</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="filtro_categoria">Categoria</label>
+                    <select name="filtro_categoria" id="filtro_categoria" onchange="ListaContatos()" class="form-control">
+                        <option value="">Todas as categorias</option>
+                        <option value="amigos">Amigos</option>
+                        <option value="familia">Família</option>
+                        <option value="trabalho">Trabalho</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="busca_texto">Busca livre</label>
+                    <input type="text" id="busca_texto" class="form-control"
+                           placeholder="Digite para buscar..." oninput="ListaContatos()">
+                </div>
+            </div>
+        </form>
+
+        <div id="msg" class="mt-2"></div>
+
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <p id="resultado-count" class="text-muted small"></p>
+                <table id="grid-contatos" class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Cidade</th>
+                            <th>Categoria</th>
+                            <th>Site</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script>
+        // Carrega todos os dados do JSON Server uma única vez
+        var db = [];
+        readContato(dados => {
+            db = dados;
+            ListaContatos();
+        });
+
+        // Filtra os contatos localmente com base nos selects e no campo de texto
+        function ListaContatos() {
+            const fc  = document.getElementById('filtro_cidade').value;
+            const fcg = document.getElementById('filtro_categoria').value;
+            const q   = document.getElementById('busca_texto').value.toLowerCase();
+
+            const tableContatos = document.getElementById("table-contatos");
+            tableContatos.innerHTML = "";
+
+            // Aplica os filtros combinados
+            const filtrados = db.filter(c =>
+                (fc  === '' || c.cidade    === fc)  &&
+                (fcg === '' || c.categoria === fcg) &&
+                (q   === '' || JSON.stringify(c).toLowerCase().includes(q))
+            );
+
+            filtrados.forEach(contato => {
+                tableContatos.innerHTML +=
+                    `<tr>
+                        <td>${contato.id}</td>
+                        <td>${contato.nome}</td>
+                        <td>${contato.telefone}</td>
+                        <td>${contato.email}</td>
+                        <td>${contato.cidade}</td>
+                        <td>${contato.categoria}</td>
+                        <td>${contato.website}</td>
+                    </tr>`;
+            });
+
+            document.getElementById('resultado-count').textContent =
+                `${filtrados.length} contato(s) encontrado(s) de ${db.length} total`;
+        }
+    </script>
+</body>
+</html>

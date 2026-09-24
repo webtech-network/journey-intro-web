@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo – Gráficos Chart.js · DIW</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
+    <div class="max-w-full w-full flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
+        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
+        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
+      </a>
+      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
+      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
+      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
+      <span class="text-white text-sm font-semibold">Gráficos com Chart.js</span>
+      <div class="ml-auto">
+        <a href="/diw/apps/graficos/" target="_blank"
+           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
+          ↗ Abrir em nova aba
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SPLIT VIEW -->
+  <div class="detail-split" id="splitView">
+
+    <div class="preview-pane">
+      <div class="pane-header">
+        <span class="text-emerald-400 font-semibold">▶ Preview</span>
+        <span class="text-gray-500">/diw/apps/graficos/</span>
+        <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
+      </div>
+      <iframe src="/diw/apps/graficos/" title="App Gráficos"></iframe>
+    </div>
+
+    <div class="code-pane">
+      <div class="pane-header">
+        <span class="text-emerald-400 font-semibold">{ } Código</span>
+        <button class="file-tab active" onclick="loadFile('index.html','markup',this)">index.html</button>
+        <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
+      </div>
+      <div class="code-scroll">
+        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-markup"></code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO EDUCATIVO -->
+  <div class="bg-white text-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-12">
+
+      <div class="flex items-center gap-3 mb-6">
+        <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">M09</span>
+        <h1 class="text-2xl font-black text-gray-900">Visualização de Dados com Chart.js</h1>
+      </div>
+      <p class="text-gray-600 text-base leading-relaxed mb-8">
+        Demonstra como transformar dados brutos do JSON Server em gráficos interativos
+        usando a biblioteca <strong>Chart.js</strong>. Os dados financeiros são agrupados por mês
+        e por categoria para gerar um gráfico de barras empilhadas e um gráfico de pizza.
+      </p>
+
+      <!-- CONCEITOS -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Conceitos trabalhados</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div class="callout callout-info">
+          <p class="callout-title">Carregar Chart.js via CDN</p>
+          <p class="text-sm text-gray-600">
+            <code>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;</code><br>
+            Não requer instalação — disponível diretamente no navegador.
+          </p>
+        </div>
+        <div class="callout callout-tip">
+          <p class="callout-title">Estrutura de dados do Chart.js</p>
+          <p class="text-sm text-gray-600">
+            Cada gráfico precisa de <code>labels</code> (eixo X) e
+            <code>datasets</code> (séries de dados), cada uma com cor e valores.
+          </p>
+        </div>
+        <div class="callout callout-warning">
+          <p class="callout-title">Agrupamento com Set e filter/reduce</p>
+          <p class="text-sm text-gray-600">
+            <code>[...new Set(data.map(d => d.mes))]</code> extrai valores únicos.<br>
+            <code>.filter().reduce()</code> soma os valores por grupo.
+          </p>
+        </div>
+        <div class="callout callout-info">
+          <p class="callout-title">Canvas HTML5</p>
+          <p class="text-sm text-gray-600">
+            Chart.js renderiza dentro de um elemento <code>&lt;canvas&gt;</code>.
+            Cada canvas deve ter um ID único referenciado no JavaScript.
+          </p>
+        </div>
+      </div>
+
+      <!-- DADOS JSON -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Dados do JSON Server</h2>
+      <p class="text-sm text-gray-500 mb-3">Endpoint: <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/lancamentos</code></p>
+      <div class="code-block mb-10">
+        <div class="code-header">
+          <span class="lang-badge">json</span>
+          <span class="text-gray-400 text-xs">db/db.json → "lancamentos"</span>
+        </div>
+        <pre><code class="language-javascript">[
+  { "id": 1, "mes": "Jan/24", "categoria": "Alimentação", "descricao": "Supermercado", "valor": 850 },
+  { "id": 2, "mes": "Jan/24", "categoria": "Transporte",  "descricao": "Combustível",  "valor": 320 },
+  { "id": 3, "mes": "Jan/24", "categoria": "Lazer",       "descricao": "Cinema",       "valor": 120 },
+  { "id": 4, "mes": "Fev/24", "categoria": "Alimentação", "descricao": "Restaurantes", "valor": 740 },
+  { "id": 5, "mes": "Fev/24", "categoria": "Transporte",  "descricao": "Uber",         "valor": 280 },
+  // ... mais registros por mês e categoria
+]</code></pre>
+      </div>
+
+      <!-- PADRÃO DE CÓDIGO -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Padrão: dados → gráfico</h2>
+      <div class="code-block mb-10">
+        <div class="code-header">
+          <span class="lang-badge">javascript</span>
+          <button class="btn-copy">⎘ Copiar</button>
+        </div>
+        <pre><code class="language-javascript">// 1. Buscar dados do JSON Server
+const data = await fetch('/api/lancamentos').then(r => r.json());
+
+// 2. Extrair dimensões únicas
+const meses      = [...new Set(data.map(d => d.mes))];
+const categorias = [...new Set(data.map(d => d.categoria))];
+
+// 3. Montar datasets (uma série por categoria)
+const datasets = categorias.map((cat, idx) => ({
+  label: cat,
+  data: meses.map(mes =>
+    data.filter(d => d.mes === mes && d.categoria === cat)
+        .reduce((acc, cur) => acc + cur.valor, 0)
+  ),
+  backgroundColor: CORES[idx]
+}));
+
+// 4. Criar o gráfico no canvas
+new Chart(document.getElementById('meuGrafico'), {
+  type: 'bar',
+  data: { labels: meses, datasets },
+  options: { scales: { y: { beginAtZero: true, stacked: true }, x: { stacked: true } } }
+});</code></pre>
+      </div>
+
+      <!-- EXERCÍCIOS -->
+      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+        <li>Adicione um gráfico de <strong>linhas</strong> mostrando a evolução do gasto total por mês.</li>
+        <li>Implemente um botão para alternar entre gráfico de barras agrupadas e empilhadas.</li>
+        <li>Adicione novos lançamentos via formulário (POST) e atualize os gráficos automaticamente.</li>
+        <li>Exiba a <strong>média mensal</strong> como uma linha de referência no gráfico de barras.</li>
+        <li>Adicione tooltips personalizados que mostrem o percentual em relação ao total do mês.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    const BASE = '/diw/apps/graficos/';
+
+    async function loadFile(filename, lang, btn) {
+      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const loading = document.getElementById('codeLoading');
+      const block   = document.getElementById('codeBlock');
+      const content = document.getElementById('codeContent');
+
+      loading.style.display = 'block';
+      block.style.display   = 'none';
+
+      try {
+        const res  = await fetch(BASE + filename);
+        const text = await res.text();
+        content.className = `language-${lang}`;
+        content.textContent = text;
+        Prism.highlightElement(content);
+        loading.style.display = 'none';
+        block.style.display   = 'block';
+      } catch (e) {
+        loading.textContent = `❌ Erro ao carregar ${filename}`;
+      }
+    }
+
+    function toggleView(pane) {
+      const split = document.getElementById('splitView');
+      if (pane === 'preview') {
+        split.classList.toggle('preview-only');
+        split.classList.remove('code-only');
+      } else {
+        split.classList.toggle('code-only');
+        split.classList.remove('preview-only');
+      }
+    }
+
+    window.addEventListener('load', () => {
+      loadFile('index.html', 'markup', document.querySelector('.file-tab'));
+    });
+  </script>
+</body>
+</html>

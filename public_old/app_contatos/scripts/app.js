@@ -56,6 +56,8 @@ function updateContato(id, contato, refreshFunction) {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            'Accept-language': 'pt-br',
+            'Accept': 'text/xml',
         },
         body: JSON.stringify(contato),
     })

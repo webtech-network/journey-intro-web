@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW | Mapas com Mapbox</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        #info-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            background: white;
+            border-radius: 10px;
+            padding: 12px 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            max-width: 240px;
+            font-size: 0.82rem;
+        }
+        #info-panel h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: #1e1b4b; }
+        #locais-lista { list-style: none; margin-top: 8px; }
+        #locais-lista li {
+            padding: 4px 0;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+            color: #374151;
+        }
+        #locais-lista li:hover { color: #4f46e5; }
+        .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+        #loading-msg {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            background: white; padding: 1.5rem 2rem; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); text-align: center;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="loading-msg">🗺️ Carregando mapa e dados…</div>
+
+    <div id="info-panel" style="display:none">
+        <h3>🏫 Unidades PUC Minas</h3>
+        <p class="text-muted" style="font-size:0.75rem;color:#6b7280">Dados via JSON Server</p>
+        <ul id="locais-lista"></ul>
+        <p style="margin-top:8px;font-size:0.7rem;color:#9ca3af">
+            Clique em um marcador para ver detalhes<br>
+            <span style="color:#f59e0b">●</span> Você está aqui (se autorizado)
+        </p>
+    </div>
+
+    <script>
+        const centralLatLong = [-43.9397233, -19.9332786]; // Belo Horizonte
+        let map;
+
+        // Carrega locais do JSON Server e monta o mapa
+        window.onload = () => {
+            fetch('/api/locais')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('loading-msg').style.display = 'none';
+                    montarMapa(data);
+                })
+                .catch(err => {
+                    document.getElementById('loading-msg').innerHTML =
+                        `<strong>❌ Erro</strong><br>Verifique se o servidor está rodando.<br>
+                         <small>${err.message}</small>`;
+                });
+        };
+
+        function montarMapa(locais) {
+            mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tbWVsY2FybmVpcm8tcHVjIiwiYSI6ImNsb3ZuMTBoejBsd2gyamwzeDZzcWl5b3oifQ.VPWc3qoyon8Z_-URfKpvKg';
+
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: centralLatLong,
+                zoom: 10
+            });
+
+            map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+            // Adiciona marcadores para cada local
+            locais.forEach(local => {
+                const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+                    <h3 style="font-size:0.9rem;margin:0 0 4px">
+                      <a href="${local.url}" target="_blank" style="color:#4f46e5">${local.descricao}</a>
+                    </h3>
+                    <p style="margin:0;font-size:0.8rem;color:#6b7280">${local.endereco}</p>
+                    <p style="margin:2px 0 0;font-size:0.75rem;color:#9ca3af">${local.cidade}</p>
+                `);
+
+                new mapboxgl.Marker({ color: local.cor })
+                    .setLngLat(local.latlong)
+                    .setPopup(popup)
+                    .addTo(map);
+            });
+
+            // Popula o painel lateral com a lista de locais
+            const ul = document.getElementById('locais-lista');
+            locais.forEach(local => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="dot" style="background:${local.cor}"></span>${local.descricao}`;
+                li.addEventListener('click', () => {
+                    map.flyTo({ center: local.latlong, zoom: 14, duration: 1200 });
+                });
+                ul.appendChild(li);
+            });
+
+            document.getElementById('info-panel').style.display = 'block';
+
+            // Tenta obter posição do usuário
+            navigator.geolocation.getCurrentPosition(pos => {
+                new mapboxgl.Marker({ color: '#f59e0b' })
+                    .setLngLat([pos.coords.longitude, pos.coords.latitude])
+                    .setPopup(new mapboxgl.Popup().setHTML('<strong>📍 Você está aqui!</strong>'))
+                    .addTo(map);
+            }, () => {});
+        }
+    </script>
+</body>
+</html>

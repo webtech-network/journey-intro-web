@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos · DIW</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- NAVEGAÇÃO -->
+  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+          <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
+          <span class="hidden sm:block">Dev. Interfaces Web</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html"    class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Início</a>
+          <a href="modulos.html"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Módulos</a>
+          <a href="ambiente.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Ambiente</a>
+          <a href="exemplos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Exemplos</a>
+          <a href="recursos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Recursos</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-indigo-800">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-indigo-800">
+      <div class="px-4 py-2 space-y-1">
+        <a href="index.html"    class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Início</a>
+        <a href="modulos.html"  class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Módulos</a>
+        <a href="ambiente.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Ambiente</a>
+        <a href="exemplos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Exemplos</a>
+        <a href="recursos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Recursos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="bg-pink-900 text-white py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-2 text-pink-300 text-sm mb-3">
+        <a href="index.html" class="hover:text-white">Início</a>
+        <span>/</span>
+        <span>Recursos</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black mb-3">🔗 Recursos e Referências</h1>
+      <p class="text-pink-100 text-lg max-w-2xl">
+        Documentações, ferramentas, cheat sheets e referências bibliográficas para apoiar seu aprendizado.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 py-10 space-y-14">
+
+    <!-- ====================================================
+         CHEAT SHEETS
+    ==================================================== -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Cheat Sheets</h2>
+      <p class="text-gray-500 text-sm mb-6">Referências rápidas para as principais tecnologias da disciplina.</p>
+
+      <!-- TABS das cheat sheets -->
+      <div data-tabs class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="flex bg-gray-50 border-b border-gray-200 overflow-x-auto">
+          <button data-tab-btn="cs-html"  class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 whitespace-nowrap">HTML5</button>
+          <button data-tab-btn="cs-css"   class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 whitespace-nowrap">CSS / Flex / Grid</button>
+          <button data-tab-btn="cs-js"    class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 whitespace-nowrap">JavaScript ES6+</button>
+          <button data-tab-btn="cs-fetch" class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 whitespace-nowrap">Fetch API</button>
+          <button data-tab-btn="cs-json"  class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500 whitespace-nowrap">JSON Server</button>
+        </div>
+
+        <!-- HTML5 -->
+        <div data-tab-panel="cs-html" class="hidden p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Estrutura Básica</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport"
+    content="width=device-width,
+    initial-scale=1.0"&gt;
+  &lt;title&gt;Título da Página&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Conteúdo aqui --&gt;
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Tags Semânticas</h3>
+              <div class="space-y-1 text-sm font-mono">
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;header&gt;</code><span class="text-gray-400">cabeçalho da página</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;nav&gt;</code><span class="text-gray-400">navegação</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;main&gt;</code><span class="text-gray-400">conteúdo principal</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;section&gt;</code><span class="text-gray-400">seção temática</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;article&gt;</code><span class="text-gray-400">conteúdo independente</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;aside&gt;</code><span class="text-gray-400">conteúdo lateral</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg px-3 py-2 flex justify-between">
+                  <code class="text-indigo-600">&lt;footer&gt;</code><span class="text-gray-400">rodapé</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Formulário Completo</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-html">&lt;form id="meu-form"&gt;
+  &lt;input type="text" id="nome"
+    placeholder="Nome" required&gt;
+
+  &lt;input type="email" id="email"
+    placeholder="E-mail" required&gt;
+
+  &lt;select id="categoria"&gt;
+    &lt;option value=""&gt;Selecione...&lt;/option&gt;
+    &lt;option value="a"&gt;Opção A&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;textarea id="obs"
+    rows="3" placeholder="Observações"&gt;
+  &lt;/textarea&gt;
+
+  &lt;button type="submit"&gt;Salvar&lt;/button&gt;
+  &lt;button type="reset"&gt;Limpar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Tabela de Dados</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nome&lt;/th&gt;
+      &lt;th&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody id="corpo-tabela"&gt;
+    &lt;!-- Linhas inseridas via JS --&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS / Flex / Grid -->
+        <div data-tab-panel="cs-css" class="hidden p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Flexbox</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-css">.container {
+  display: flex;
+
+  /* Eixo principal (horizontal) */
+  flex-direction: row | column;
+  justify-content: flex-start
+    | flex-end | center
+    | space-between | space-around;
+
+  /* Eixo cruzado (vertical) */
+  align-items: stretch
+    | flex-start | flex-end | center;
+
+  flex-wrap: wrap | nowrap;
+  gap: 1rem;
+}
+
+.item {
+  flex: 1;          /* cresce igual */
+  flex: 0 0 200px;  /* tamanho fixo */
+}</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">CSS Grid</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-css">.grid {
+  display: grid;
+
+  /* 3 colunas iguais */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* Tamanhos mistos */
+  grid-template-columns: 200px 1fr 2fr;
+
+  /* Responsivo automático */
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 1rem;
+  row-gap: 1.5rem;
+  column-gap: 1rem;
+}
+
+/* Elemento ocupa 2 colunas */
+.destaque { grid-column: span 2; }</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Media Queries (Mobile First)</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-css">/* Mobile: 1 coluna (padrão) */
+.grid { grid-template-columns: 1fr; }
+
+/* Tablet: 2 colunas */
+@media (min-width: 768px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Desktop: 3 colunas */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Tailwind CSS Essencial</h3>
+              <div class="space-y-1 text-xs font-mono">
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">flex items-center gap-4</code><span class="text-gray-400">linha com gap</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">grid grid-cols-3 gap-4</code><span class="text-gray-400">grid 3 cols</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">p-4 / px-4 py-2</code><span class="text-gray-400">padding</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">text-sm / text-lg</code><span class="text-gray-400">tamanho do texto</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">font-bold / font-medium</code><span class="text-gray-400">peso do texto</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">rounded-xl / rounded-full</code><span class="text-gray-400">borda arredondada</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">shadow-sm / shadow-lg</code><span class="text-gray-400">sombra</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">hidden / block / flex</code><span class="text-gray-400">display</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">md:grid-cols-2</code><span class="text-gray-400">responsivo (md+)</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">hover:bg-blue-700</code><span class="text-gray-400">efeito hover</span>
+                </div>
+                <div class="bg-gray-50 rounded px-3 py-1.5 flex justify-between">
+                  <code class="text-purple-600">transition-colors</code><span class="text-gray-400">animação</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JavaScript ES6+ -->
+        <div data-tab-panel="cs-js" class="hidden p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Variáveis e Tipos</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">let nome   = 'Ana';         // string
+let idade  = 25;             // number
+let ativo  = true;           // boolean
+let dados  = null;           // null
+let obj    = { a: 1 };       // object
+let lista  = [1, 2, 3];      // array
+
+const PI   = 3.14159;        // imutável
+
+// Destructuring
+const { nome, email } = usuario;
+const [primeiro, ...resto] = lista;
+
+// Template string
+const msg = `Olá, ${nome}! Você tem ${idade} anos.`;</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Funções</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">// Tradicional
+function somar(a, b) { return a + b; }
+
+// Arrow function
+const somar = (a, b) => a + b;
+
+// Parâmetro padrão
+function greet(nome = 'visitante') {
+  return `Olá, ${nome}!`;
+}
+
+// Spread operator
+function soma(...nums) {
+  return nums.reduce((acc, n) => acc + n, 0);
+}
+
+// Async/await
+async function buscar(url) {
+  const res = await fetch(url);
+  return res.json();
+}</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Arrays (métodos principais)</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">const nums = [1, 2, 3, 4, 5];
+
+// map: transforma cada elemento
+nums.map(n => n * 2);        // [2,4,6,8,10]
+
+// filter: filtra por condição
+nums.filter(n => n > 2);     // [3,4,5]
+
+// find: acha o primeiro que bate
+nums.find(n => n > 3);       // 4
+
+// findIndex: índice do primeiro
+nums.findIndex(n => n === 3); // 2
+
+// reduce: acumula um valor
+nums.reduce((acc, n) => acc + n, 0); // 15
+
+// includes: verifica existência
+nums.includes(3);            // true
+
+// some / every
+nums.some(n => n > 4);       // true
+nums.every(n => n > 0);      // true
+
+// sort (cuidado: altera o array!)
+[3,1,2].sort((a,b) => a - b); // [1,2,3]</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">DOM – Principais Métodos</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">// Selecionar elementos
+document.getElementById('id')
+document.querySelector('.classe')   // primeiro
+document.querySelectorAll('li')     // todos
+
+// Ler / escrever conteúdo
+el.textContent = 'novo texto';
+el.innerHTML   = '&lt;strong&gt;html&lt;/strong&gt;';
+el.value       // valor de inputs
+
+// Atributos
+el.getAttribute('src')
+el.setAttribute('class', 'ativo')
+el.dataset.id  // data-id="..."
+
+// Classes CSS
+el.classList.add('ativo')
+el.classList.remove('ativo')
+el.classList.toggle('ativo')
+
+// Criar e inserir elemento
+const div = document.createElement('div');
+div.textContent = 'Novo elemento';
+container.appendChild(div);
+container.innerHTML = ''; // Limpa tudo
+
+// Eventos
+el.addEventListener('click', handler)
+el.removeEventListener('click', handler)</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fetch API -->
+        <div data-tab-panel="cs-fetch" class="hidden p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">GET (Listar / Buscar)</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">// GET simples
+const dados = await fetch('/api/itens')
+  .then(r => r.json());
+
+// GET com filtro
+const url = new URL('/api/itens', location.origin);
+url.searchParams.set('categoria', 'A');
+const filtrados = await fetch(url).then(r => r.json());
+
+// GET por ID
+const item = await fetch(`/api/itens/${id}`)
+  .then(r => {
+    if (!r.ok) throw new Error('Não encontrado');
+    return r.json();
+  });</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">POST (Criar)</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">const novoItem = { nome: 'Teste', valor: 42 };
+
+const criado = await fetch('/api/itens', {
+  method:  'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body:    JSON.stringify(novoItem)
+}).then(r => r.json());
+
+console.log('ID gerado:', criado.id);</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">PUT / PATCH (Editar)</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">// PUT - substitui completamente
+await fetch(`/api/itens/${id}`, {
+  method:  'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ nome: 'Novo', valor: 99 })
+});
+
+// PATCH - atualiza só os campos enviados
+await fetch(`/api/itens/${id}`, {
+  method:  'PATCH',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ valor: 99 }) // só o valor
+});</code></pre>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">DELETE e Tratamento de Erros</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-javascript">// DELETE
+const ok = await fetch(`/api/itens/${id}`, {
+  method: 'DELETE'
+}).then(r => r.ok);
+
+// Tratamento robusto de erros
+async function chamarAPI(url, opts = {}) {
+  try {
+    const resposta = await fetch(url, opts);
+
+    if (!resposta.ok) {
+      const erro = await resposta.text();
+      throw new Error(`${resposta.status}: ${erro}`);
+    }
+
+    return resposta.json();
+
+  } catch (e) {
+    if (e instanceof TypeError) {
+      // Sem conexão com o servidor
+      console.error('Servidor indisponível');
+    } else {
+      console.error('Erro na API:', e.message);
+    }
+    throw e; // Re-lança para o chamador tratar
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JSON Server -->
+        <div data-tab-panel="cs-json" class="hidden p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Endpoints Padrão</h3>
+              <div class="overflow-hidden rounded-xl border border-gray-200">
+                <table class="w-full text-xs endpoint-table">
+                  <thead>
+                    <tr>
+                      <th class="px-3 py-2 text-left">Método</th>
+                      <th class="px-3 py-2 text-left">URL</th>
+                      <th class="px-3 py-2 text-left">Ação</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr><td class="px-3 py-2"><span class="method-badge method-get">GET</span></td><td class="px-3 py-2 font-mono">/api/itens</td><td class="px-3 py-2">Listar todos</td></tr>
+                    <tr><td class="px-3 py-2"><span class="method-badge method-get">GET</span></td><td class="px-3 py-2 font-mono">/api/itens/:id</td><td class="px-3 py-2">Buscar por ID</td></tr>
+                    <tr><td class="px-3 py-2"><span class="method-badge method-post">POST</span></td><td class="px-3 py-2 font-mono">/api/itens</td><td class="px-3 py-2">Criar</td></tr>
+                    <tr><td class="px-3 py-2"><span class="method-badge method-put">PUT</span></td><td class="px-3 py-2 font-mono">/api/itens/:id</td><td class="px-3 py-2">Substituir</td></tr>
+                    <tr><td class="px-3 py-2"><span class="method-badge method-patch">PATCH</span></td><td class="px-3 py-2 font-mono">/api/itens/:id</td><td class="px-3 py-2">Atualizar</td></tr>
+                    <tr><td class="px-3 py-2"><span class="method-badge method-delete">DELETE</span></td><td class="px-3 py-2 font-mono">/api/itens/:id</td><td class="px-3 py-2">Excluir</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Parâmetros de Query</h3>
+              <div class="space-y-2 text-xs font-mono">
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <p class="text-indigo-600 mb-1">/api/contatos?categoria=amigos</p>
+                  <p class="text-gray-400">Filtra por campo exato</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <p class="text-indigo-600 mb-1">/api/contatos?q=silva</p>
+                  <p class="text-gray-400">Busca full-text em todos os campos</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <p class="text-indigo-600 mb-1">/api/contatos?_page=1&_limit=5</p>
+                  <p class="text-gray-400">Paginação (página 1, 5 por página)</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <p class="text-indigo-600 mb-1">/api/contatos?_sort=nome&_order=asc</p>
+                  <p class="text-gray-400">Ordenar por campo</p>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-3">
+                  <p class="text-indigo-600 mb-1">/api/contatos?cidade=BH&categoria=amigos</p>
+                  <p class="text-gray-400">Múltiplos filtros combinados</p>
+                </div>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <h3 class="font-bold text-gray-700 text-sm mb-3 uppercase tracking-wider">Estrutura do db.json</h3>
+              <div class="code-block">
+                <div class="code-header"><span class="lang-badge">json</span><button class="btn-copy">⎘ Copiar</button></div>
+                <pre><code class="language-json">{
+  "usuarios": [
+    { "id": "uuid-1", "login": "admin", "senha": "123", "nome": "Admin", "email": "admin@site.com" }
+  ],
+  "produtos": [
+    { "id": 1, "nome": "Produto A", "preco": 29.90, "categoria": "eletronicos", "estoque": 100 },
+    { "id": 2, "nome": "Produto B", "preco": 15.50, "categoria": "papelaria",   "estoque": 50  }
+  ],
+  "categorias": [
+    { "id": 1, "descricao": "Eletrônicos" },
+    { "id": 2, "descricao": "Papelaria"  }
+  ],
+  "pedidos": []
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         FERRAMENTAS
+    ==================================================== -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Ferramentas Recomendadas</h2>
+      <p class="text-gray-500 text-sm mb-6">Programas e serviços que facilitam o desenvolvimento web.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <a href="https://code.visualstudio.com" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">💙</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">VS Code</p>
+              <p class="text-xs text-gray-400">code.visualstudio.com</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Editor de código gratuito. Instale as extensões: <strong>Live Server</strong>, <strong>Prettier</strong> e <strong>ESLint</strong>.</p>
+        </a>
+
+        <a href="https://insomnia.rest" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-purple-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">😴</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Insomnia</p>
+              <p class="text-xs text-gray-400">insomnia.rest</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Cliente REST para testar APIs com interface visual. Alternativa gratuita ao Postman.</p>
+        </a>
+
+        <a href="https://postman.com" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-orange-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">📮</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Postman</p>
+              <p class="text-xs text-gray-400">postman.com</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Ferramenta completa para testar, documentar e colaborar em APIs REST.</p>
+        </a>
+
+        <a href="https://nodejs.org" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-green-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🟢</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Node.js</p>
+              <p class="text-xs text-gray-400">nodejs.org</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Plataforma JavaScript no servidor. Necessária para executar o JSON Server.</p>
+        </a>
+
+        <a href="https://github.com/typicode/json-server" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-400 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">📦</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">JSON Server</p>
+              <p class="text-xs text-gray-400">github.com/typicode/json-server</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Documentação oficial do JSON Server. Versão 0.17.x usada neste projeto.</p>
+        </a>
+
+        <a href="https://tailwindcss.com" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-cyan-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🌊</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Tailwind CSS</p>
+              <p class="text-xs text-gray-400">tailwindcss.com</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Framework CSS utilitário. Documentação completa de todas as classes disponíveis.</p>
+        </a>
+
+        <a href="https://www.chartjs.org" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-red-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">📊</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Chart.js</p>
+              <p class="text-xs text-gray-400">chartjs.org</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Biblioteca de gráficos. Fácil de usar e com diversos tipos: linha, barra, pizza, etc.</p>
+        </a>
+
+        <a href="https://docs.mapbox.com" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-cyan-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">🗺️</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Mapbox GL JS</p>
+              <p class="text-xs text-gray-400">docs.mapbox.com</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">API de mapas interativos. Crie conta gratuita com e-mail @sga.pucminas.br.</p>
+        </a>
+
+        <a href="https://developer.mozilla.org/pt-BR/" target="_blank"
+           class="bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all block module-card">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-3xl">📖</span>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">MDN Web Docs</p>
+              <p class="text-xs text-gray-400">developer.mozilla.org/pt-BR</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">Referência completa em português para HTML, CSS e JavaScript. Use sempre!</p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         VÍDEOS COMPLEMENTARES
+    ==================================================== -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Vídeos Complementares</h2>
+      <p class="text-gray-500 text-sm mb-6">Material de apoio produzido para acompanhar a disciplina.</p>
+
+      <div class="space-y-4">
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+          <div class="flex items-start gap-4">
+            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">▶</div>
+            <div class="flex-1">
+              <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Sequência 1</p>
+              <h3 class="font-bold text-gray-900 mb-1">Projeto com JavaScript, JSON e Local Storage</h3>
+              <p class="text-sm text-gray-500 mb-3">Construção de aplicação completa usando Local Storage como banco de dados antes de integrar com JSON Server.</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="https://www.loom.com/share/da5ff9cc1e674bec9f85da058e3631c6" target="_blank"
+                   class="text-sm text-blue-600 hover:text-blue-800 font-medium">
+                  ▶ Banco de Dados com JSON e Local Storage
+                </a>
+                <a href="https://drive.google.com/file/d/1XCG-gt9RmJuE4emVqowYXU9aFTmdeEIi/view" target="_blank"
+                   class="text-sm text-gray-500 hover:text-gray-700">
+                  ↓ Código Fonte
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5">
+          <div class="flex items-start gap-4">
+            <div class="bg-emerald-100 text-emerald-600 w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">▶</div>
+            <div class="flex-1">
+              <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Sequência 2</p>
+              <h3 class="font-bold text-gray-900 mb-1">Projeto Completo com JavaScript, JSON e AJAX</h3>
+              <p class="text-sm text-gray-500 mb-3">Série de 3 partes: criação do projeto, manipulação de dados e comunicação com servidor via AJAX.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3">
+                <a href="https://drive.google.com/file/d/1bzPVkQTe_KLWLzKAK008SKVHFeMTAseH/view" target="_blank"
+                   class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-emerald-300 transition-colors">
+                  <p class="text-xs font-bold text-gray-700 mb-0.5">Parte 1/3</p>
+                  <p class="text-xs text-gray-500">Iniciando com HTML e CSS</p>
+                </a>
+                <a href="https://drive.google.com/file/d/1NT3OtQz_fJ1RgiuMq4QXf2ZT6ulZ58C6/view" target="_blank"
+                   class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-emerald-300 transition-colors">
+                  <p class="text-xs font-bold text-gray-700 mb-0.5">Parte 2/3</p>
+                  <p class="text-xs text-gray-500">Manipulando dados com JS e JSON</p>
+                </a>
+                <a href="https://drive.google.com/file/d/1aYhm0E3gn0LfauSpEoBj3AN2ilWuVs_B/view" target="_blank"
+                   class="bg-gray-50 border border-gray-200 rounded-lg p-3 hover:border-emerald-300 transition-colors">
+                  <p class="text-xs font-bold text-gray-700 mb-0.5">Parte 3/3</p>
+                  <p class="text-xs text-gray-500">Obtendo dados via AJAX</p>
+                </a>
+              </div>
+              <a href="https://drive.google.com/file/d/1KrnaFnMEQ1bvyH3ijncL12B7fyMhPkB_/view" target="_blank"
+                 class="inline-block mt-3 text-sm text-gray-500 hover:text-gray-700">
+                ↓ Código Fonte Completo
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         REFERÊNCIAS BIBLIOGRÁFICAS
+    ==================================================== -->
+    <section>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Referências Bibliográficas</h2>
+      <p class="text-gray-500 text-sm mb-6">Obras de referência adotadas na disciplina. Disponíveis na biblioteca da PUC Minas.</p>
+
+      <div class="space-y-4">
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex gap-4">
+          <span class="text-3xl flex-shrink-0">📗</span>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">JavaScript: O Guia Definitivo</p>
+            <p class="text-sm text-gray-600 mt-1">
+              FLANAGAN, David. <em>JavaScript: o guia definitivo</em>. 6. ed. Porto Alegre, RS: Bookman, 2014.
+              1062 p. ISBN 9788565837484.
+            </p>
+            <p class="text-xs text-gray-400 mt-1">E-book disponível na Biblioteca PUC Minas</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex gap-4">
+          <span class="text-3xl flex-shrink-0">📘</span>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">Desenvolvimento de Software II</p>
+            <p class="text-sm text-gray-600 mt-1">
+              MILETTO, Evandro Manara. <em>Desenvolvimento de software II: introdução ao desenvolvimento web com HTML,
+              CSS, JavaScript e PHP</em>. Porto Alegre: Bookman, 2014. ISBN 9788582601969.
+            </p>
+            <p class="text-xs text-gray-400 mt-1">E-book disponível na Biblioteca PUC Minas</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex gap-4">
+          <span class="text-3xl flex-shrink-0">📙</span>
+          <div>
+            <p class="font-bold text-gray-900 text-sm">CSS3: Desenvolva Aplicações Web Profissionais</p>
+            <p class="text-sm text-gray-600 mt-1">
+              SILVA, Maurício Samy. <em>CSS3: desenvolva aplicações web profissionais com uso dos poderosos recursos
+              de estilização das CSS3</em>. São Paulo: Novatec, 2012. 494 p. ISBN 9788575222898.
+            </p>
+            <p class="text-xs text-gray-400 mt-1">2 exemplares disponíveis na Biblioteca PUC Minas</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-indigo-950 text-indigo-300 py-10 px-4 mt-16">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <p class="font-bold text-white text-sm">Desenvolvimento de Interfaces Web</p>
+          <p class="text-xs mt-1 text-indigo-400">PUC Minas · Cursos de Tecnologia da Informação</p>
+        </div>
+        <div class="flex gap-6 text-xs">
+          <a href="modulos.html"  class="hover:text-white">Módulos</a>
+          <a href="ambiente.html" class="hover:text-white">Ambiente</a>
+          <a href="exemplos.html" class="hover:text-white">Exemplos</a>
+          <a href="recursos.html" class="hover:text-white">Recursos</a>
+        </div>
+      </div>
+      <div class="border-t border-indigo-900 mt-6 pt-6 text-center text-xs text-indigo-500">
+        Powered by <a href="https://webtech.network" target="_blank" class="hover:text-white">WebTech PUC Minas</a>
+        &nbsp;·&nbsp;
+        <a href="https://developer.mozilla.org/pt-BR/" target="_blank" class="hover:text-white">MDN Web Docs</a>
+        &nbsp;·&nbsp;
+        <a href="https://tailwindcss.com" target="_blank" class="hover:text-white">Tailwind CSS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW | Lista de Cidades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="app-header">
+        <div>
+            <h1>🏙️ Lista de Cidades</h1>
+        </div>
+        <span class="endpoint-tag">GET /api/cidades</span>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="app-main">
+
+        <div class="info-bar">
+            <p class="titulo">Dados carregados via <code>fetch()</code> do JSON Server</p>
+            <span class="contagem" id="contagem" style="display:none">0 cidades</span>
+        </div>
+
+        <ul id="ulCidades">
+            <li id="loading">⏳ Conectando ao JSON Server…</li>
+        </ul>
+
+        <!-- DEMO: Mudar cor de fundo via JS -->
+        <div class="demo-box">
+            <p class="demo-titulo">
+                🎨 Demonstração
+                <span class="badge-demo">document.body.style</span>
+            </p>
+            <div class="demo-row">
+                <input type="text" id="corFundo" placeholder="ex: lightblue, #ff6b6b, coral…">
+                <button id="btnMudaFundo">Aplicar cor</button>
+            </div>
+            <p class="demo-desc">document.body.style.backgroundColor = corFundo</p>
+        </div>
+
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Demo: altera a cor de fundo — exemplo de manipulação de estilo via JS
+        document.getElementById('btnMudaFundo').addEventListener('click', () => {
+            const cor = document.getElementById('corFundo').value.trim();
+            if (cor) document.body.style.backgroundColor = cor;
+        });
+        document.getElementById('corFundo').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') document.getElementById('btnMudaFundo').click();
+        });
+
+        // Monta a lista de cidades com links para a página de detalhes
+        function carregaDados() {
+            const ulCidades   = document.getElementById('ulCidades');
+            const spanContagem = document.getElementById('contagem');
+
+            ulCidades.innerHTML = '';
+
+            if (cidades.length === 0) {
+                ulCidades.innerHTML = '<li style="color:#9ca3af;padding:16px 0">Nenhuma cidade encontrada.</li>';
+                return;
+            }
+
+            cidades.forEach(cidade => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="detalhes.html?id=${cidade.id}">
+                        <span class="cidade-icone">📍</span>
+                        <span class="cidade-info">
+                            <span class="cidade-nome">${cidade.cidade}</span>
+                            <span class="cidade-estado">${cidade.estado} · ${cidade.regiao || ''}</span>
+                        </span>
+                        <span class="cidade-pop">
+                            <strong>${cidade.populacao ? cidade.populacao.toLocaleString('pt-BR') : '—'}</strong>
+                            hab.
+                        </span>
+                    </a>`;
+                ulCidades.appendChild(li);
+            });
+
+            spanContagem.textContent = `${cidades.length} cidade${cidades.length !== 1 ? 's' : ''}`;
+            spanContagem.style.display = 'inline';
+        }
+
+        carregaDadosJSONServer(carregaDados);
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIW | Detalhes da Cidade</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #f1f5f9; }
+        #erro {
+            max-width: 480px; margin: 40px auto; padding: 20px 24px;
+            background: #fef2f2; border: 1px solid #fecaca;
+            border-radius: 12px; color: #991b1b; font-size: 0.9rem;
+        }
+        #loading-msg {
+            text-align: center; padding: 60px 20px;
+            color: #6b7280; font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading-msg">⏳ Carregando dados da cidade…</div>
+    <div id="erro" style="display:none"></div>
+
+    <div id="conteudo" style="display:none">
+
+        <!-- CABEÇALHO DE DETALHE -->
+        <div class="detalhe-header">
+            <a href="index.html" class="back-btn">← Voltar à lista</a>
+            <h1 id="nomeCidade"></h1>
+            <p class="endpoint-info" id="endpointInfo"></p>
+        </div>
+
+        <!-- CARD COM OS DADOS -->
+        <div class="detalhe-card">
+            <div class="detalhe-field">
+                <label>Estado</label>
+                <value id="estado"></value>
+            </div>
+            <div class="detalhe-field">
+                <label>Região</label>
+                <value id="regiao"></value>
+            </div>
+            <div class="detalhe-field">
+                <label>População</label>
+                <value id="populacao"></value>
+            </div>
+            <div class="detalhe-field">
+                <label>Área</label>
+                <value id="area"></value>
+            </div>
+            <div class="detalhe-field">
+                <label>Clima</label>
+                <value id="clima"></value>
+            </div>
+            <div class="detalhe-field">
+                <label>ID no JSON Server</label>
+                <value id="idCidade" style="font-family:monospace;color:#6366f1"></value>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Lê o parâmetro "id" da query string: detalhes.html?id=1
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        if (!id) {
+            document.getElementById('loading-msg').style.display = 'none';
+            document.getElementById('erro').style.display = 'block';
+            document.getElementById('erro').innerHTML =
+                '<strong>❌ Parâmetro ausente</strong><br>' +
+                'Nenhum ID foi informado na URL. Use: <code>detalhes.html?id=1</code><br><br>' +
+                '<a href="index.html">← Voltar à lista</a>';
+        } else {
+            // Busca o registro específico: GET /api/cidades/{id}
+            fetch(`/api/cidades/${id}`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status} – cidade não encontrada`);
+                    return response.json();
+                })
+                .then(cidade => {
+                    document.getElementById('loading-msg').style.display = 'none';
+                    document.getElementById('conteudo').style.display = 'block';
+
+                    document.title = `DIW | ${cidade.cidade}`;
+                    document.getElementById('nomeCidade').textContent = `📍 ${cidade.cidade}`;
+                    document.getElementById('endpointInfo').textContent = `GET /api/cidades/${id}`;
+
+                    document.getElementById('estado').textContent    = cidade.estado   || '—';
+                    document.getElementById('regiao').textContent    = cidade.regiao   || '—';
+                    document.getElementById('populacao').textContent =
+                        cidade.populacao
+                            ? cidade.populacao.toLocaleString('pt-BR') + ' hab.'
+                            : '—';
+                    document.getElementById('area').textContent     = cidade.area    || '—';
+                    document.getElementById('clima').textContent    = cidade.clima   || '—';
+                    document.getElementById('idCidade').textContent = cidade.id;
+                })
+                .catch(err => {
+                    document.getElementById('loading-msg').style.display = 'none';
+                    document.getElementById('erro').style.display = 'block';
+                    document.getElementById('erro').innerHTML =
+                        `<strong>❌ Erro ao carregar</strong><br>` +
+                        `Cidade ID <code>${id}</code>: ${err.message}<br><br>` +
+                        `<a href="index.html">← Voltar à lista</a>`;
+                });
+        }
+    </script>
+</body>
+</html>
