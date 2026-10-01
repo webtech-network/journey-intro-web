@@ -1,13 +1,13 @@
 services:
   jsonserver:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     image: jsonserver-web:latest
     container_name: jsonserver-web
     ports:
       - "5000:5000"
     volumes:
-      - ./db:/data
-      - ./public:/site
+      - ../db:/data
+      - ../public:/site
     restart: unless-stopped
