@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo – Filtro e Pesquisa · DIW</title>
+  <title>Pesquisa · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
+<body class="bg-code text-code-text font-sans" data-base="/diw/apps/contatos/">
 
   <!-- NAVBAR -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
-    <div class="max-w-full w-full flex items-center gap-3">
-      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
-        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
-      </a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <span class="text-white text-sm font-semibold">Filtro e Pesquisa</span>
-      <div class="ml-auto">
-        <a href="/diw/apps/contatos/search.html" target="_blank"
-           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-          ↗ Abrir em nova aba
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="site-header" data-root="../" data-variant="detail" data-title="Filtro e Pesquisa" data-open="/diw/apps/contatos/search.html"></div>
 
-  <!-- SPLIT VIEW -->
+<!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-blue-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/contatos/search.html</span>
+        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="text-muted">/diw/apps/contatos/search.html</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/diw/apps/contatos/search.html" title="App Pesquisa"></iframe>
@@ -47,59 +32,59 @@
 
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-blue-400 font-semibold">{ } Código</span>
+        <span class="text-code-accent font-semibold">{ } Código</span>
         <button class="file-tab active" onclick="loadFile('search.html','markup',this)">search.html</button>
         <button class="file-tab" onclick="loadFile('scripts/app.js','javascript',this)">app.js</button>
         <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-markup"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-white text-gray-800">
+  <div class="bg-surface text-ink">
     <div class="max-w-5xl mx-auto px-6 py-12">
 
       <div class="flex items-center gap-3 mb-6">
-        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">M07</span>
-        <h1 class="text-2xl font-black text-gray-900">Filtro e Pesquisa com JSON Server</h1>
+        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m07)">M07</span>
+        <h1 class="text-2xl font-black text-ink">Filtro e Pesquisa com JSON Server</h1>
       </div>
-      <p class="text-gray-600 text-base leading-relaxed mb-8">
+      <p class="text-body text-base leading-relaxed mb-8">
         Demonstra como usar os recursos nativos de filtragem do JSON Server via
         <strong>query string</strong>: filtragem por campo exato, pesquisa full-text com <code>?q=</code>
         e combinação de múltiplos parâmetros usando <code>URLSearchParams</code>.
       </p>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Como funciona o filtro no JSON Server</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Como funciona o filtro no JSON Server</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">Filtro por campo exato</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>/api/contatos?cidade=Recife</code><br>
             Retorna apenas os registros onde <code>cidade === "Recife"</code>.
           </p>
         </div>
         <div class="callout callout-tip">
           <p class="callout-title">Pesquisa full-text</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>/api/contatos?q=maria</code><br>
             Busca "maria" em todos os campos de texto do registro.
           </p>
         </div>
         <div class="callout callout-warning">
           <p class="callout-title">Filtros combinados</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>/api/contatos?cidade=SP&categoria=trabalho</code><br>
             Múltiplos parâmetros funcionam como <code>AND</code> lógico.
           </p>
         </div>
         <div class="callout callout-info">
           <p class="callout-title">URLSearchParams</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             Use <code>new URLSearchParams()</code> para montar a query string
             dinamicamente sem concatenação manual de strings.
           </p>
@@ -107,7 +92,7 @@
       </div>
 
       <!-- EXEMPLO DE CÓDIGO -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Padrão de filtro com URLSearchParams</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Padrão de filtro com URLSearchParams</h2>
       <div class="code-block mb-10">
         <div class="code-header">
           <span class="lang-badge">javascript</span>
@@ -135,8 +120,8 @@
       </div>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
-      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Adicione um filtro por <strong>estado</strong> (UF) ao formulário de pesquisa.</li>
         <li>Implemente ordenação dos resultados por nome ou cidade clicando no cabeçalho da coluna.</li>
         <li>Adicione paginação: exiba 5 resultados por vez com botões "Anterior" e "Próximo".</li>
@@ -145,47 +130,7 @@
     </div>
   </div>
 
-  <script>
-    const BASE = '/diw/apps/contatos/';
-
-    async function loadFile(filename, lang, btn) {
-      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const loading = document.getElementById('codeLoading');
-      const block   = document.getElementById('codeBlock');
-      const content = document.getElementById('codeContent');
-
-      loading.style.display = 'block';
-      block.style.display   = 'none';
-
-      try {
-        const res  = await fetch(BASE + filename);
-        const text = await res.text();
-        content.className = `language-${lang}`;
-        content.textContent = text;
-        Prism.highlightElement(content);
-        loading.style.display = 'none';
-        block.style.display   = 'block';
-      } catch (e) {
-        loading.textContent = `❌ Erro ao carregar ${filename}`;
-      }
-    }
-
-    function toggleView(pane) {
-      const split = document.getElementById('splitView');
-      if (pane === 'preview') {
-        split.classList.toggle('preview-only');
-        split.classList.remove('code-only');
-      } else {
-        split.classList.toggle('code-only');
-        split.classList.remove('preview-only');
-      }
-    }
-
-    window.addEventListener('load', () => {
-      loadFile('search.html', 'markup', document.querySelector('.file-tab'));
-    });
-  </script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/detail.js"></script>
 </body>
 </html>

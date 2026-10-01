@@ -3,44 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo – Contatos CRUD · DIW</title>
+  <title>Contatos · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
+<body class="bg-code text-code-text font-sans" data-base="/diw/apps/contatos/">
 
   <!-- NAVBAR -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
-    <div class="max-w-full w-full flex items-center gap-3">
-      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
-        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
-      </a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <span class="text-white text-sm font-semibold">Contatos – CRUD Completo</span>
-      <div class="ml-auto flex items-center gap-2">
-        <a href="/diw/apps/contatos/" target="_blank"
-           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-          ↗ Abrir em nova aba
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="site-header" data-root="../" data-variant="detail" data-title="Contatos – CRUD Completo" data-open="/diw/apps/contatos/"></div>
 
-  <!-- SPLIT VIEW -->
+<!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <!-- PAINEL ESQUERDO: PREVIEW -->
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-indigo-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/contatos/</span>
+        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="text-muted">/diw/apps/contatos/</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/diw/apps/contatos/" title="App Contatos"></iframe>
@@ -49,7 +34,7 @@
     <!-- PAINEL DIREITO: CÓDIGO -->
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-indigo-400 font-semibold">{ } Código</span>
+        <span class="text-code-accent font-semibold">{ } Código</span>
         <button class="file-tab active" onclick="loadFile('index.html','markup',this)">index.html</button>
         <button class="file-tab" onclick="loadFile('scripts/app.js','javascript',this)">app.js</button>
         <button class="file-tab" onclick="loadFile('css/style.css','css',this)">style.css</button>
@@ -57,65 +42,65 @@
         <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-markup"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-white text-gray-800">
+  <div class="bg-surface text-ink">
     <div class="max-w-5xl mx-auto px-6 py-12">
 
       <div class="flex items-center gap-3 mb-6">
-        <span class="bg-teal-100 text-teal-700 text-xs font-bold px-3 py-1 rounded-full">M06 / M07</span>
-        <h1 class="text-2xl font-black text-gray-900">Cadastro de Contatos – CRUD Completo</h1>
+        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m06)">M06 / M07</span>
+        <h1 class="text-2xl font-black text-ink">Cadastro de Contatos – CRUD Completo</h1>
       </div>
-      <p class="text-gray-600 text-base leading-relaxed mb-8">
+      <p class="text-body text-base leading-relaxed mb-8">
         Esta aplicação demonstra as quatro operações fundamentais de persistência de dados —
         <strong>Create, Read, Update e Delete</strong> — usando o JSON Server como backend REST.
         O front-end é feito em HTML, CSS e JavaScript puro, sem framework.
       </p>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Conceitos trabalhados</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">Fetch API – Leitura (GET)</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>fetch('/api/contatos')</code> retorna a lista completa.
             <code>fetch('/api/contatos/5')</code> retorna um registro específico.
           </p>
         </div>
         <div class="callout callout-tip">
           <p class="callout-title">Criação (POST)</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             Método <code>POST</code> com <code>Content-Type: application/json</code> e
             <code>body: JSON.stringify(obj)</code> insere um novo registro.
           </p>
         </div>
         <div class="callout callout-warning">
           <p class="callout-title">Edição (PUT)</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>PUT /api/contatos/{id}</code> substitui o registro completo.
             <code>PATCH</code> atualiza só os campos enviados.
           </p>
         </div>
         <div class="callout callout-danger">
           <p class="callout-title">Exclusão (DELETE)</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>DELETE /api/contatos/{id}</code> remove o registro permanentemente do <code>db.json</code>.
           </p>
         </div>
       </div>
 
       <!-- DADOS JSON -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Dados do JSON Server</h2>
-      <p class="text-sm text-gray-500 mb-3">Endpoint: <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/contatos</code></p>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
+      <p class="text-sm text-muted mb-3">Endpoint: <code class="bg-line-soft px-2 py-0.5 rounded text-xs">GET /api/contatos</code></p>
       <div class="code-block mb-8">
         <div class="code-header">
           <span class="lang-badge">json</span>
-          <span class="text-gray-400 text-xs">db/db.json → "contatos" (amostra)</span>
+          <span class="text-faint text-xs">db/db.json → "contatos" (amostra)</span>
         </div>
         <pre><code class="language-javascript">[
   {
@@ -141,7 +126,7 @@
       </div>
 
       <!-- ENDPOINTS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Endpoints utilizados</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Endpoints utilizados</h2>
       <table class="w-full text-sm border-collapse mb-10 endpoint-table">
         <thead>
           <tr>
@@ -151,32 +136,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-t border-gray-100">
+          <tr class="border-t border-line-soft">
             <td class="px-4 py-3"><span class="method-badge method-get">GET</span></td>
             <td class="px-4 py-3 font-mono text-xs">/api/contatos</td>
-            <td class="px-4 py-3 text-gray-600">Lista todos os contatos</td>
+            <td class="px-4 py-3 text-body">Lista todos os contatos</td>
           </tr>
-          <tr class="border-t border-gray-100">
+          <tr class="border-t border-line-soft">
             <td class="px-4 py-3"><span class="method-badge method-post">POST</span></td>
             <td class="px-4 py-3 font-mono text-xs">/api/contatos</td>
-            <td class="px-4 py-3 text-gray-600">Cria novo contato</td>
+            <td class="px-4 py-3 text-body">Cria novo contato</td>
           </tr>
-          <tr class="border-t border-gray-100">
+          <tr class="border-t border-line-soft">
             <td class="px-4 py-3"><span class="method-badge method-put">PUT</span></td>
             <td class="px-4 py-3 font-mono text-xs">/api/contatos/{id}</td>
-            <td class="px-4 py-3 text-gray-600">Atualiza contato completo</td>
+            <td class="px-4 py-3 text-body">Atualiza contato completo</td>
           </tr>
-          <tr class="border-t border-gray-100">
+          <tr class="border-t border-line-soft">
             <td class="px-4 py-3"><span class="method-badge method-delete">DELETE</span></td>
             <td class="px-4 py-3 font-mono text-xs">/api/contatos/{id}</td>
-            <td class="px-4 py-3 text-gray-600">Remove contato</td>
+            <td class="px-4 py-3 text-body">Remove contato</td>
           </tr>
         </tbody>
       </table>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
-      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Adicione um campo <code>favorito</code> (boolean) ao formulário e salve-o via PATCH.</li>
         <li>Implemente ordenação por nome na listagem (sem recarregar do servidor).</li>
         <li>Adicione confirmação antes de excluir usando <code>window.confirm()</code>.</li>
@@ -186,62 +171,7 @@
     </div>
   </div>
 
-  <script>
-    const BASE = '/diw/apps/contatos/';
-    let currentView = 'split';
-
-    async function loadFile(filename, lang, btn) {
-      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const loading = document.getElementById('codeLoading');
-      const block   = document.getElementById('codeBlock');
-      const content = document.getElementById('codeContent');
-
-      loading.style.display = 'block';
-      block.style.display   = 'none';
-
-      try {
-        const res  = await fetch(BASE + filename);
-        const text = await res.text();
-        content.className = `language-${lang}`;
-        content.textContent = text;
-        Prism.highlightElement(content);
-        loading.style.display = 'none';
-        block.style.display   = 'block';
-      } catch (e) {
-        loading.textContent = `❌ Erro ao carregar ${filename}`;
-      }
-    }
-
-    function toggleView(pane) {
-      const split = document.getElementById('splitView');
-      if (pane === 'preview') {
-        if (split.classList.contains('preview-only')) {
-          split.classList.remove('preview-only');
-          currentView = 'split';
-        } else {
-          split.classList.remove('code-only');
-          split.classList.add('preview-only');
-          currentView = 'preview';
-        }
-      } else {
-        if (split.classList.contains('code-only')) {
-          split.classList.remove('code-only');
-          currentView = 'split';
-        } else {
-          split.classList.remove('preview-only');
-          split.classList.add('code-only');
-          currentView = 'code';
-        }
-      }
-    }
-
-    // Carrega o arquivo principal ao iniciar
-    window.addEventListener('load', () => {
-      const firstTab = document.querySelector('.file-tab');
-      loadFile('index.html', 'markup', firstTab);
-    });
-  </script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/detail.js"></script>
 </body>
 </html>

@@ -3,59 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplos de Código · DIW</title>
+  <title>Exemplos de Código · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
 
-  <!-- NAVEGAÇÃO -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
-          <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-          <span class="hidden sm:block">Dev. Interfaces Web</span>
-        </a>
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html"    class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Início</a>
-          <a href="modulos.html"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Módulos</a>
-          <a href="ambiente.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Ambiente</a>
-          <a href="exemplos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Exemplos</a>
-          <a href="recursos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Recursos</a>
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-indigo-800">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-indigo-800">
-      <div class="px-4 py-2 space-y-1">
-        <a href="index.html"    class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Início</a>
-        <a href="modulos.html"  class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Módulos</a>
-        <a href="ambiente.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Ambiente</a>
-        <a href="exemplos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Exemplos</a>
-        <a href="recursos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Recursos</a>
-      </div>
-    </div>
-  </nav>
+  <!-- ======================================================
+       NAVEGAÇÃO (WebTech style)
+  ====================================================== -->
+<div id="site-header"></div>
 
-  <!-- HERO -->
-  <div class="bg-amber-900 text-white py-12 px-4">
+<!-- HERO -->
+  <div class="wt-page-hero">
     <div class="max-w-6xl mx-auto">
-      <div class="flex items-center gap-2 text-amber-300 text-sm mb-3">
-        <a href="index.html" class="hover:text-white">Início</a>
-        <span>/</span>
-        <span>Exemplos de Código</span>
+      <div class="wt-breadcrumb mb-4">
+        <a href="index.html">Início</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Exemplos de Código</span>
       </div>
-      <h1 class="text-3xl md:text-4xl font-black mb-3">💻 Exemplos de Código</h1>
-      <p class="text-amber-100 text-lg max-w-2xl">
-        Aplicações completas e trechos de código para você estudar, copiar e adaptar.
-        Todos integrados com o JSON Server.
-      </p>
+      <div class="flex items-start gap-4">
+        <span class="wt-icon-circle text-xl">💻</span>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-ink mb-2">Exemplos de Código</h1>
+          <p class="text-muted text-lg max-w-2xl">
+            Aplicações completas e trechos de código para estudar, copiar e adaptar.
+            Todos integrados com o JSON Server.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -63,14 +44,14 @@
 
     <!-- MINI SANDBOX — seção educativa -->
     <div class="mb-14">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Experimente: Mini Sandbox Interativo</h2>
-      <p class="text-gray-500 text-sm mb-6">
+      <h2 class="text-2xl font-bold text-ink mb-2">Experimente: Mini Sandbox Interativo</h2>
+      <p class="text-muted text-sm mb-6">
         Edite o código abaixo e clique em <strong>▶ Executar</strong> para ver o resultado em tempo real.
         Este é o mesmo princípio que ferramentas como CodePen e JSFiddle usam!
       </p>
 
       <!-- SANDBOX 1: HTML + CSS + JS básico -->
-      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
         <div class="sandbox-tabs">
           <button class="sandbox-tab active" data-lang="html">HTML</button>
           <button class="sandbox-tab" data-lang="css">CSS</button>
@@ -228,7 +209,7 @@ function renderizar() {
         </div>
       </div>
       <!-- SANDBOX 2: Calculadora -->
-      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
         <div class="sandbox-tabs">
           <button class="sandbox-tab active" data-lang="html">HTML</button>
           <button class="sandbox-tab" data-lang="css">CSS</button>
@@ -344,7 +325,7 @@ function calcular() {
       </div>
 
       <!-- SANDBOX 3: Cronômetro -->
-      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
         <div class="sandbox-tabs">
           <button class="sandbox-tab active" data-lang="html">HTML</button>
           <button class="sandbox-tab" data-lang="css">CSS</button>
@@ -470,7 +451,7 @@ function formatar(s) {
       </div>
 
       <!-- SANDBOX 4: Conversor de Temperatura -->
-      <div class="sandbox rounded-xl overflow-hidden border border-gray-200 shadow-sm mb-8">
+      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
         <div class="sandbox-tabs">
           <button class="sandbox-tab active" data-lang="html">HTML</button>
           <button class="sandbox-tab" data-lang="css">CSS</button>
@@ -602,43 +583,43 @@ function converter(origem) {
     <!-- ====================================================
          APLICAÇÕES COMPLETAS (cards)
     ==================================================== -->
-    <h2 class="text-2xl font-bold text-gray-900 mb-2">Aplicações Completas</h2>
-    <p class="text-gray-500 text-sm mb-6">
+    <h2 class="text-2xl font-bold text-ink mb-2">Aplicações Completas</h2>
+    <p class="text-muted text-sm mb-6">
       Estas aplicações estão disponíveis no servidor local. Certifique-se de que o JSON Server está rodando
-      (<code class="bg-gray-100 px-1 rounded text-xs">npm start</code>).
+      (<code class="bg-line-soft px-1 rounded text-xs">npm start</code>).
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
 
       <!-- App 1: Contatos CRUD -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_contatos_crud.png"
              alt="Cadastro de Contatos CRUD"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.src=''; this.className='w-full h-44 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center text-5xl'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Cadastro de Contatos – CRUD</h3>
-            <span class="bg-teal-100 text-teal-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M06/M07</span>
+            <h3 class="font-bold text-ink">Cadastro de Contatos – CRUD</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m06)">M06/M07</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             CRUD completo de contatos com inserção, edição, exclusão e listagem via JSON Server.
             Usa Fetch API com async/await e manipulação dinâmica do DOM.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">HTML</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">CSS</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JavaScript</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Fetch API</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">HTML</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">CSS</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JavaScript</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Fetch API</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
           </div>
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/contatos.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/contatos/" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -646,32 +627,32 @@ function converter(origem) {
       </div>
 
       <!-- App 2: Filtro/Pesquisa -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_contatos_filter.png"
              alt="Filtro de Contatos"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.style.display='none'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Contatos – Filtro/Pesquisa</h3>
-            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M07</span>
+            <h3 class="font-bold text-ink">Contatos – Filtro/Pesquisa</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m07)">M07</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             Filtragem de contatos por cidade e categoria usando os parâmetros de query do JSON Server.
             Demonstra busca com filtros combinados.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Filtros</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Query Params</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Filtros</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Query Params</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
           </div>
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/pesquisa.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/contatos/search.html" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -679,32 +660,32 @@ function converter(origem) {
       </div>
 
       <!-- App 3: Login -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_login.png"
              alt="Login do Sistema"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.style.display='none'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Sistema de Login</h3>
-            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M08</span>
+            <h3 class="font-bold text-ink">Sistema de Login</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m08)">M08</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             Login e registro de usuários com JSON Server. Sessão mantida no
             sessionStorage. Permite cadastro de novos usuários e logout.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Autenticação</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">sessionStorage</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Autenticação</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">sessionStorage</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
           </div>
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/login.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/login/login.html" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -712,28 +693,28 @@ function converter(origem) {
       </div>
 
       <!-- App 4: Mapa -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_mapa.png"
              alt="Mapa com Mapbox"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.style.display='none'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Mapas com Mapbox</h3>
-            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M09</span>
+            <h3 class="font-bold text-ink">Mapas com Mapbox</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m09)">M09</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             Exibição de locais no mapa usando a API Mapbox. Os dados dos locais
             vêm do JSON Server (coleção locais). Requer conta Mapbox.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Mapbox GL JS</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">API Key</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">GeoJSON</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Mapbox GL JS</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">API Key</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">GeoJSON</span>
           </div>
 
           <div class="callout callout-info py-2 px-3 mb-3" style="margin:0 0 12px">
-            <p class="text-xs text-indigo-700">
+            <p class="text-xs text-brand-ink">
               Crie conta gratuita com o e-mail <strong>XXXXXX@sga.pucminas.br</strong>
               em <a href="https://mapbox.com" target="_blank" class="underline">mapbox.com</a>
               para obter a API Key.
@@ -742,11 +723,11 @@ function converter(origem) {
 
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/mapa.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/mapa/" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -754,32 +735,32 @@ function converter(origem) {
       </div>
 
       <!-- App 5: Gráficos -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_grafico.png"
              alt="Gráficos com Chart.js"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.style.display='none'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Gráficos com Chart.js</h3>
-            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M09</span>
+            <h3 class="font-bold text-ink">Gráficos com Chart.js</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m09)">M09</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             Dashboard de gráficos usando Chart.js com dados vindos do JSON Server
             (coleção lancamentos). Gráficos de barras e pizza.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Chart.js</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Canvas API</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">JSON Server</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Chart.js</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Canvas API</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
           </div>
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/graficos.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/graficos/" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -787,32 +768,32 @@ function converter(origem) {
       </div>
 
       <!-- App 6: Passagem de parâmetros -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
         <img src="assets/images/app_cidades.png"
              alt="Passagem de Parâmetros"
-             class="w-full h-44 object-cover bg-gray-100"
+             class="w-full h-44 object-cover bg-line-soft"
              onerror="this.style.display='none'">
         <div class="p-5">
           <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-gray-900">Passagem de Parâmetros</h3>
-            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2">M07</span>
+            <h3 class="font-bold text-ink">Passagem de Parâmetros</h3>
+            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m07)">M07</span>
           </div>
-          <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          <p class="text-sm text-muted leading-relaxed mb-4">
             Técnica de navegar entre páginas passando dados via URL (query string).
             Lista de cidades carregada do JSON Server com página de detalhes.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">URLSearchParams</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Query String</span>
-            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded">Roteamento</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">URLSearchParams</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Query String</span>
+            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Roteamento</span>
           </div>
           <div class="flex gap-2 flex-wrap">
             <a href="exemplos/cidades.html"
-               class="flex-1 text-center bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Ver Detalhes
             </a>
             <a href="/diw/apps/cidades/" target="_blank"
-               class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
               Abrir App
             </a>
           </div>
@@ -824,15 +805,15 @@ function converter(origem) {
     <!-- ====================================================
          TRECHOS DE CÓDIGO (referência rápida)
     ==================================================== -->
-    <h2 class="text-2xl font-bold text-gray-900 mb-2">Referência Rápida</h2>
-    <p class="text-gray-500 text-sm mb-6">Padrões de código que você usará com frequência na disciplina.</p>
+    <h2 class="text-2xl font-bold text-ink mb-2">Referência Rápida</h2>
+    <p class="text-muted text-sm mb-6">Padrões de código que você usará com frequência na disciplina.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
 
       <!-- Padrão: Renderizar lista -->
       <div>
-        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
-          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">1</span>
+        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
+          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">1</span>
           Renderizar lista de itens
         </h3>
         <div class="code-block">
@@ -865,8 +846,8 @@ function converter(origem) {
 
       <!-- Padrão: Formulário -->
       <div>
-        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
-          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">2</span>
+        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
+          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">2</span>
           Capturar e enviar formulário
         </h3>
         <div class="code-block">
@@ -908,8 +889,8 @@ function converter(origem) {
 
       <!-- Padrão: Modal de edição -->
       <div>
-        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
-          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">3</span>
+        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
+          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">3</span>
           Modal de edição (preencher e salvar)
         </h3>
         <div class="code-block">
@@ -952,8 +933,8 @@ async function salvarEdicao() {
 
       <!-- Padrão: Loading state -->
       <div>
-        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
-          <span class="bg-indigo-100 text-indigo-600 w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">4</span>
+        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
+          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">4</span>
           Estado de carregamento (Loading)
         </h3>
         <div class="code-block">
@@ -994,28 +975,9 @@ async function carregarDados() {
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-indigo-950 text-indigo-300 py-10 px-4 mt-16">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-          <p class="font-bold text-white text-sm">Desenvolvimento de Interfaces Web</p>
-          <p class="text-xs mt-1 text-indigo-400">PUC Minas · Cursos de Tecnologia da Informação</p>
-        </div>
-        <div class="flex gap-6 text-xs">
-          <a href="modulos.html"  class="hover:text-white">Módulos</a>
-          <a href="ambiente.html" class="hover:text-white">Ambiente</a>
-          <a href="exemplos.html" class="hover:text-white">Exemplos</a>
-          <a href="recursos.html" class="hover:text-white">Recursos</a>
-        </div>
-      </div>
-      <div class="border-t border-indigo-900 mt-6 pt-6 text-center text-xs text-indigo-500">
-        Powered by <a href="https://webtech.network" target="_blank" class="hover:text-white">WebTech PUC Minas</a>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

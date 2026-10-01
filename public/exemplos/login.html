@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo – Login e Sessão · DIW</title>
+  <title>Login · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
+<body class="bg-code text-code-text font-sans" data-base="/diw/apps/login/">
 
   <!-- NAVBAR -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
-    <div class="max-w-full w-full flex items-center gap-3">
-      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
-        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
-      </a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <span class="text-white text-sm font-semibold">Sistema de Login</span>
-      <div class="ml-auto">
-        <a href="/diw/apps/login/login.html" target="_blank"
-           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-          ↗ Abrir em nova aba
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="site-header" data-root="../" data-variant="detail" data-title="Sistema de Login" data-open="/diw/apps/login/login.html"></div>
 
-  <!-- SPLIT VIEW -->
+<!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-orange-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/login/login.html</span>
+        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="text-muted">/diw/apps/login/login.html</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/diw/apps/login/login.html" title="App Login"></iframe>
@@ -47,28 +32,28 @@
 
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-orange-400 font-semibold">{ } Código</span>
+        <span class="text-code-accent font-semibold">{ } Código</span>
         <button class="file-tab active" onclick="loadFile('scripts/login.js','javascript',this)">login.js</button>
         <button class="file-tab" onclick="loadFile('login.html','markup',this)">login.html</button>
         <button class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
         <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-javascript"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-white text-gray-800">
+  <div class="bg-surface text-ink">
     <div class="max-w-5xl mx-auto px-6 py-12">
 
       <div class="flex items-center gap-3 mb-6">
-        <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">M08</span>
-        <h1 class="text-2xl font-black text-gray-900">Sistema de Login com sessionStorage</h1>
+        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m08)">M08</span>
+        <h1 class="text-2xl font-black text-ink">Sistema de Login com sessionStorage</h1>
       </div>
-      <p class="text-gray-600 text-base leading-relaxed mb-8">
+      <p class="text-body text-base leading-relaxed mb-8">
         Implementa autenticação simples usando o JSON Server como repositório de usuários.
         Após o login, os dados da sessão são armazenados no <strong>sessionStorage</strong> —
         que persiste durante a sessão do navegador mas é apagado ao fechar a aba.
@@ -76,31 +61,31 @@
       </p>
 
       <!-- FLUXO -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Fluxo de autenticação</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Fluxo de autenticação</h2>
       <div class="step-list mb-10">
         <div class="step-item">
           <strong>Usuário digita login e senha</strong>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-body mt-1">
             O formulário chama <code>loginUser(login, senha)</code>.
           </p>
         </div>
         <div class="step-item">
           <strong>Busca no JSON Server</strong>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-body mt-1">
             <code>GET /api/usuarios</code> retorna todos os usuários.
             O código compara login e senha localmente.
           </p>
         </div>
         <div class="step-item">
           <strong>Sessão gravada no sessionStorage</strong>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-body mt-1">
             Se o usuário for encontrado, seus dados são salvos em
             <code>sessionStorage.setItem('usuarioCorrente', JSON.stringify(user))</code>.
           </p>
         </div>
         <div class="step-item">
           <strong>Redirecionamento para a área protegida</strong>
-          <p class="text-sm text-gray-600 mt-1">
+          <p class="text-sm text-body mt-1">
             <code>window.location.href = INDEX_URL</code> leva o usuário autenticado.
             Qualquer página protegida verifica <code>usuarioCorrente.login</code> ao carregar.
           </p>
@@ -108,11 +93,11 @@
       </div>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Conceitos trabalhados</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">sessionStorage vs localStorage</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>sessionStorage</code>: dura enquanto a aba está aberta.<br>
             <code>localStorage</code>: persiste indefinidamente.
             Para sessões de login, <code>sessionStorage</code> é mais seguro.
@@ -120,7 +105,7 @@
         </div>
         <div class="callout callout-tip">
           <p class="callout-title">Proteção de rota</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             O script de verificação é carregado com <code>&lt;script src="login.js"&gt;</code>
             antes do <code>&lt;body&gt;</code>, garantindo o redirecionamento antes de qualquer
             conteúdo ser exibido.
@@ -128,14 +113,14 @@
         </div>
         <div class="callout callout-warning">
           <p class="callout-title">⚠️ Atenção: segurança</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             Esta implementação é <strong>educacional</strong>. Em produção, a senha nunca deve
             ser comparada no cliente — use autenticação no servidor com hash (bcrypt) e JWT.
           </p>
         </div>
         <div class="callout callout-info">
           <p class="callout-title">UUID para novos usuários</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             Novos usuários cadastrados recebem um ID único gerado com
             <code>crypto.randomUUID()</code>, evitando conflitos de ID com o JSON Server.
           </p>
@@ -143,12 +128,12 @@
       </div>
 
       <!-- DADOS JSON -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Dados do JSON Server</h2>
-      <p class="text-sm text-gray-500 mb-3">Endpoint: <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/usuarios</code></p>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
+      <p class="text-sm text-muted mb-3">Endpoint: <code class="bg-line-soft px-2 py-0.5 rounded text-xs">GET /api/usuarios</code></p>
       <div class="code-block mb-10">
         <div class="code-header">
           <span class="lang-badge">json</span>
-          <span class="text-gray-400 text-xs">db/db.json → "usuarios"</span>
+          <span class="text-faint text-xs">db/db.json → "usuarios"</span>
         </div>
         <pre><code class="language-javascript">[
   { "id": 1, "nome": "Admin", "login": "admin", "senha": "admin123", "email": "admin@diw.com", "perfil": "admin" },
@@ -158,8 +143,8 @@
       </div>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
-      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Implemente controle de acesso por <strong>perfil</strong>: admin vê todos os usuários, aluno vê apenas o próprio.</li>
         <li>Adicione um campo <strong>último acesso</strong> e atualize-o via PATCH a cada login.</li>
         <li>Implemente logout automático após 5 minutos de inatividade usando <code>setTimeout</code>.</li>
@@ -169,47 +154,7 @@
     </div>
   </div>
 
-  <script>
-    const BASE = '/diw/apps/login/';
-
-    async function loadFile(filename, lang, btn) {
-      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const loading = document.getElementById('codeLoading');
-      const block   = document.getElementById('codeBlock');
-      const content = document.getElementById('codeContent');
-
-      loading.style.display = 'block';
-      block.style.display   = 'none';
-
-      try {
-        const res  = await fetch(BASE + filename);
-        const text = await res.text();
-        content.className = `language-${lang}`;
-        content.textContent = text;
-        Prism.highlightElement(content);
-        loading.style.display = 'none';
-        block.style.display   = 'block';
-      } catch (e) {
-        loading.textContent = `❌ Erro ao carregar ${filename}`;
-      }
-    }
-
-    function toggleView(pane) {
-      const split = document.getElementById('splitView');
-      if (pane === 'preview') {
-        split.classList.toggle('preview-only');
-        split.classList.remove('code-only');
-      } else {
-        split.classList.toggle('code-only');
-        split.classList.remove('preview-only');
-      }
-    }
-
-    window.addEventListener('load', () => {
-      loadFile('scripts/login.js', 'javascript', document.querySelector('.file-tab'));
-    });
-  </script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/detail.js"></script>
 </body>
 </html>

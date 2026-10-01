@@ -3,43 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo – Mapa Mapbox · DIW</title>
+  <title>Mapa · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans">
+<body class="bg-code text-code-text font-sans" data-base="/diw/apps/mapa/">
 
   <!-- NAVBAR -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40 h-16 flex items-center px-4">
-    <div class="max-w-full w-full flex items-center gap-3">
-      <a href="../index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight shrink-0">
-        <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-        <span class="hidden sm:block text-sm">Dev. Interfaces Web</span>
-      </a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <a href="../exemplos.html" class="text-indigo-300 hover:text-white text-sm hidden sm:block">Exemplos</a>
-      <span class="text-indigo-400 text-sm hidden sm:block">›</span>
-      <span class="text-white text-sm font-semibold">Mapa Interativo com Mapbox</span>
-      <div class="ml-auto">
-        <a href="/diw/apps/mapa/" target="_blank"
-           class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
-          ↗ Abrir em nova aba
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div id="site-header" data-root="../" data-variant="detail" data-title="Mapa Interativo com Mapbox" data-open="/diw/apps/mapa/"></div>
 
-  <!-- SPLIT VIEW -->
+<!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-purple-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/mapa/</span>
+        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="text-muted">/diw/apps/mapa/</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/diw/apps/mapa/" title="App Mapa"></iframe>
@@ -47,26 +32,26 @@
 
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-purple-400 font-semibold">{ } Código</span>
+        <span class="text-code-accent font-semibold">{ } Código</span>
         <button class="file-tab active" onclick="loadFile('index.html','markup',this)">index.html</button>
         <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-gray-400 text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-markup"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-white text-gray-800">
+  <div class="bg-surface text-ink">
     <div class="max-w-5xl mx-auto px-6 py-12">
 
       <div class="flex items-center gap-3 mb-6">
-        <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full">M09</span>
-        <h1 class="text-2xl font-black text-gray-900">Mapa Interativo com Mapbox GL JS</h1>
+        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m09)">M09</span>
+        <h1 class="text-2xl font-black text-ink">Mapa Interativo com Mapbox GL JS</h1>
       </div>
-      <p class="text-gray-600 text-base leading-relaxed mb-8">
+      <p class="text-body text-base leading-relaxed mb-8">
         Demonstra a integração entre JSON Server e a biblioteca <strong>Mapbox GL JS</strong>
         para exibir marcadores geolocalizados em um mapa interativo.
         Os dados de localização (latitude/longitude) são armazenados no JSON Server e
@@ -75,32 +60,32 @@
       </p>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Conceitos trabalhados</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">Mapbox GL JS</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             Biblioteca de mapas vetoriais interativos. Requer um <strong>token de acesso</strong>
             (<code>mapboxgl.accessToken</code>) obtido gratuitamente em mapbox.com.
           </p>
         </div>
         <div class="callout callout-tip">
           <p class="callout-title">Marcadores e Popups</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>new mapboxgl.Marker({ color })</code> cria um pino no mapa.
             <code>.setPopup(popup)</code> associa um balão de informação ao clicar.
           </p>
         </div>
         <div class="callout callout-warning">
           <p class="callout-title">Geolocalização do navegador</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>navigator.geolocation.getCurrentPosition()</code> obtém as coordenadas
             do dispositivo — o navegador pede permissão ao usuário.
           </p>
         </div>
         <div class="callout callout-info">
           <p class="callout-title">flyTo — animação suave</p>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm text-body">
             <code>map.flyTo({ center, zoom, duration })</code> anima a câmera do mapa
             até um ponto específico, criando uma transição fluida.
           </p>
@@ -108,12 +93,12 @@
       </div>
 
       <!-- DADOS JSON -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Dados do JSON Server</h2>
-      <p class="text-sm text-gray-500 mb-3">Endpoint: <code class="bg-gray-100 px-2 py-0.5 rounded text-xs">GET /api/locais</code></p>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
+      <p class="text-sm text-muted mb-3">Endpoint: <code class="bg-line-soft px-2 py-0.5 rounded text-xs">GET /api/locais</code></p>
       <div class="code-block mb-10">
         <div class="code-header">
           <span class="lang-badge">json</span>
-          <span class="text-gray-400 text-xs">db/db.json → "locais" (unidades PUC Minas)</span>
+          <span class="text-faint text-xs">db/db.json → "locais" (unidades PUC Minas)</span>
         </div>
         <pre><code class="language-javascript">[
   {
@@ -139,7 +124,7 @@
       </div>
 
       <!-- PADRÃO DE CÓDIGO -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Padrão: dados → marcadores no mapa</h2>
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Padrão: dados → marcadores no mapa</h2>
       <div class="code-block mb-10">
         <div class="code-header">
           <span class="lang-badge">javascript</span>
@@ -172,8 +157,8 @@ function irPara(local) {
       </div>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">Exercícios sugeridos</h2>
-      <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
+      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Adicione novos locais ao <code>db.json</code> (ex: bibliotecas, pontos turísticos) e veja-os aparecer automaticamente.</li>
         <li>Implemente um filtro por cor/tipo no painel lateral para mostrar/ocultar categorias de locais.</li>
         <li>Substitua os marcadores padrão por ícones personalizados usando <code>mapboxgl.Marker({ element })</code>.</li>
@@ -183,47 +168,7 @@ function irPara(local) {
     </div>
   </div>
 
-  <script>
-    const BASE = '/diw/apps/mapa/';
-
-    async function loadFile(filename, lang, btn) {
-      document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const loading = document.getElementById('codeLoading');
-      const block   = document.getElementById('codeBlock');
-      const content = document.getElementById('codeContent');
-
-      loading.style.display = 'block';
-      block.style.display   = 'none';
-
-      try {
-        const res  = await fetch(BASE + filename);
-        const text = await res.text();
-        content.className = `language-${lang}`;
-        content.textContent = text;
-        Prism.highlightElement(content);
-        loading.style.display = 'none';
-        block.style.display   = 'block';
-      } catch (e) {
-        loading.textContent = `❌ Erro ao carregar ${filename}`;
-      }
-    }
-
-    function toggleView(pane) {
-      const split = document.getElementById('splitView');
-      if (pane === 'preview') {
-        split.classList.toggle('preview-only');
-        split.classList.remove('code-only');
-      } else {
-        split.classList.toggle('code-only');
-        split.classList.remove('preview-only');
-      }
-    }
-
-    window.addEventListener('load', () => {
-      loadFile('index.html', 'markup', document.querySelector('.file-tab'));
-    });
-  </script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/detail.js"></script>
 </body>
 </html>
