@@ -1,0 +1,70 @@
+name: Bug report
+description: Report a reproducible defect with minimal required information.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this bug. Keep it short and focused.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken?
+      placeholder: One short paragraph describing the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Optional, but helpful for reliable reproduction.
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Observe ...
+
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What actually happened?
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where did this occur?
+      options:
+        - Web (frontend / static pages)
+        - API (JSON Server / routes)
+        - Docs (ambiente.html / README)
+        - Build or local setup
+        - Multiple areas
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (optional)
+      description: Version, branch, browser, or local/deployed context if relevant.
+      placeholder: |
+        - Version / commit SHA:
+        - Where: local / deployed
+        - Browser:
+        - OS version:
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References (optional)
+      description: Related issues/PRs/logs/screenshots.

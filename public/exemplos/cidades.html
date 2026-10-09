@@ -25,7 +25,7 @@
       <span class="text-indigo-400 text-sm hidden sm:block">›</span>
       <span class="text-white text-sm font-semibold">Parâmetros de URL – Cidades</span>
       <div class="ml-auto">
-        <a href="/diw/apps/cidades/" target="_blank"
+        <a href="/apps/cidades/" target="_blank"
            class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
           ↗ Abrir em nova aba
         </a>
@@ -39,19 +39,19 @@
     <div class="preview-pane">
       <div class="pane-header">
         <span class="text-amber-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/cidades/</span>
+        <span class="text-gray-500">/apps/cidades/</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
-      <iframe src="/diw/apps/cidades/" title="App Cidades"></iframe>
+      <iframe src="/apps/cidades/" title="App Cidades"></iframe>
     </div>
 
     <div class="code-pane">
       <div class="pane-header">
         <span class="text-amber-400 font-semibold">{ } Código</span>
-        <button class="file-tab active" onclick="loadFile('app.js','javascript',this)">app.js</button>
+        <button class="file-tab active" onclick="loadFile('scripts/app.js','javascript',this)">scripts/app.js</button>
         <button class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
         <button class="file-tab" onclick="loadFile('detalhes.html','markup',this)">detalhes.html</button>
-        <button class="file-tab" onclick="loadFile('style.css','css',this)">style.css</button>
+        <button class="file-tab" onclick="loadFile('css/style.css','css',this)">css/style.css</button>
         <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
@@ -241,7 +241,7 @@ if (!id) {
   </div>
 
   <script>
-    const BASE = '/diw/apps/cidades/';
+    const BASE = '/apps/cidades/';
 
     async function loadFile(filename, lang, btn) {
       document.querySelectorAll('.file-tab').forEach(b => b.classList.remove('active'));
@@ -279,7 +279,7 @@ if (!id) {
     }
 
     window.addEventListener('load', () => {
-      loadFile('app.js', 'javascript', document.querySelector('.file-tab'));
+      loadFile('scripts/app.js', 'javascript', document.querySelector('.file-tab'));
     });
   </script>
 </body>

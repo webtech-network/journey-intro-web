@@ -1,4 +1,17 @@
-node_modules
-.env
+# OS
 .DS_Store
-package-lock.json
+Thumbs.db
+
+# Deps
+node_modules/
+
+# Runtime data
+server/db/db.json
+
+# Env
+.env
+
+# Test artifacts
+coverage/
+playwright-report/
+test-results/

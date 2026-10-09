@@ -77,7 +77,6 @@
           <a href="#testando"         class="block py-1 text-gray-600 hover:text-emerald-600">Testando a API</a>
           <a href="#fetch"            class="block py-1 text-gray-600 hover:text-emerald-600">Usando com Fetch</a>
           <a href="#projeto"          class="block py-1 text-gray-600 hover:text-emerald-600">Config. deste projeto</a>
-          <a href="#docker"           class="block py-1 text-gray-600 hover:text-emerald-600">Alternativa Docker</a>
           <a href="#erros-comuns"     class="block py-1 text-gray-600 hover:text-emerald-600">Erros Comuns</a>
           <a href="#checklist"        class="block py-1 text-emerald-700 font-semibold hover:text-emerald-600">✓ Checklist Final</a>
         </nav>
@@ -142,9 +141,9 @@
 │                     NAVEGADOR (Cliente)                   │
 │                                                          │
 │   HTML + CSS + JavaScript                                │
-│   (arquivos em public/ ou public2/)                      │
+│   (arquivos em public/)                                  │
 │                                                          │
-│   fetch('http://localhost:5000/api/contatos')  ──────┐   │
+│   fetch('http://localhost:3000/api/contatos')  ──────┐   │
 └──────────────────────────────────────────────────────┼──┘
                                                        │
                                           HTTP Request │
@@ -152,11 +151,11 @@
 ┌─────────────────────────────────────────────────────────┐
 │                  JSON SERVER (Servidor)                   │
 │                                                          │
-│   Porta: 5000                                            │
+│   Porta: 3000                                            │
 │   Rota: /api/*       ──→   Router JSONServer             │
 │   Arquivos estáticos  ──→  pasta public/                 │
 │                                                          │
-│   Dados persistidos em: db/db.json                       │
+│   Dados persistidos em: server/db/db.json                │
 └─────────────────────────────────────────────────────────┘
                            │
                      ┌─────┴──────┐
@@ -257,9 +256,6 @@ npm --version    # deve mostrar a versão do npm</code></pre>
             <button data-tab-btn="opcao2" class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500">
               🌐 Opção 2: Instalar Globalmente
             </button>
-            <button data-tab-btn="opcao3" class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-gray-500">
-              🐳 Opção 3: Docker
-            </button>
           </div>
 
           <!-- Tab 1: Clonar -->
@@ -289,7 +285,7 @@ cd lab-jsonserver</code></pre>
                   <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-bash">npm start
 # Saída esperada:
-# JSON Server is running em http://localhost:5000</code></pre>
+# JSON Server is running em http://localhost:3000</code></pre>
                 </div>
               </div>
             </div>
@@ -327,39 +323,6 @@ cd meu-projeto
             </div>
           </div>
 
-          <!-- Tab 3: Docker -->
-          <div data-tab-panel="opcao3" class="hidden p-6">
-            <p class="text-sm text-gray-600 mb-4">
-              Use Docker para rodar o ambiente em um container isolado. Ideal quando você não quer
-              instalar dependências na sua máquina:
-            </p>
-            <div class="step-list space-y-6">
-              <div class="step-item">
-                <h4 class="font-bold text-gray-800 mb-2">Pré-requisito: instale o Docker Desktop</h4>
-                <a href="https://www.docker.com/products/docker-desktop/" target="_blank"
-                   class="text-sm text-blue-600 hover:underline">docker.com/products/docker-desktop</a>
-              </div>
-              <div class="step-item">
-                <h4 class="font-bold text-gray-800 mb-2">Construa e suba com Docker Compose</h4>
-                <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
-                  <pre><code class="language-bash">docker-compose up --build</code></pre>
-                </div>
-                <p class="text-xs text-gray-500 mt-2">
-                  O arquivo <code class="bg-gray-100 px-1 rounded">docker-compose.yml</code> já está configurado:
-                  monta <code class="bg-gray-100 px-1 rounded">./db</code> como dados e
-                  <code class="bg-gray-100 px-1 rounded">./public</code> como frontend na porta 5000.
-                </p>
-              </div>
-              <div class="step-item">
-                <h4 class="font-bold text-gray-800 mb-2">Para parar o servidor</h4>
-                <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
-                  <pre><code class="language-bash">docker-compose down</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -385,7 +348,7 @@ cd meu-projeto
         <div class="code-block mt-4">
           <div class="code-header">
             <span class="lang-badge">json</span>
-            <span class="text-gray-500 text-xs">db/db.json</span>
+            <span class="text-gray-500 text-xs">server/db/db.json</span>
             <button class="btn-copy">⎘ Copiar</button>
           </div>
           <pre><code class="language-json">{
@@ -447,26 +410,26 @@ cd meu-projeto
 
         <div class="bg-gray-900 text-green-400 rounded-xl p-5 font-mono text-sm">
           <p class="text-gray-400"># Saída do terminal</p>
-          <p>JSON Server is running em http://localhost:5000</p>
+          <p>JSON Server is running em http://localhost:3000</p>
           <br>
           <p class="text-gray-400">Resources</p>
-          <p>http://localhost:5000/api/contatos</p>
-          <p>http://localhost:5000/api/usuarios</p>
-          <p>http://localhost:5000/api/locais</p>
-          <p>http://localhost:5000/api/lancamentos</p>
-          <p>http://localhost:5000/api/cidades</p>
+          <p>http://localhost:3000/api/contatos</p>
+          <p>http://localhost:3000/api/usuarios</p>
+          <p>http://localhost:3000/api/locais</p>
+          <p>http://localhost:3000/api/lancamentos</p>
+          <p>http://localhost:3000/api/cidades</p>
           <br>
           <p class="text-gray-400">Home</p>
-          <p>http://localhost:5000</p>
+          <p>http://localhost:3000</p>
         </div>
 
         <div class="callout callout-info mt-6">
           <p class="callout-title">💡 Como o servidor está configurado neste projeto</p>
           <p class="text-sm text-indigo-800">
-            O arquivo <code class="bg-indigo-100 px-1 rounded">index.js</code> usa a biblioteca
-            <code class="bg-indigo-100 px-1 rounded">json-server</code> programaticamente para
-            servir tanto os arquivos estáticos (pasta <code class="bg-indigo-100 px-1 rounded">public/</code>)
-            quanto a API (rota <code class="bg-indigo-100 px-1 rounded">/api</code>). Veja a configuração
+            Este projeto usa o <code class="bg-indigo-100 px-1 rounded">json-server</code> via CLI
+            para servir os arquivos estáticos (pasta <code class="bg-indigo-100 px-1 rounded">public/</code>)
+            e a API na rota
+            <code class="bg-indigo-100 px-1 rounded">/api</code>. Veja a configuração
             na seção <a href="#projeto" class="underline font-semibold">Config. deste projeto</a>.
           </p>
         </div>
@@ -558,17 +521,17 @@ cd meu-projeto
             <h3 class="font-bold text-gray-800 mb-3">🌐 Via Navegador (apenas GET)</h3>
             <p class="text-sm text-gray-500 mb-3">Abra no browser e veja o JSON retornado:</p>
             <div class="space-y-2 font-mono text-xs">
-              <a href="http://localhost:5000/api/contatos" target="_blank"
+              <a href="http://localhost:3000/api/contatos" target="_blank"
                  class="block bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-blue-600 hover:bg-gray-100 truncate">
-                localhost:5000/api/contatos
+                localhost:3000/api/contatos
               </a>
-              <a href="http://localhost:5000/api/contatos/1" target="_blank"
+              <a href="http://localhost:3000/api/contatos/1" target="_blank"
                  class="block bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-blue-600 hover:bg-gray-100 truncate">
-                localhost:5000/api/contatos/1
+                localhost:3000/api/contatos/1
               </a>
-              <a href="http://localhost:5000/api/contatos?categoria=amigos" target="_blank"
+              <a href="http://localhost:3000/api/contatos?categoria=amigos" target="_blank"
                  class="block bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-blue-600 hover:bg-gray-100 truncate">
-                localhost:5000/api/contatos?categoria=amigos
+                localhost:3000/api/contatos?categoria=amigos
               </a>
             </div>
           </div>
@@ -579,7 +542,7 @@ cd meu-projeto
             <p class="text-sm text-gray-500 mb-3">Abra o DevTools (F12) → Console e teste:</p>
             <div class="code-block">
               <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
-              <pre><code class="language-javascript">fetch('http://localhost:5000/api/contatos')
+              <pre><code class="language-javascript">fetch('http://localhost:3000/api/contatos')
   .then(r => r.json())
   .then(dados => console.table(dados));</code></pre>
             </div>
@@ -622,7 +585,7 @@ cd meu-projeto
               <pre><code class="language-javascript">// GET - Listar todos os contatos
 async function listarContatos() {
   try {
-    const resposta = await fetch('http://localhost:5000/api/contatos');
+    const resposta = await fetch('http://localhost:3000/api/contatos');
 
     if (!resposta.ok) {
       throw new Error(`Erro HTTP: ${resposta.status}`);
@@ -639,14 +602,14 @@ async function listarContatos() {
 
 // Chamada com filtro por categoria
 async function listarPorCategoria(categoria) {
-  const url = `http://localhost:5000/api/contatos?categoria=${categoria}`;
+  const url = `http://localhost:3000/api/contatos?categoria=${categoria}`;
   const resposta = await fetch(url);
   return resposta.json();
 }
 
 // Busca full-text
 async function pesquisar(termo) {
-  const url = `http://localhost:5000/api/contatos?q=${encodeURIComponent(termo)}`;
+  const url = `http://localhost:3000/api/contatos?q=${encodeURIComponent(termo)}`;
   const resposta = await fetch(url);
   return resposta.json();
 }</code></pre>
@@ -658,7 +621,7 @@ async function pesquisar(termo) {
               <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
               <pre><code class="language-javascript">// GET - Buscar um contato específico pelo ID
 async function buscarContato(id) {
-  const resposta = await fetch(`http://localhost:5000/api/contatos/${id}`);
+  const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`);
 
   if (resposta.status === 404) {
     console.warn('Contato não encontrado');
@@ -679,7 +642,7 @@ console.log(contato); // { id: 1, nome: "Bernardo", ... }</code></pre>
               <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
               <pre><code class="language-javascript">// POST - Criar um novo contato
 async function criarContato(novoContato) {
-  const resposta = await fetch('http://localhost:5000/api/contatos', {
+  const resposta = await fetch('http://localhost:3000/api/contatos', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'  // obrigatório!
@@ -709,7 +672,7 @@ await criarContato({
               <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
               <pre><code class="language-javascript">// PUT - Substituir completamente um contato
 async function atualizarContato(id, dadosAtualizados) {
-  const resposta = await fetch(`http://localhost:5000/api/contatos/${id}`, {
+  const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(dadosAtualizados)
@@ -719,7 +682,7 @@ async function atualizarContato(id, dadosAtualizados) {
 
 // PATCH - Atualizar apenas campos específicos
 async function atualizarCampos(id, campos) {
-  const resposta = await fetch(`http://localhost:5000/api/contatos/${id}`, {
+  const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(campos)
@@ -740,7 +703,7 @@ async function deletarContato(id) {
   const confirmacao = confirm(`Deseja realmente excluir o contato ${id}?`);
   if (!confirmacao) return;
 
-  const resposta = await fetch(`http://localhost:5000/api/contatos/${id}`, {
+  const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`, {
     method: 'DELETE'
   });
 
@@ -766,37 +729,30 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
            CONFIG. DESTE PROJETO
       ==================================================== -->
       <section id="projeto">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Configuração deste Projeto (index.js)</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Configuração deste Projeto</h2>
         <p class="text-gray-600 mb-4">
-          Este repositório usa o JSON Server de forma programática, via Node.js. O arquivo
-          <code class="bg-gray-100 px-1 rounded text-sm font-mono">index.js</code> configura:
+          Este repositório roda o JSON Server pelo CLI. O script <code class="bg-gray-100 px-1 rounded text-sm font-mono">start</code>
+          do <code class="bg-gray-100 px-1 rounded text-sm font-mono">package.json</code> e os arquivos em
+          <code class="bg-gray-100 px-1 rounded text-sm font-mono">server/</code> configuram:
         </p>
         <ul class="text-sm text-gray-600 list-disc list-inside mb-4 space-y-1">
-          <li>Servidor na porta <strong>5000</strong> (ou <code class="bg-gray-100 px-1 rounded">PORT</code> do ambiente)</li>
-          <li>API disponível na rota <strong>/api</strong> (ex: <code class="bg-gray-100 px-1 rounded">/api/contatos</code>)</li>
+          <li>Servidor na porta <strong>3000</strong> (ou <code class="bg-gray-100 px-1 rounded">PORT</code> do ambiente)</li>
+          <li>API disponível na rota <strong>/api</strong> (ex: <code class="bg-gray-100 px-1 rounded">/api/contatos</code>) via <strong>server/api/routes.json</strong></li>
           <li>Arquivos estáticos servidos da pasta <strong>public/</strong></li>
-          <li>Dados persistidos em <strong>db/db.json</strong></li>
+          <li>Dados persistidos em <strong>server/db/db.json</strong>, criado a partir de <strong>server/db/db_original.json</strong></li>
         </ul>
 
         <div class="code-block">
           <div class="code-header">
-            <span class="lang-badge">javascript</span>
-            <span class="text-gray-500 text-xs">index.js</span>
+            <span class="lang-badge">json</span>
+            <span class="text-gray-500 text-xs">package.json</span>
             <button class="btn-copy">⎘ Copiar</button>
           </div>
-          <pre><code class="language-javascript">const jsonServer = require('json-server')
-const server     = jsonServer.create()
-const router     = jsonServer.router('./db/db.json')
-const middlewares = jsonServer.defaults({ noCors: true })
-
-server.use(middlewares)
-server.use('/api', router)   // Todos os endpoints sob /api
-
-const port = process.env.PORT || 5000
-
-server.listen(port, () => {
-  console.log(`JSON Server is running em http://localhost:${port}`)
-})</code></pre>
+          <pre><code class="language-json">"scripts": {
+  "prestart": "node server/db/seed.js",
+  "start": "json-server --watch ./server/db/db.json --static ./public \
+    --port 3000 --routes ./server/api/routes.json"
+}</code></pre>
         </div>
 
         <div class="callout callout-warning mt-4">
@@ -804,83 +760,7 @@ server.listen(port, () => {
           <p class="text-sm">
             Diferente da instalação padrão (onde seria <code>/contatos</code>), neste projeto
             todos os endpoints têm o prefixo <code>/api</code>. Use sempre
-            <code>http://localhost:5000/api/contatos</code> e não <code>http://localhost:5000/contatos</code>.
-          </p>
-        </div>
-      </section>
-
-      <!-- ====================================================
-           DOCKER
-      ==================================================== -->
-      <section id="docker">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Alternativa: Docker</h2>
-        <p class="text-gray-600 mb-4">
-          Para quem prefere não instalar Node.js na máquina, o projeto inclui um
-          <code class="bg-gray-100 px-1 rounded text-sm">Dockerfile</code> e
-          <code class="bg-gray-100 px-1 rounded text-sm">docker-compose.yml</code> prontos.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div>
-            <p class="text-xs text-gray-500 font-semibold mb-2 uppercase tracking-wider">Dockerfile</p>
-            <div class="code-block">
-              <div class="code-header"><span class="lang-badge">dockerfile</span><button class="btn-copy">⎘ Copiar</button></div>
-              <pre><code class="language-bash">FROM node:20-alpine
-
-RUN npm i -g json-server@0.17.4
-
-RUN mkdir -p /data /site
-VOLUME ["/data", "/site"]
-EXPOSE 5000
-
-CMD ["sh", "-lc", "json-server \
-  --watch /data/db.json \
-  --static /site \
-  --host 0.0.0.0 \
-  --port 5000"]</code></pre>
-            </div>
-          </div>
-          <div>
-            <p class="text-xs text-gray-500 font-semibold mb-2 uppercase tracking-wider">docker-compose.yml</p>
-            <div class="code-block">
-              <div class="code-header"><span class="lang-badge">yaml</span><button class="btn-copy">⎘ Copiar</button></div>
-              <pre><code class="language-yaml">services:
-  jsonserver:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: jsonserver-web:latest
-    container_name: jsonserver-web
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./db:/data      # banco de dados
-      - ./public:/site  # frontend estático
-    restart: unless-stopped</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="code-block">
-          <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
-          <pre><code class="language-bash"># Subir o ambiente
-docker-compose up -d
-
-# Ver logs
-docker-compose logs -f
-
-# Parar
-docker-compose down</code></pre>
-        </div>
-
-        <div class="callout callout-info mt-4">
-          <p class="callout-title">💡 Diferença do Docker vs npm start</p>
-          <p class="text-sm text-indigo-800">
-            Com Docker, a API usa a rota <strong>raiz</strong> (sem /api):
-            <code class="bg-indigo-100 px-1 rounded">localhost:5000/contatos</code>.
-            Com <code>npm start</code>, usa o prefixo /api:
-            <code class="bg-indigo-100 px-1 rounded">localhost:5000/api/contatos</code>.
-            Ajuste suas URLs de acordo com a forma que você subiu o servidor.
+            <code>http://localhost:3000/api/contatos</code> e não <code>http://localhost:3000/contatos</code>.
           </p>
         </div>
       </section>
@@ -895,23 +775,23 @@ docker-compose down</code></pre>
           <!-- Erro 1 -->
           <div class="accordion-item border border-gray-200 rounded-xl overflow-hidden">
             <div class="accordion-header bg-white px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-gray-800 text-sm">❌ "EADDRINUSE: address already in use :::5000"</span>
+              <span class="font-semibold text-gray-800 text-sm">❌ "EADDRINUSE: address already in use :::3000"</span>
               <span class="accordion-icon text-gray-400 text-lg">▼</span>
             </div>
             <div class="accordion-content bg-gray-50 px-5 py-4 border-t border-gray-200">
-              <p class="text-sm text-gray-600 mb-3">A porta 5000 já está sendo usada por outro processo.</p>
+              <p class="text-sm text-gray-600 mb-3">A porta 3000 já está sendo usada por outro processo.</p>
               <div class="code-block">
                 <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
                 <pre><code class="language-bash"># Windows: descobrir qual processo usa a porta
-netstat -ano | findstr :5000
+netstat -ano | findstr :3000
 taskkill /PID &lt;numero&gt; /F
 
 # Mac/Linux: descobrir e encerrar
-lsof -i :5000
+lsof -i :3000
 kill -9 &lt;PID&gt;
 
-# Ou simplesmente mude a porta no index.js:
-let port = process.env.PORT || 3001</code></pre>
+# Ou mude a porta no script "start" do package.json:
+--port 3001</code></pre>
               </div>
             </div>
           </div>
@@ -940,9 +820,9 @@ let port = process.env.PORT || 3001</code></pre>
             <div class="accordion-content bg-gray-50 px-5 py-4 border-t border-gray-200">
               <p class="text-sm text-gray-600 mb-3">
                 O navegador bloqueia requisições de uma origem para outra por segurança.
-                O projeto já tem <code class="bg-gray-100 px-1 rounded">noCors: true</code> no index.js.
+                O json-server já libera CORS por padrão.
                 Se o erro persistir, certifique-se de abrir o HTML <strong>pelo servidor</strong>
-                (via <code class="bg-gray-100 px-1 rounded">localhost:5000</code>), não abrindo o arquivo diretamente
+                (via <code class="bg-gray-100 px-1 rounded">localhost:3000</code>), não abrindo o arquivo diretamente
                 (<code class="bg-gray-100 px-1 rounded">file://</code>).
               </p>
             </div>
@@ -1040,7 +920,7 @@ let port = process.env.PORT || 3001</code></pre>
             <input type="checkbox" data-id="browser-api" class="w-5 h-5 text-emerald-500 rounded">
             <div>
               <p class="font-semibold text-sm text-gray-800">API testada no navegador</p>
-              <p class="text-xs text-gray-400">localhost:5000/api/contatos retorna JSON</p>
+              <p class="text-xs text-gray-400">localhost:3000/api/contatos retorna JSON</p>
             </div>
           </label>
           <label class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 cursor-pointer hover:border-emerald-300 transition-colors">
@@ -1054,7 +934,7 @@ let port = process.env.PORT || 3001</code></pre>
             <input type="checkbox" data-id="app-contatos" class="w-5 h-5 text-emerald-500 rounded">
             <div>
               <p class="font-semibold text-sm text-gray-800">App de Contatos funcionando</p>
-              <p class="text-xs text-gray-400">localhost:5000/app_contatos exibe lista de contatos</p>
+              <p class="text-xs text-gray-400">localhost:3000/app_contatos exibe lista de contatos</p>
             </div>
           </label>
         </div>

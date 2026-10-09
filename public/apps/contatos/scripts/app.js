@@ -7,7 +7,7 @@
 // Autor: Rommel Vieira Carneiro
 // Atualizado para usar a rota /api do projeto
 
-// URL base da API JSON Server (rota /api configurada no index.js)
+// URL base da API JSON Server (rota /api definida em server/api/routes.json)
 const apiUrl = '/api/contatos';
 
 function displayMessage(mensagem) {

@@ -25,7 +25,7 @@
       <span class="text-indigo-400 text-sm hidden sm:block">›</span>
       <span class="text-white text-sm font-semibold">Contatos – CRUD Completo</span>
       <div class="ml-auto flex items-center gap-2">
-        <a href="/diw/apps/contatos/" target="_blank"
+        <a href="/apps/contatos/" target="_blank"
            class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors">
           ↗ Abrir em nova aba
         </a>
@@ -40,10 +40,10 @@
     <div class="preview-pane">
       <div class="pane-header">
         <span class="text-indigo-400 font-semibold">▶ Preview</span>
-        <span class="text-gray-500">/diw/apps/contatos/</span>
+        <span class="text-gray-500">/apps/contatos/</span>
         <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
-      <iframe src="/diw/apps/contatos/" title="App Contatos"></iframe>
+      <iframe src="/apps/contatos/" title="App Contatos"></iframe>
     </div>
 
     <!-- PAINEL DIREITO: CÓDIGO -->
@@ -115,7 +115,7 @@
       <div class="code-block mb-8">
         <div class="code-header">
           <span class="lang-badge">json</span>
-          <span class="text-gray-400 text-xs">db/db.json → "contatos" (amostra)</span>
+          <span class="text-gray-400 text-xs">server/db/db.json → "contatos" (amostra)</span>
         </div>
         <pre><code class="language-javascript">[
   {
@@ -136,7 +136,7 @@
     "estado": "SP",
     "categoria": "trabalho"
   }
-  // ... mais registros em db/db.json
+  // ... mais registros em server/db/db.json
 ]</code></pre>
       </div>
 
@@ -187,7 +187,7 @@
   </div>
 
   <script>
-    const BASE = '/diw/apps/contatos/';
+    const BASE = '/apps/contatos/';
     let currentView = 'split';
 
     async function loadFile(filename, lang, btn) {

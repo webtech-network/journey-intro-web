@@ -1,0 +1,42 @@
+name: Implementation task
+description: Track a focused execution task with clear objective and done criteria.
+title: "[Task] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for focused execution issues, including work derived from umbrella issues.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What should this task achieve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach (optional)
+      description: Proposed implementation approach.
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (optional)
+      description: What's in and out of this task.
+
+  - type: textarea
+    id: done_criteria
+    attributes:
+      label: Definition of done (optional)
+      placeholder: |
+        - [ ] Expected outcome 1
+        - [ ] Expected outcome 2
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References and dependencies (optional)
+      description: Parent issues, related PRs, or linked backend/frontend tasks.

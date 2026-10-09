@@ -4,7 +4,13 @@
   "description": "Aplicação Web com backend baseado no JSON Server",
   "main": "index.js",
   "scripts": {
-   "start": "npx json-server@0.17.4 --watch ./db/db.json --static ./public --host 0.0.0.0 --port 3000"
+    "prestart": "node server/db/seed.js",
+    "start": "npx json-server@0.17.4 --watch ./server/db/db.json --static ./public --host 0.0.0.0 --port 3000 --routes ./server/api/routes.json",
+    "test": "jest",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration",
+    "test:e2e": "playwright test",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "Rommel Vieira Carneiro",
