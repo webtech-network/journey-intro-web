@@ -141,7 +141,7 @@
 │                     NAVEGADOR (Cliente)                   │
 │                                                          │
 │   HTML + CSS + JavaScript                                │
-│   (arquivos em public/ e /diw)                           │
+│   (arquivos em public/)                                  │
 │                                                          │
 │   fetch('http://localhost:3000/api/contatos')  ──────┐   │
 └──────────────────────────────────────────────────────┼──┘
@@ -153,7 +153,7 @@
 │                                                          │
 │   Porta: 3000                                            │
 │   Rota: /api/*       ──→   Router JSONServer             │
-│   Estáticos: / e /diw  ──→  pasta public/                │
+│   Arquivos estáticos  ──→  pasta public/                 │
 │                                                          │
 │   Dados persistidos em: server/db/db.json                │
 └─────────────────────────────────────────────────────────┘
@@ -428,7 +428,7 @@ cd meu-projeto
           <p class="text-sm text-indigo-800">
             Este projeto usa o <code class="bg-indigo-100 px-1 rounded">json-server</code> via CLI
             para servir os arquivos estáticos (pasta <code class="bg-indigo-100 px-1 rounded">public/</code>)
-            na raiz e em <code class="bg-indigo-100 px-1 rounded">/diw</code>, e a API na rota
+            e a API na rota
             <code class="bg-indigo-100 px-1 rounded">/api</code>. Veja a configuração
             na seção <a href="#projeto" class="underline font-semibold">Config. deste projeto</a>.
           </p>
@@ -738,7 +738,7 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
         <ul class="text-sm text-gray-600 list-disc list-inside mb-4 space-y-1">
           <li>Servidor na porta <strong>3000</strong> (ou <code class="bg-gray-100 px-1 rounded">PORT</code> do ambiente)</li>
           <li>API disponível na rota <strong>/api</strong> (ex: <code class="bg-gray-100 px-1 rounded">/api/contatos</code>) via <strong>server/api/routes.json</strong></li>
-          <li>Arquivos estáticos servidos de <strong>public/</strong> na raiz e em <strong>/diw</strong> via <strong>server/api/static.js</strong></li>
+          <li>Arquivos estáticos servidos da pasta <strong>public/</strong></li>
           <li>Dados persistidos em <strong>server/db/db.json</strong>, criado a partir de <strong>server/db/db_original.json</strong></li>
         </ul>
 
@@ -750,8 +750,8 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
           </div>
           <pre><code class="language-json">"scripts": {
   "prestart": "node server/db/seed.js",
-  "start": "json-server --watch ./server/db/db.json --static ./public --port 3000 \
-    --routes ./server/api/routes.json --middlewares ./server/api/static.js"
+  "start": "json-server --watch ./server/db/db.json --static ./public \
+    --port 3000 --routes ./server/api/routes.json"
 }</code></pre>
         </div>
 
