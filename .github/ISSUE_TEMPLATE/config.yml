@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and support
+    url: https://github.com/webtech-network/journey-intro-web/issues
+    about: Browse existing issues or ask a question before opening a new one.

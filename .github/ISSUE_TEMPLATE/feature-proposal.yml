@@ -1,0 +1,46 @@
+name: Feature proposal
+description: Propose a new feature with lightweight structure.
+title: "[Feature] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for new features and product capabilities.
+        Keep details concise.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature overview
+      description: What should be added or changed?
+      placeholder: Describe the feature in a few lines.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation (optional)
+      description: Why is this feature needed?
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution (optional)
+      description: Suggested implementation direction.
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria (optional)
+      description: Use checklist format whenever possible.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References (optional)
+      description: Related issues/PRs/docs/specs.
