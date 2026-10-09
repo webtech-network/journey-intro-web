@@ -2,12 +2,6 @@ name: Feature proposal
 description: Propose a new feature with lightweight structure.
 title: "[Feature] "
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Use this template for new features and product capabilities.
-        Keep details concise.
-
   - type: textarea
     id: summary
     attributes:

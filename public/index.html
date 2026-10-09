@@ -3,103 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DIW – Desenvolvimento de Interfaces Web</title>
+  <title>Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
 
   <!-- ======================================================
-       NAVEGAÇÃO
+       NAVEGAÇÃO (WebTech style)
   ====================================================== -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
-          <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-          <span class="hidden sm:block">Dev. Interfaces Web</span>
-        </a>
+<div id="site-header"></div>
 
-        <!-- Links desktop -->
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html"    class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Início</a>
-          <a href="modulos.html"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Módulos</a>
-          <a href="ambiente.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Ambiente</a>
-          <a href="exemplos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Exemplos</a>
-          <a href="recursos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Recursos</a>
-        </div>
-
-        <!-- Menu mobile -->
-        <button id="mobile-menu-btn" aria-expanded="false" aria-label="Menu"
-                class="md:hidden p-2 rounded-lg hover:bg-indigo-800 transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <!-- Menu mobile expandido -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-indigo-800">
-      <div class="px-4 py-2 space-y-1">
-        <a href="index.html"    class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Início</a>
-        <a href="modulos.html"  class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Módulos</a>
-        <a href="ambiente.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Ambiente</a>
-        <a href="exemplos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Exemplos</a>
-        <a href="recursos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Recursos</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ======================================================
+<!-- ======================================================
        HERO
   ====================================================== -->
-  <section class="hero-gradient text-white py-20 px-4">
-    <div class="max-w-6xl mx-auto">
+    <!-- ======================================================
+       HERO (WebTech Journey style)
+  ====================================================== -->
+  <section class="bg-surface border-b border-line-soft">
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-20">
       <div class="flex flex-col lg:flex-row items-center gap-12">
         <div class="flex-1 fade-in-up">
-          <span class="inline-block bg-indigo-500 bg-opacity-30 border border-indigo-400 text-indigo-200 text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wider">
-            PUC Minas · Cursos de TI
-          </span>
-          <h1 class="text-4xl md:text-5xl font-black leading-tight mb-6">
-            Desenvolvimento de<br>
-            <span class="text-indigo-300">Interfaces Web</span>
-          </h1>
-          <p class="text-indigo-100 text-lg leading-relaxed mb-8 max-w-xl">
+          <div class="wt-breadcrumb mb-4">
+            <a href="https://site-novo.apps.webtech.network/journey">WebTech Journey</a>
+            <span class="mx-1.5">/</span>
+            <span class="text-ink">Introdução à Web · DIW</span>
+          </div>
+          <div class="flex items-center gap-3 mb-5">
+            <span class="wt-icon-circle text-xl shrink-0">🌐</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-ink leading-tight">
+              Desenvolvimento de<br>Interfaces Web
+            </h1>
+          </div>
+          <p class="text-muted text-lg leading-relaxed mb-8 max-w-xl">
             Aprenda a construir aplicações web modernas com HTML, CSS, JavaScript
             e APIs REST usando o JSON Server como backend simulado.
             Prático, orientado a projetos e pensado para quem está começando.
           </p>
           <div class="flex flex-wrap gap-3">
-            <a href="modulos.html"
-               class="bg-indigo-500 hover:bg-indigo-400 text-white px-6 py-3 rounded-xl font-bold transition-colors shadow-lg">
-              Ver Módulos →
-            </a>
-            <a href="ambiente.html"
-               class="bg-white bg-opacity-10 hover:bg-opacity-20 border border-white border-opacity-30 text-white px-6 py-3 rounded-xl font-bold transition-colors">
-              Configurar Ambiente
-            </a>
+            <a href="modulos.html" class="wt-btn-dark">Ver Módulos →</a>
+            <a href="ambiente.html" class="wt-btn-outline">Configurar Ambiente</a>
           </div>
         </div>
-
-        <!-- Estatísticas -->
-        <div class="grid grid-cols-2 gap-4 fade-in-up fade-in-up-delay-2">
-          <div class="bg-white bg-opacity-10 backdrop-blur rounded-2xl p-6 text-center border border-white border-opacity-20">
-            <p class="text-4xl font-black text-indigo-200">10</p>
-            <p class="text-sm text-indigo-300 mt-1">Módulos</p>
+        <div class="grid grid-cols-2 gap-4 fade-in-up fade-in-up-delay-2 w-full max-w-sm">
+          <div class="wt-card p-6 text-center">
+            <p class="text-4xl font-black text-brand">10</p>
+            <p class="text-sm text-muted mt-1">Módulos</p>
           </div>
-          <div class="bg-white bg-opacity-10 backdrop-blur rounded-2xl p-6 text-center border border-white border-opacity-20">
-            <p class="text-4xl font-black text-emerald-300">6</p>
-            <p class="text-sm text-indigo-300 mt-1">Exemplos Práticos</p>
+          <div class="wt-card p-6 text-center">
+            <p class="text-4xl font-black text-success">6</p>
+            <p class="text-sm text-muted mt-1">Exemplos Práticos</p>
           </div>
-          <div class="bg-white bg-opacity-10 backdrop-blur rounded-2xl p-6 text-center border border-white border-opacity-20">
-            <p class="text-4xl font-black text-amber-300">1</p>
-            <p class="text-sm text-indigo-300 mt-1">Projeto Final</p>
+          <div class="wt-card p-6 text-center">
+            <p class="text-4xl font-black text-amber-500">1</p>
+            <p class="text-sm text-muted mt-1">Projeto Final</p>
           </div>
-          <div class="bg-white bg-opacity-10 backdrop-blur rounded-2xl p-6 text-center border border-white border-opacity-20">
-            <p class="text-4xl font-black text-pink-300">∞</p>
-            <p class="text-sm text-indigo-300 mt-1">Possibilidades</p>
+          <div class="wt-card p-6 text-center">
+            <p class="text-4xl font-black text-pink-500">∞</p>
+            <p class="text-sm text-muted mt-1">Possibilidades</p>
           </div>
         </div>
       </div>
@@ -109,10 +75,10 @@
   <!-- ======================================================
        TECNOLOGIAS
   ====================================================== -->
-  <section class="bg-white border-b border-gray-200 py-6">
+  <section class="bg-surface border-b border-line py-6">
     <div class="max-w-6xl mx-auto px-4">
-      <p class="text-center text-xs text-gray-400 font-semibold tracking-widest uppercase mb-4">Tecnologias da Disciplina</p>
-      <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-gray-600">
+      <p class="text-center text-xs text-faint font-semibold tracking-widest uppercase mb-4">Tecnologias da Disciplina</p>
+      <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold text-body">
         <span class="flex items-center gap-2"><span class="text-orange-500 text-lg">&#60;/&#62;</span> HTML5</span>
         <span class="flex items-center gap-2"><span class="text-blue-500 text-lg">✦</span> CSS3 &amp; Tailwind</span>
         <span class="flex items-center gap-2"><span class="text-yellow-500 text-lg">JS</span> JavaScript ES6+</span>
@@ -128,47 +94,47 @@
        NAVEGAÇÃO RÁPIDA (Cards principais)
   ====================================================== -->
   <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-bold text-gray-900 mb-2">Por onde começar?</h2>
-    <p class="text-gray-500 mb-8">Explore as seções da disciplina de acordo com sua necessidade.</p>
+    <h2 class="text-2xl font-bold text-ink mb-2">Por onde começar?</h2>
+    <p class="text-muted mb-8">Explore as seções da disciplina de acordo com sua necessidade.</p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <!-- Módulos -->
-      <a href="modulos.html" class="module-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:border-indigo-200 group block">
-        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+      <a href="modulos.html" class="module-card bg-surface rounded-2xl shadow-sm border border-line-soft p-6 hover:border-brand-border group block">
+        <div class="w-12 h-12 bg-brand-soft text-brand rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-brand group-hover:text-white transition-colors">
           📚
         </div>
-        <h3 class="font-bold text-gray-900 mb-2">Módulos</h3>
-        <p class="text-sm text-gray-500 leading-relaxed">10 módulos com teoria, exemplos e atividades organizados por semana.</p>
-        <p class="text-xs text-indigo-500 font-semibold mt-4">Ver módulos →</p>
+        <h3 class="font-bold text-ink mb-2">Módulos</h3>
+        <p class="text-sm text-muted leading-relaxed">10 módulos com teoria, exemplos e atividades organizados por semana.</p>
+        <p class="text-xs text-brand font-semibold mt-4">Ver módulos →</p>
       </a>
 
       <!-- Ambiente -->
-      <a href="ambiente.html" class="module-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:border-emerald-200 group block">
-        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+      <a href="ambiente.html" class="module-card bg-surface rounded-2xl shadow-sm border border-line-soft p-6 hover:border-success-border group block">
+        <div class="w-12 h-12 bg-success-soft text-success rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-success group-hover:text-white transition-colors">
           ⚙️
         </div>
-        <h3 class="font-bold text-gray-900 mb-2">Configurar Ambiente</h3>
-        <p class="text-sm text-gray-500 leading-relaxed">Passo a passo para instalar e rodar o JSON Server localmente.</p>
-        <p class="text-xs text-emerald-500 font-semibold mt-4">Configurar →</p>
+        <h3 class="font-bold text-ink mb-2">Configurar Ambiente</h3>
+        <p class="text-sm text-muted leading-relaxed">Passo a passo para instalar e rodar o JSON Server localmente.</p>
+        <p class="text-xs text-success font-semibold mt-4">Configurar →</p>
       </a>
 
       <!-- Exemplos -->
-      <a href="exemplos.html" class="module-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:border-amber-200 group block">
+      <a href="exemplos.html" class="module-card bg-surface rounded-2xl shadow-sm border border-line-soft p-6 hover:border-amber-200 group block">
         <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-amber-600 group-hover:text-white transition-colors">
           💻
         </div>
-        <h3 class="font-bold text-gray-900 mb-2">Exemplos de Código</h3>
-        <p class="text-sm text-gray-500 leading-relaxed">6 aplicações completas para consulta, com código comentado e demonstrações.</p>
+        <h3 class="font-bold text-ink mb-2">Exemplos de Código</h3>
+        <p class="text-sm text-muted leading-relaxed">6 aplicações completas para consulta, com código comentado e demonstrações.</p>
         <p class="text-xs text-amber-500 font-semibold mt-4">Ver exemplos →</p>
       </a>
 
       <!-- Recursos -->
-      <a href="recursos.html" class="module-card bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:border-pink-200 group block">
+      <a href="recursos.html" class="module-card bg-surface rounded-2xl shadow-sm border border-line-soft p-6 hover:border-pink-200 group block">
         <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-pink-600 group-hover:text-white transition-colors">
           🔗
         </div>
-        <h3 class="font-bold text-gray-900 mb-2">Recursos</h3>
-        <p class="text-sm text-gray-500 leading-relaxed">Referências bibliográficas, ferramentas, links úteis e cheat sheets.</p>
+        <h3 class="font-bold text-ink mb-2">Recursos</h3>
+        <p class="text-sm text-muted leading-relaxed">Referências bibliográficas, ferramentas, links úteis e cheat sheets.</p>
         <p class="text-xs text-pink-500 font-semibold mt-4">Ver recursos →</p>
       </a>
     </div>
@@ -177,40 +143,39 @@
   <!-- ======================================================
        DESTAQUES DA DISCIPLINA
   ====================================================== -->
-  <section class="bg-indigo-950 text-white py-16 px-4">
+    <section class="bg-surface border-y border-line-soft py-16 px-4">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-bold mb-2">O que você vai aprender</h2>
-      <p class="text-indigo-300 mb-10">Uma jornada completa do zero às aplicações web dinâmicas.</p>
-
+      <h2 class="text-2xl font-extrabold text-ink mb-2">O que você vai aprender</h2>
+      <p class="text-muted mb-10">Uma jornada completa do zero às aplicações web dinâmicas.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-wider mb-4">Frontend</h3>
-          <ul class="space-y-3 text-sm text-indigo-100">
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Estrutura semântica com HTML5</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Layouts com Flexbox e Grid</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Design responsivo com Tailwind CSS</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Manipulação do DOM com JavaScript</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Eventos e formulários interativos</li>
+        <div class="wt-card p-6">
+          <h3 class="wt-label mb-4">Frontend</h3>
+          <ul class="space-y-3 text-sm text-body">
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Estrutura semântica com HTML5</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Layouts com Flexbox e Grid</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Design responsivo com Tailwind CSS</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Manipulação do DOM com JavaScript</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Eventos e formulários interativos</li>
           </ul>
         </div>
-        <div>
-          <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-wider mb-4">Dados e APIs</h3>
-          <ul class="space-y-3 text-sm text-indigo-100">
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> JSON: estrutura e manipulação</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Local Storage e Session Storage</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Fetch API e requisições assíncronas</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Promises e async/await</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> CRUD completo com JSON Server</li>
+        <div class="wt-card p-6">
+          <h3 class="wt-label mb-4">Dados e APIs</h3>
+          <ul class="space-y-3 text-sm text-body">
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> JSON: estrutura e manipulação</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Local Storage e Session Storage</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Fetch API e requisições assíncronas</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Promises e async/await</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> CRUD completo com JSON Server</li>
           </ul>
         </div>
-        <div>
-          <h3 class="font-bold text-indigo-300 text-sm uppercase tracking-wider mb-4">Projeto e Integração</h3>
-          <ul class="space-y-3 text-sm text-indigo-100">
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Autenticação e sessão de usuário</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Integração com APIs externas</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Gráficos com Chart.js</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Mapas interativos com Mapbox</li>
-            <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">✓</span> Projeto integrador em equipe</li>
+        <div class="wt-card p-6">
+          <h3 class="wt-label mb-4">Projeto e Integração</h3>
+          <ul class="space-y-3 text-sm text-body">
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Autenticação e sessão de usuário</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Integração com APIs externas</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Gráficos com Chart.js</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Mapas interativos com Mapbox</li>
+            <li class="flex gap-2"><span class="text-brand mt-0.5">✓</span> Projeto integrador em equipe</li>
           </ul>
         </div>
       </div>
@@ -221,38 +186,38 @@
        SOBRE O AMBIENTE (resumo + CTA)
   ====================================================== -->
   <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-8 md:p-12">
+    <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-success-border rounded-2xl p-8 md:p-12">
       <div class="flex flex-col md:flex-row items-start gap-8">
         <div class="flex-1">
-          <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wider uppercase">
+          <span class="inline-block bg-success-soft text-success-ink text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wider uppercase">
             Ponto de Partida
           </span>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4">Configure o Ambiente JSON Server</h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
+          <h2 class="text-2xl font-bold text-ink mb-4">Configure o Ambiente JSON Server</h2>
+          <p class="text-body leading-relaxed mb-4">
             O <strong>JSON Server</strong> é o coração desta disciplina. Ele permite simular um backend completo
             com uma API REST totalmente funcional em minutos, sem precisar programar o servidor.
           </p>
-          <p class="text-gray-600 leading-relaxed mb-6">
+          <p class="text-body leading-relaxed mb-6">
             Com ele, você vai fazer requisições HTTP reais (GET, POST, PUT, DELETE) para persistir dados,
             exatamente como acontece em aplicações profissionais.
           </p>
           <a href="ambiente.html"
-             class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold transition-colors">
+             class="inline-block bg-success hover:bg-success-ink text-white px-6 py-3 rounded-xl font-bold transition-colors">
             Guia de Configuração Completo →
           </a>
         </div>
         <!-- Mini diagram -->
-        <div class="bg-white rounded-xl border border-emerald-200 p-6 font-mono text-sm shadow-sm min-w-0 md:min-w-72">
-          <p class="text-gray-400 text-xs mb-3">// Exemplo rápido com Fetch API</p>
-          <p><span class="text-purple-600">fetch</span><span class="text-gray-800">(</span><span class="text-emerald-600">'http://localhost:3000/api/contatos'</span><span class="text-gray-800">)</span></p>
-          <p class="pl-4"><span class="text-blue-600">.then</span><span class="text-gray-800">(res =&gt; res.</span><span class="text-purple-600">json</span><span class="text-gray-800">())</span></p>
-          <p class="pl-4"><span class="text-blue-600">.then</span><span class="text-gray-800">(dados =&gt; {</span></p>
-          <p class="pl-8 text-gray-500">// dados é um array de contatos</p>
-          <p class="pl-8"><span class="text-purple-600">console</span><span class="text-gray-800">.</span><span class="text-blue-600">log</span><span class="text-gray-800">(dados)</span></p>
-          <p class="pl-4"><span class="text-gray-800">})</span></p>
-          <div class="mt-4 pt-4 border-t border-gray-100">
-            <span class="inline-flex items-center gap-1 text-xs text-emerald-600">
-              <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse inline-block"></span>
+        <div class="bg-surface rounded-xl border border-success-border p-6 font-mono text-sm shadow-sm min-w-0 md:min-w-72">
+          <p class="text-faint text-xs mb-3">// Exemplo rápido com Fetch API</p>
+          <p><span class="text-brand">fetch</span><span class="text-ink">(</span><span class="text-success">'http://localhost:3000/api/contatos'</span><span class="text-ink">)</span></p>
+          <p class="pl-4"><span class="text-blue-600">.then</span><span class="text-ink">(res =&gt; res.</span><span class="text-brand">json</span><span class="text-ink">())</span></p>
+          <p class="pl-4"><span class="text-blue-600">.then</span><span class="text-ink">(dados =&gt; {</span></p>
+          <p class="pl-8 text-muted">// dados é um array de contatos</p>
+          <p class="pl-8"><span class="text-brand">console</span><span class="text-ink">.</span><span class="text-blue-600">log</span><span class="text-ink">(dados)</span></p>
+          <p class="pl-4"><span class="text-ink">})</span></p>
+          <div class="mt-4 pt-4 border-t border-line-soft">
+            <span class="inline-flex items-center gap-1 text-xs text-success">
+              <span class="w-2 h-2 bg-success rounded-full animate-pulse inline-block"></span>
               JSON Server rodando na porta 3000
             </span>
           </div>
@@ -264,76 +229,76 @@
   <!-- ======================================================
        PRÉVIA DOS MÓDULOS
   ====================================================== -->
-  <section class="bg-white border-t border-gray-100 py-16 px-4">
+  <section class="bg-surface border-t border-line-soft py-16 px-4">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="text-2xl font-bold text-gray-900 mb-1">Trilha da Disciplina</h2>
-          <p class="text-gray-500 text-sm">10 módulos do HTML básico ao projeto completo</p>
+          <h2 class="text-2xl font-bold text-ink mb-1">Trilha da Disciplina</h2>
+          <p class="text-muted text-sm">10 módulos do HTML básico ao projeto completo</p>
         </div>
-        <a href="modulos.html" class="text-sm text-indigo-600 font-semibold hover:text-indigo-800">Ver todos →</a>
+        <a href="modulos.html" class="text-sm text-brand font-semibold hover:text-brand-hover">Ver todos →</a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <!-- M01 -->
-        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">M01</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">Fundamentos HTML</h4>
-          <p class="text-xs text-gray-500 mt-1">Estrutura, semântica e formulários</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m01)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M01</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">Fundamentos HTML</h4>
+          <p class="text-xs text-muted mt-1">Estrutura, semântica e formulários</p>
         </div>
         <!-- M02 -->
-        <div class="bg-purple-50 border border-purple-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">M02</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">CSS e Layouts</h4>
-          <p class="text-xs text-gray-500 mt-1">Flexbox, Grid e responsividade</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m02)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M02</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">CSS e Layouts</h4>
+          <p class="text-xs text-muted mt-1">Flexbox, Grid e responsividade</p>
         </div>
         <!-- M03 -->
-        <div class="bg-amber-50 border border-amber-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">M03</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">JavaScript Básico</h4>
-          <p class="text-xs text-gray-500 mt-1">Variáveis, funções e arrays</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m03)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M03</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">JavaScript Básico</h4>
+          <p class="text-xs text-muted mt-1">Variáveis, funções e arrays</p>
         </div>
         <!-- M04 -->
-        <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">M04</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">DOM e Eventos</h4>
-          <p class="text-xs text-gray-500 mt-1">Manipulação dinâmica de páginas</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m04)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M04</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">DOM e Eventos</h4>
+          <p class="text-xs text-muted mt-1">Manipulação dinâmica de páginas</p>
         </div>
         <!-- M05 -->
-        <div class="bg-pink-50 border border-pink-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">M05</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">JSON e Storage</h4>
-          <p class="text-xs text-gray-500 mt-1">Dados locais e estruturados</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m05)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M05</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">JSON e Storage</h4>
+          <p class="text-xs text-muted mt-1">Dados locais e estruturados</p>
         </div>
         <!-- M06 -->
-        <div class="bg-teal-50 border border-teal-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-teal-500 uppercase tracking-wider">M06</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">JSON Server</h4>
-          <p class="text-xs text-gray-500 mt-1">Backend simulado e API REST</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m06)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M06</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">JSON Server</h4>
+          <p class="text-xs text-muted mt-1">Backend simulado e API REST</p>
         </div>
         <!-- M07 -->
-        <div class="bg-blue-50 border border-blue-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">M07</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">Fetch &amp; Async</h4>
-          <p class="text-xs text-gray-500 mt-1">Requisições e Promises</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m07)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M07</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">Fetch &amp; Async</h4>
+          <p class="text-xs text-muted mt-1">Requisições e Promises</p>
         </div>
         <!-- M08 -->
-        <div class="bg-orange-50 border border-orange-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-orange-500 uppercase tracking-wider">M08</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">Autenticação</h4>
-          <p class="text-xs text-gray-500 mt-1">Login, sessão e rotas</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m08)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M08</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">Autenticação</h4>
+          <p class="text-xs text-muted mt-1">Login, sessão e rotas</p>
         </div>
         <!-- M09 -->
-        <div class="bg-rose-50 border border-rose-100 rounded-xl p-4">
-          <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">M09</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">APIs Externas</h4>
-          <p class="text-xs text-gray-500 mt-1">Mapas, gráficos e dados</p>
+        <div class="bg-mod-soft border border-mod-border rounded-xl p-4" style="--mod: var(--c-m09)">
+          <span class="text-xs font-bold text-mod uppercase tracking-wider">M09</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">APIs Externas</h4>
+          <p class="text-xs text-muted mt-1">Mapas, gráficos e dados</p>
         </div>
         <!-- M10 -->
         <div class="bg-gradient-to-br from-indigo-100 to-purple-100 border border-indigo-200 rounded-xl p-4">
-          <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">M10</span>
-          <h4 class="font-bold text-gray-800 mt-1 text-sm">Projeto Final</h4>
-          <p class="text-xs text-gray-500 mt-1">Integração e apresentação</p>
+          <span class="text-xs font-bold text-brand uppercase tracking-wider">M10</span>
+          <h4 class="font-bold text-ink mt-1 text-sm">Projeto Final</h4>
+          <p class="text-xs text-muted mt-1">Integração e apresentação</p>
         </div>
       </div>
     </div>
@@ -343,14 +308,14 @@
        SOBRE O PROFESSOR
   ====================================================== -->
   <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="flex flex-col md:flex-row items-center gap-8 bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-      <div class="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center text-4xl flex-shrink-0">
+    <div class="flex flex-col md:flex-row items-center gap-8 bg-surface rounded-2xl shadow-sm border border-line-soft p-8">
+      <div class="w-20 h-20 bg-brand-soft rounded-full flex items-center justify-center text-4xl flex-shrink-0">
         👨‍🏫
       </div>
       <div class="flex-1 text-center md:text-left">
-        <h3 class="font-bold text-xl text-gray-900">Prof. Rommel Vieira Carneiro</h3>
-        <p class="text-gray-500 text-sm mt-1">PUC Minas – Cursos de Tecnologia da Informação</p>
-        <p class="text-gray-600 text-sm mt-3 leading-relaxed max-w-2xl">
+        <h3 class="font-bold text-xl text-ink">Prof. Rommel Vieira Carneiro</h3>
+        <p class="text-muted text-sm mt-1">PUC Minas – Cursos de Tecnologia da Informação</p>
+        <p class="text-body text-sm mt-3 leading-relaxed max-w-2xl">
           Olá, sejam bem-vindos! Esta disciplina foi pensada para que você aprenda na prática,
           construindo aplicações reais com tecnologias usadas no mercado. Dúvidas? Me encontre nos links abaixo.
         </p>
@@ -361,7 +326,7 @@
             LinkedIn
           </a>
           <a href="https://rommelcarneiro.me/" target="_blank"
-             class="text-indigo-600 hover:text-indigo-800 text-sm font-medium flex items-center gap-1">
+             class="text-brand hover:text-brand-hover text-sm font-medium flex items-center gap-1">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
             rommelcarneiro.me
           </a>
@@ -373,31 +338,9 @@
   <!-- ======================================================
        FOOTER
   ====================================================== -->
-  <footer class="bg-indigo-950 text-indigo-300 py-10 px-4 mt-auto">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-center md:text-left">
-          <p class="font-bold text-white text-sm">Desenvolvimento de Interfaces Web</p>
-          <p class="text-xs mt-1 text-indigo-400">PUC Minas · Cursos de Tecnologia da Informação</p>
-        </div>
-        <div class="flex gap-6 text-xs">
-          <a href="modulos.html"  class="hover:text-white transition-colors">Módulos</a>
-          <a href="ambiente.html" class="hover:text-white transition-colors">Ambiente</a>
-          <a href="exemplos.html" class="hover:text-white transition-colors">Exemplos</a>
-          <a href="recursos.html" class="hover:text-white transition-colors">Recursos</a>
-        </div>
-      </div>
-      <div class="border-t border-indigo-900 mt-6 pt-6 text-center text-xs text-indigo-500">
-        Powered by <a href="https://webtech.network" target="_blank" class="hover:text-white transition-colors">WebTech PUC Minas</a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/typicode/json-server" target="_blank" class="hover:text-white transition-colors">JSON Server</a>
-        &nbsp;·&nbsp;
-        <a href="https://tailwindcss.com" target="_blank" class="hover:text-white transition-colors">Tailwind CSS</a>
-      </div>
-    </div>
-  </footer>
+    <div id="site-footer"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
