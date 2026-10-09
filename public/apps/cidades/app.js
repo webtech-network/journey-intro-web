@@ -21,7 +21,7 @@ function carregaDadosJSONServer(func) {
             document.body.innerHTML +=
                 `<div style="color:red;padding:1rem">
                     ❌ Erro ao conectar ao JSON Server.
-                    Verifique se o servidor está rodando em <code>localhost:5000</code>.
+                    Verifique se o servidor está rodando em <code>localhost:3000</code>.
                 </div>`;
         });
 }
