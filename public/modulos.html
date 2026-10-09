@@ -3,70 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulos · DIW</title>
+  <title>Módulos · Journey Intro Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
 
-  <!-- NAVEGAÇÃO -->
-  <nav class="bg-indigo-950 text-white shadow-xl sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
-          <span class="bg-indigo-500 text-white w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black">DIW</span>
-          <span class="hidden sm:block">Dev. Interfaces Web</span>
-        </a>
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html"    class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Início</a>
-          <a href="modulos.html"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Módulos</a>
-          <a href="ambiente.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Ambiente</a>
-          <a href="exemplos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Exemplos</a>
-          <a href="recursos.html" class="nav-link px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-800 transition-colors">Recursos</a>
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-indigo-800">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-indigo-800">
-      <div class="px-4 py-2 space-y-1">
-        <a href="index.html"    class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Início</a>
-        <a href="modulos.html"  class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Módulos</a>
-        <a href="ambiente.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Ambiente</a>
-        <a href="exemplos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Exemplos</a>
-        <a href="recursos.html" class="nav-link block px-3 py-2 rounded-lg text-sm hover:bg-indigo-800">Recursos</a>
-      </div>
-    </div>
-  </nav>
+  <!-- ======================================================
+       NAVEGAÇÃO (WebTech style)
+  ====================================================== -->
+<div id="site-header"></div>
 
-  <!-- HERO -->
-  <div class="bg-indigo-900 text-white py-12 px-4">
+<!-- HERO -->
+  <div class="wt-page-hero">
     <div class="max-w-6xl mx-auto">
-      <div class="flex items-center gap-2 text-indigo-300 text-sm mb-3">
-        <a href="index.html" class="hover:text-white">Início</a>
-        <span>/</span>
-        <span>Módulos</span>
+      <div class="wt-breadcrumb mb-4">
+        <a href="index.html">Início</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-ink">Módulos</span>
       </div>
-      <h1 class="text-3xl md:text-4xl font-black mb-3">📚 Módulos da Disciplina</h1>
-      <p class="text-indigo-100 text-lg max-w-2xl">
-        10 módulos organizados em uma jornada progressiva: do HTML básico até o projeto final completo.
-      </p>
+      <div class="flex items-start gap-4">
+        <span class="wt-icon-circle text-xl">📚</span>
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-ink mb-2">Módulos da Disciplina</h1>
+          <p class="text-muted text-lg max-w-2xl">
+            10 módulos organizados em uma jornada progressiva: do HTML básico até o projeto final completo.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- BARRA DE PROGRESSO GERAL -->
-  <div class="bg-white border-b border-gray-200 px-4 py-4">
+  <div class="bg-surface border-b border-line px-4 py-4">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-center gap-4">
-        <p class="text-sm text-gray-500 font-medium whitespace-nowrap">Progresso geral:</p>
-        <div class="flex-1 bg-gray-200 rounded-full h-2.5">
-          <div data-progress-bar class="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style="width:0%"></div>
+        <p class="text-sm text-muted font-medium whitespace-nowrap">Progresso geral:</p>
+        <div class="flex-1 bg-line rounded-full h-2.5">
+          <div data-progress-bar="modulos" class="bg-brand h-2.5 rounded-full transition-all duration-500" style="width:0%"></div>
         </div>
-        <span data-progress-label class="text-sm text-gray-500 whitespace-nowrap font-medium">0 / 10</span>
+        <span data-progress-label="modulos" class="text-sm text-muted whitespace-nowrap font-medium">0 / 10</span>
       </div>
     </div>
   </div>
@@ -75,10 +56,10 @@
 
     <!-- LEGENDA -->
     <div class="flex flex-wrap gap-4 mb-8 text-xs font-semibold">
-      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>Em andamento</span>
-      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-indigo-500 inline-block"></span>Concluído</span>
-      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>Próximo</span>
-      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-gray-300 inline-block"></span>Pendente</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-success inline-block"></span>Em andamento</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-brand inline-block"></span>Concluído</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-warning inline-block"></span>Próximo</span>
+      <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-faint inline-block"></span>Pendente</span>
     </div>
 
     <!-- LINHA DO TEMPO DOS MÓDULOS -->
@@ -87,25 +68,25 @@
       <!-- ==================================================
            M01 - FUNDAMENTOS HTML
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m01)">
         <div class="flex items-stretch">
           <!-- Indicador lateral -->
-          <div class="bg-indigo-600 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
 
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-indigo-100 text-indigo-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M01</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M01</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">Fundamentos HTML</h3>
-                  <p class="text-sm text-gray-500">Semana 1–2 · Introdução ao desenvolvimento web</p>
+                  <h3 class="font-bold text-ink text-lg">Fundamentos HTML</h3>
+                  <p class="text-sm text-muted">Semana 1–2 · Introdução ao desenvolvimento web</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-em-andamento text-xs font-bold px-2.5 py-1 rounded-full">Em andamento</span>
                 <label class="flex items-center gap-1 cursor-pointer" data-tip="Marcar módulo como concluído">
-                  <input type="checkbox" data-id="m01" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m01" class="w-4 h-4 text-mod rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
@@ -114,30 +95,30 @@
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <!-- Tópicos -->
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Estrutura básica de uma página HTML</li>
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Tags semânticas: header, nav, main, footer</li>
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Títulos, parágrafos, listas e links</li>
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Imagens e mídia</li>
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Formulários e campos de entrada</li>
-                  <li class="flex gap-2"><span class="text-indigo-400 mt-0.5">▸</span>Tabelas de dados</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Estrutura básica de uma página HTML</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Tags semânticas: header, nav, main, footer</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Títulos, parágrafos, listas e links</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Imagens e mídia</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Formulários e campos de entrada</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Tabelas de dados</li>
                 </ul>
               </div>
 
               <!-- Atividades -->
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-emerald-500">✓</span>Criar página de perfil pessoal</li>
-                  <li class="flex gap-2"><span class="text-emerald-500">✓</span>Estruturar cardápio de restaurante</li>
-                  <li class="flex gap-2"><span class="text-amber-400">○</span>Formulário de cadastro</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-success">✓</span>Criar página de perfil pessoal</li>
+                  <li class="flex gap-2"><span class="text-success">✓</span>Estruturar cardápio de restaurante</li>
+                  <li class="flex gap-2"><span class="text-warning">○</span>Formulário de cadastro</li>
                 </ul>
               </div>
 
               <!-- Mini exemplo -->
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header">
                     <span class="lang-badge">html</span>
@@ -164,48 +145,48 @@
       <!-- ==================================================
            M02 - CSS E LAYOUTS
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m02)">
         <div class="flex items-stretch">
-          <div class="bg-purple-600 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-purple-100 text-purple-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M02</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M02</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">CSS e Layouts</h3>
-                  <p class="text-sm text-gray-500">Semana 3–4 · Estilização e design responsivo</p>
+                  <h3 class="font-bold text-ink text-lg">CSS e Layouts</h3>
+                  <p class="text-sm text-muted">Semana 3–4 · Estilização e design responsivo</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-em-andamento text-xs font-bold px-2.5 py-1 rounded-full">Em andamento</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m02" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m02" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>Seletores e especificidade</li>
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>Box Model (margin, border, padding)</li>
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>Flexbox: alinhamento e distribuição</li>
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>CSS Grid: layouts bidimensionais</li>
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>Media Queries e responsividade</li>
-                  <li class="flex gap-2"><span class="text-purple-400 mt-0.5">▸</span>Tailwind CSS via CDN</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Seletores e especificidade</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Box Model (margin, border, padding)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Flexbox: alinhamento e distribuição</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>CSS Grid: layouts bidimensionais</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Media Queries e responsividade</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Tailwind CSS via CDN</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-amber-400">○</span>Layout de galeria com Grid</li>
-                  <li class="flex gap-2"><span class="text-amber-400">○</span>Barra de navegação responsiva</li>
-                  <li class="flex gap-2"><span class="text-amber-400">○</span>Landing page com Tailwind</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-warning">○</span>Layout de galeria com Grid</li>
+                  <li class="flex gap-2"><span class="text-warning">○</span>Barra de navegação responsiva</li>
+                  <li class="flex gap-2"><span class="text-warning">○</span>Landing page com Tailwind</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-css">/* Flexbox centralizado */
@@ -234,48 +215,48 @@
       <!-- ==================================================
            M03 - JAVASCRIPT BÁSICO
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m03)">
         <div class="flex items-stretch">
-          <div class="bg-amber-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-amber-100 text-amber-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M03</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M03</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">JavaScript Básico</h3>
-                  <p class="text-sm text-gray-500">Semana 5–6 · Lógica de programação no browser</p>
+                  <h3 class="font-bold text-ink text-lg">JavaScript Básico</h3>
+                  <p class="text-sm text-muted">Semana 5–6 · Lógica de programação no browser</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-proximo text-xs font-bold px-2.5 py-1 rounded-full">Próximo</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m03" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m03" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Variáveis: var, let, const</li>
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Tipos de dados e operadores</li>
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Condicionais (if, switch)</li>
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Loops (for, while, forEach)</li>
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Funções e arrow functions</li>
-                  <li class="flex gap-2"><span class="text-amber-400 mt-0.5">▸</span>Arrays e objetos literais</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Variáveis: var, let, const</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Tipos de dados e operadores</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Condicionais (if, switch)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Loops (for, while, forEach)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Funções e arrow functions</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Arrays e objetos literais</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Calculadora simples</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Manipulação de array de produtos</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Quiz de perguntas e respostas</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Calculadora simples</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Manipulação de array de produtos</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Quiz de perguntas e respostas</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-javascript">// Arrow function + filter + map
@@ -301,48 +282,48 @@ console.log(caros);
       <!-- ==================================================
            M04 - DOM E EVENTOS
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m04)">
         <div class="flex items-stretch">
-          <div class="bg-emerald-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-emerald-100 text-emerald-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M04</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M04</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">DOM e Eventos</h3>
-                  <p class="text-sm text-gray-500">Semana 7 · Interatividade com JavaScript</p>
+                  <h3 class="font-bold text-ink text-lg">DOM e Eventos</h3>
+                  <p class="text-sm text-muted">Semana 7 · Interatividade com JavaScript</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m04" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m04" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>Seleção de elementos (querySelector)</li>
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>Leitura e escrita de propriedades</li>
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>Criação e remoção de elementos</li>
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>addEventListener e tipos de eventos</li>
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>Formulários: captura e validação</li>
-                  <li class="flex gap-2"><span class="text-emerald-400 mt-0.5">▸</span>Event delegation</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Seleção de elementos (querySelector)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Leitura e escrita de propriedades</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Criação e remoção de elementos</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>addEventListener e tipos de eventos</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Formulários: captura e validação</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Event delegation</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Lista de tarefas (To-Do) dinâmica</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Validação de formulário em tempo real</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Galeria de imagens com filtros</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Lista de tarefas (To-Do) dinâmica</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Validação de formulário em tempo real</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Galeria de imagens com filtros</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-javascript">// Criar elemento e adicionar ao DOM
@@ -369,46 +350,46 @@ adicionarItem('Estudar HTML');</code></pre>
       <!-- ==================================================
            M05 - JSON E STORAGE
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m05)">
         <div class="flex items-stretch">
-          <div class="bg-pink-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-pink-100 text-pink-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M05</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M05</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">JSON e Storage</h3>
-                  <p class="text-sm text-gray-500">Semana 8 · Dados no browser</p>
+                  <h3 class="font-bold text-ink text-lg">JSON e Storage</h3>
+                  <p class="text-sm text-muted">Semana 8 · Dados no browser</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m05" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m05" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-pink-400 mt-0.5">▸</span>Formato JSON: sintaxe e regras</li>
-                  <li class="flex gap-2"><span class="text-pink-400 mt-0.5">▸</span>JSON.stringify e JSON.parse</li>
-                  <li class="flex gap-2"><span class="text-pink-400 mt-0.5">▸</span>localStorage: persistência local</li>
-                  <li class="flex gap-2"><span class="text-pink-400 mt-0.5">▸</span>sessionStorage: dados de sessão</li>
-                  <li class="flex gap-2"><span class="text-pink-400 mt-0.5">▸</span>Diferenças e casos de uso</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Formato JSON: sintaxe e regras</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>JSON.stringify e JSON.parse</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>localStorage: persistência local</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>sessionStorage: dados de sessão</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Diferenças e casos de uso</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Carrinho de compras com localStorage</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Preferências de tema salvas</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Carrinho de compras com localStorage</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Preferências de tema salvas</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-javascript">// Salvar e recuperar do localStorage
@@ -438,53 +419,53 @@ console.log(salvo.nome); // 'Ana'</code></pre>
       <!-- ==================================================
            M06 - JSON SERVER
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m06)">
         <div class="flex items-stretch">
-          <div class="bg-teal-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-teal-100 text-teal-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M06</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M06</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">JSON Server e API REST</h3>
-                  <p class="text-sm text-gray-500">Semana 9 · Backend simulado</p>
+                  <h3 class="font-bold text-ink text-lg">JSON Server e API REST</h3>
+                  <p class="text-sm text-muted">Semana 9 · Backend simulado</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m06" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m06" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Conceito de API REST</li>
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Verbos HTTP (GET, POST, PUT, DELETE)</li>
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Instalação e configuração do JSON Server</li>
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Estruturação do db.json</li>
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Filtros, busca e paginação</li>
-                  <li class="flex gap-2"><span class="text-teal-400 mt-0.5">▸</span>Relacionamento entre coleções</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Conceito de API REST</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Verbos HTTP (GET, POST, PUT, DELETE)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Instalação e configuração do JSON Server</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Estruturação do db.json</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Filtros, busca e paginação</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Relacionamento entre coleções</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Configurar JSON Server do zero</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Testar endpoints com Insomnia/Postman</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>CRUD de produtos via terminal</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Configurar JSON Server do zero</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Testar endpoints com Insomnia/Postman</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>CRUD de produtos via terminal</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Links</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Links</p>
                 <div class="space-y-2">
-                  <a href="ambiente.html" class="block text-sm text-teal-600 hover:text-teal-800 font-medium">
+                  <a href="ambiente.html" class="block text-sm text-mod hover:text-mod-ink font-medium">
                     → Guia Completo de Configuração
                   </a>
-                  <a href="https://github.com/typicode/json-server" target="_blank" class="block text-sm text-teal-600 hover:text-teal-800 font-medium">
+                  <a href="https://github.com/typicode/json-server" target="_blank" class="block text-sm text-mod hover:text-mod-ink font-medium">
                     → Documentação JSON Server (GitHub)
                   </a>
                 </div>
@@ -497,48 +478,48 @@ console.log(salvo.nome); // 'Ana'</code></pre>
       <!-- ==================================================
            M07 - FETCH E ASYNC
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m07)">
         <div class="flex items-stretch">
-          <div class="bg-blue-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-blue-100 text-blue-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M07</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M07</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">Fetch API e Programação Assíncrona</h3>
-                  <p class="text-sm text-gray-500">Semana 10 · Comunicação com servidores</p>
+                  <h3 class="font-bold text-ink text-lg">Fetch API e Programação Assíncrona</h3>
+                  <p class="text-sm text-muted">Semana 10 · Comunicação com servidores</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m07" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m07" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>Promises: then/catch/finally</li>
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>async/await</li>
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>Fetch API completa (options)</li>
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>Tratamento de erros (try/catch)</li>
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>Loading states na UI</li>
-                  <li class="flex gap-2"><span class="text-blue-400 mt-0.5">▸</span>Promise.all para múltiplas requisições</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Promises: then/catch/finally</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>async/await</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Fetch API completa (options)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Tratamento de erros (try/catch)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Loading states na UI</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Promise.all para múltiplas requisições</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>CRUD completo de contatos</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Barra de pesquisa com debounce</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Indicador de carregamento (skeleton)</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>CRUD completo de contatos</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Barra de pesquisa com debounce</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Indicador de carregamento (skeleton)</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Exemplo Rápido</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Exemplo Rápido</p>
                 <div class="code-block">
                   <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
                   <pre><code class="language-javascript">// async/await com tratamento
@@ -570,49 +551,49 @@ async function carregarDados() {
       <!-- ==================================================
            M08 - AUTENTICAÇÃO
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m08)">
         <div class="flex items-stretch">
-          <div class="bg-orange-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-orange-100 text-orange-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M08</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M08</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">Autenticação de Usuários</h3>
-                  <p class="text-sm text-gray-500">Semana 11 · Login e sessão</p>
+                  <h3 class="font-bold text-ink text-lg">Autenticação de Usuários</h3>
+                  <p class="text-sm text-muted">Semana 11 · Login e sessão</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m08" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m08" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>Fluxo de autenticação web</li>
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>Login com JSON Server (/usuarios)</li>
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>sessionStorage para manter sessão</li>
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>Proteção de páginas (redirect)</li>
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>Registro de novo usuário</li>
-                  <li class="flex gap-2"><span class="text-orange-400 mt-0.5">▸</span>Logout e limpeza de sessão</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Fluxo de autenticação web</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Login com JSON Server (/usuarios)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>sessionStorage para manter sessão</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Proteção de páginas (redirect)</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Registro de novo usuário</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Logout e limpeza de sessão</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Implementar tela de login</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Proteger rota de cadastro</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Exibir nome do usuário logado</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Implementar tela de login</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Proteger rota de cadastro</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Exibir nome do usuário logado</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Links</p>
-                <a href="/app_login" target="_blank" class="block text-sm text-orange-600 hover:text-orange-800 font-medium">
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Links</p>
+                <a href="apps/login/login.html" target="_blank" class="block text-sm text-mod hover:text-mod-ink font-medium">
                   → Exemplo: App de Login completo
                 </a>
               </div>
@@ -624,49 +605,49 @@ async function carregarDados() {
       <!-- ==================================================
            M09 - APIS EXTERNAS
       ================================================== -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden module-card">
+      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card" style="--mod: var(--c-m09)">
         <div class="flex items-stretch">
-          <div class="bg-rose-500 w-2 flex-shrink-0"></div>
+          <div class="bg-mod w-2 flex-shrink-0"></div>
           <div class="flex-1 p-6">
             <div class="flex items-start justify-between flex-wrap gap-3">
               <div class="flex items-center gap-3">
-                <div class="bg-rose-100 text-rose-700 w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M09</div>
+                <div class="bg-mod-soft text-mod-ink w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M09</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">Integração com APIs Externas</h3>
-                  <p class="text-sm text-gray-500">Semana 12 · Mapas, gráficos e dados públicos</p>
+                  <h3 class="font-bold text-ink text-lg">Integração com APIs Externas</h3>
+                  <p class="text-sm text-muted">Semana 12 · Mapas, gráficos e dados públicos</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <span class="badge-pendente text-xs font-bold px-2.5 py-1 rounded-full">Pendente</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m09" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m09" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
             <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tópicos</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-rose-400 mt-0.5">▸</span>O que são APIs públicas</li>
-                  <li class="flex gap-2"><span class="text-rose-400 mt-0.5">▸</span>Autenticação por API Key</li>
-                  <li class="flex gap-2"><span class="text-rose-400 mt-0.5">▸</span>Mapbox: mapas interativos</li>
-                  <li class="flex gap-2"><span class="text-rose-400 mt-0.5">▸</span>Chart.js: gráficos de dados</li>
-                  <li class="flex gap-2"><span class="text-rose-400 mt-0.5">▸</span>Integração de dados do JSON Server com APIs externas</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Tópicos</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>O que são APIs públicas</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Autenticação por API Key</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Mapbox: mapas interativos</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Chart.js: gráficos de dados</li>
+                  <li class="flex gap-2"><span class="text-mod mt-0.5">▸</span>Integração de dados do JSON Server com APIs externas</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Atividades</p>
-                <ul class="text-sm text-gray-600 space-y-1.5">
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Mapa de locais favoritos</li>
-                  <li class="flex gap-2"><span class="text-gray-300">○</span>Dashboard com gráfico de despesas</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Atividades</p>
+                <ul class="text-sm text-body space-y-1.5">
+                  <li class="flex gap-2"><span class="text-faint">○</span>Mapa de locais favoritos</li>
+                  <li class="flex gap-2"><span class="text-faint">○</span>Dashboard com gráfico de despesas</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Links</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-2">Links</p>
                 <div class="space-y-2">
-                  <a href="/app_mapa" target="_blank" class="block text-sm text-rose-600 hover:text-rose-800 font-medium">→ Exemplo: Mapa com Mapbox</a>
-                  <a href="/app_graficos" target="_blank" class="block text-sm text-rose-600 hover:text-rose-800 font-medium">→ Exemplo: Gráficos com Chart.js</a>
+                  <a href="apps/mapa/" target="_blank" class="block text-sm text-mod hover:text-mod-ink font-medium">→ Exemplo: Mapa com Mapbox</a>
+                  <a href="apps/graficos/" target="_blank" class="block text-sm text-mod hover:text-mod-ink font-medium">→ Exemplo: Gráficos com Chart.js</a>
                 </div>
               </div>
             </div>
@@ -685,49 +666,49 @@ async function carregarDados() {
               <div class="flex items-center gap-3">
                 <div class="bg-gradient-to-br from-indigo-500 to-purple-500 text-white w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0">M10</div>
                 <div>
-                  <h3 class="font-bold text-gray-900 text-lg">Projeto Final Integrador</h3>
-                  <p class="text-sm text-gray-500">Semanas 13–16 · Consolidação e apresentação</p>
+                  <h3 class="font-bold text-ink text-lg">Projeto Final Integrador</h3>
+                  <p class="text-sm text-muted">Semanas 13–16 · Consolidação e apresentação</p>
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-full">Projeto em Equipe</span>
+                <span class="bg-brand-soft text-brand-ink text-xs font-bold px-2.5 py-1 rounded-full">Projeto em Equipe</span>
                 <label class="flex items-center gap-1 cursor-pointer">
-                  <input type="checkbox" data-id="m10" class="w-4 h-4 text-indigo-500 rounded">
-                  <span class="text-xs text-gray-400">Concluído</span>
+                  <input type="checkbox" data-id="m10" class="w-4 h-4 text-brand rounded">
+                  <span class="text-xs text-faint">Concluído</span>
                 </label>
               </div>
             </div>
 
             <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Requisitos Mínimos do Projeto</p>
-                <ul class="text-sm text-gray-600 space-y-2">
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>Aplicação multi-página com HTML semântico</li>
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>Design responsivo com CSS / Tailwind</li>
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>Backend com JSON Server (mín. 3 coleções)</li>
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>CRUD completo de pelo menos 1 entidade</li>
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>Autenticação de usuários (login/registro)</li>
-                  <li class="flex gap-2 items-start"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✓</span>Uma funcionalidade com API externa ou biblioteca</li>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-3">Requisitos Mínimos do Projeto</p>
+                <ul class="text-sm text-body space-y-2">
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>Aplicação multi-página com HTML semântico</li>
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>Design responsivo com CSS / Tailwind</li>
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>Backend com JSON Server (mín. 3 coleções)</li>
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>CRUD completo de pelo menos 1 entidade</li>
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>Autenticação de usuários (login/registro)</li>
+                  <li class="flex gap-2 items-start"><span class="text-success mt-0.5 flex-shrink-0">✓</span>Uma funcionalidade com API externa ou biblioteca</li>
                 </ul>
               </div>
               <div>
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Cronograma</p>
+                <p class="text-xs font-bold text-faint uppercase tracking-wider mb-3">Cronograma</p>
                 <div class="space-y-2 text-sm">
                   <div class="flex gap-3">
-                    <span class="text-gray-400 text-xs w-16 flex-shrink-0 mt-0.5">Semana 13</span>
-                    <span class="text-gray-600">Definição do tema e estrutura do db.json</span>
+                    <span class="text-faint text-xs w-16 flex-shrink-0 mt-0.5">Semana 13</span>
+                    <span class="text-body">Definição do tema e estrutura do db.json</span>
                   </div>
                   <div class="flex gap-3">
-                    <span class="text-gray-400 text-xs w-16 flex-shrink-0 mt-0.5">Semana 14</span>
-                    <span class="text-gray-600">Frontend: páginas e CRUD básico</span>
+                    <span class="text-faint text-xs w-16 flex-shrink-0 mt-0.5">Semana 14</span>
+                    <span class="text-body">Frontend: páginas e CRUD básico</span>
                   </div>
                   <div class="flex gap-3">
-                    <span class="text-gray-400 text-xs w-16 flex-shrink-0 mt-0.5">Semana 15</span>
-                    <span class="text-gray-600">Login, autenticação e polimento</span>
+                    <span class="text-faint text-xs w-16 flex-shrink-0 mt-0.5">Semana 15</span>
+                    <span class="text-body">Login, autenticação e polimento</span>
                   </div>
                   <div class="flex gap-3">
-                    <span class="text-gray-400 text-xs w-16 flex-shrink-0 mt-0.5">Semana 16</span>
-                    <span class="text-gray-600 font-semibold">Apresentação final 🎉</span>
+                    <span class="text-faint text-xs w-16 flex-shrink-0 mt-0.5">Semana 16</span>
+                    <span class="text-body font-semibold">Apresentação final 🎉</span>
                   </div>
                 </div>
               </div>
@@ -740,38 +721,22 @@ async function carregarDados() {
 
     <!-- CTA -->
     <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="ambiente.html" class="text-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold transition-colors">
+      <a href="ambiente.html" class="text-center wt-btn-dark transition-colors">
         ⚙️ Configurar Ambiente JSON Server
       </a>
-      <a href="exemplos.html" class="text-center bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-bold transition-colors">
+      <a href="exemplos.html" class="text-center wt-btn-outline transition-colors">
         💻 Ver Exemplos de Código
       </a>
     </div>
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-indigo-950 text-indigo-300 py-10 px-4 mt-16">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div>
-          <p class="font-bold text-white text-sm">Desenvolvimento de Interfaces Web</p>
-          <p class="text-xs mt-1 text-indigo-400">PUC Minas · Cursos de Tecnologia da Informação</p>
-        </div>
-        <div class="flex gap-6 text-xs">
-          <a href="modulos.html"  class="hover:text-white">Módulos</a>
-          <a href="ambiente.html" class="hover:text-white">Ambiente</a>
-          <a href="exemplos.html" class="hover:text-white">Exemplos</a>
-          <a href="recursos.html" class="hover:text-white">Recursos</a>
-        </div>
-      </div>
-      <div class="border-t border-indigo-900 mt-6 pt-6 text-center text-xs text-indigo-500">
-        Powered by <a href="https://webtech.network" target="_blank" class="hover:text-white">WebTech PUC Minas</a>
-      </div>
-    </div>
-  </footer>
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <div id="site-footer"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
