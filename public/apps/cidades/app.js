@@ -4,7 +4,7 @@
 //
 // Autor: Rommel Vieira Carneiro
 
-const urlCidades = '/api/cidades';  // rota /api configurada no index.js
+const urlCidades = '/api/cidades';  // rota /api definida em server/api/routes.json
 let cidades = [];
 
 // Carrega os dados do JSON Server e chama a função de callback
