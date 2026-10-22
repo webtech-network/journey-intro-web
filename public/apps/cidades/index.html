@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIW | Lista de Cidades</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/app-shell.css">
 </head>
 <body>
+    <a href="/exemplos.html" class="app-back">← Voltar ao curso</a>
+    <script>if (window.self === window.top) document.documentElement.classList.add("is-standalone");</script>
 
     <!-- CABEÇALHO -->
     <header class="app-header">
         <div>
-            <h1>🏙️ Lista de Cidades</h1>
+            <h1>Lista de Cidades</h1>
         </div>
         <span class="endpoint-tag">GET /api/cidades</span>
     </header>
@@ -31,7 +34,7 @@
         <!-- DEMO: Mudar cor de fundo via JS -->
         <div class="demo-box">
             <p class="demo-titulo">
-                🎨 Demonstração
+                Demonstração
                 <span class="badge-demo">document.body.style</span>
             </p>
             <div class="demo-row">
@@ -70,7 +73,7 @@
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <a href="detalhes.html?id=${cidade.id}">
-                        <span class="cidade-icone">📍</span>
+                        <span class="cidade-icone" aria-hidden="true"></span>
                         <span class="cidade-info">
                             <span class="cidade-nome">${cidade.cidade}</span>
                             <span class="cidade-estado">${cidade.estado} · ${cidade.regiao || ''}</span>

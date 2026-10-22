@@ -1,0 +1,340 @@
+/* ============================================================
+   Shell visual dos apps de exemplo (Bootstrap + CSS próprio)
+   Carregar DEPOIS do CSS de cada app. Não altera markup nem JS.
+   ============================================================ */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500 800;
+  font-display: swap;
+  src: url("../../assets/fonts/montserrat-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../../assets/fonts/geist-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../../assets/fonts/geist-mono-latin.woff2") format("woff2");
+}
+
+:root {
+  --wt-purple: 84 48 191;
+  --wt-purple-end: 97 54 204;
+  --wt-purple-text: 89 34 165;
+  --wt-purple-light: 176 132 255;
+  --wt-yellow: 255 195 26;
+  --wt-magenta: 229 25 127;
+  --wt-success: 46 211 160;
+  --wt-black: 10 10 10;
+  --wt-muted: 88 85 95;
+  --wt-faint: 138 135 148;
+  --wt-border: 224 222 229;
+  --wt-subtle: 246 245 249;
+
+  --bs-primary: #5430bf;
+  --bs-primary-rgb: 84, 48, 191;
+  --bs-body-font-family: "Geist", system-ui, -apple-system, sans-serif;
+  --bs-body-color: #0a0a0a;
+  --bs-body-bg: #ffffff;
+  --bs-border-color: #e0dee5;
+  --bs-border-radius: 0.5rem;
+  --bs-link-color: #5922a5;
+  --bs-link-hover-color: #5430bf;
+  --bs-secondary-color: #58555f;
+  --bs-tertiary-bg: #f6f5f9;
+  --bs-font-monospace: "Geist Mono", ui-monospace, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Geist", system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+}
+body:has(> h1):not(:has(#map)) { padding: 1.25rem; }
+.is-standalone body { padding-bottom: 5rem; }
+body:has(.login-card) {
+  background:
+    radial-gradient(circle at 20% 0%, rgb(84 48 191 / 0.10), transparent 45%),
+    #f6f5f9;
+}
+
+h1, h2, h3, h4, h5, .card-title {
+  font-family: "Montserrat", "Geist", system-ui, sans-serif;
+  color: #0a0a0a;
+  font-weight: 800;
+}
+h1 { font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.02em; }
+h2 { font-weight: 700; }
+p { color: #58555f; }
+a { color: #5922a5; }
+a:hover { color: #5430bf; }
+code, pre, kbd { font-family: "Geist Mono", ui-monospace, Consolas, monospace; }
+code { color: #9d1158; background-color: #f6f5f9; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+::selection { background: #5430bf; color: #fff; }
+
+/* Botões */
+.btn {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 0.55rem 1.15rem;
+  transition: transform 160ms, background-color 160ms, border-color 160ms, color 160ms;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-success {
+  --bs-btn-bg: #5430bf;
+  --bs-btn-border-color: #5430bf;
+  --bs-btn-hover-bg: #6136cc;
+  --bs-btn-hover-border-color: #6136cc;
+  --bs-btn-active-bg: #4928a8;
+  --bs-btn-active-border-color: #4928a8;
+}
+.btn-warning {
+  --bs-btn-bg: #ffc31a;
+  --bs-btn-border-color: #ffc31a;
+  --bs-btn-color: #0a0a0a;
+  --bs-btn-hover-bg: #e9b000;
+  --bs-btn-hover-border-color: #e9b000;
+  --bs-btn-hover-color: #0a0a0a;
+  --bs-btn-active-bg: #d6a100;
+  --bs-btn-active-border-color: #d6a100;
+  --bs-btn-active-color: #0a0a0a;
+}
+.btn-danger {
+  --bs-btn-bg: #c91470;
+  --bs-btn-border-color: #c91470;
+  --bs-btn-hover-bg: #a90f5c;
+  --bs-btn-hover-border-color: #a90f5c;
+}
+.btn-info {
+  --bs-btn-bg: #0a0a0a;
+  --bs-btn-border-color: #0a0a0a;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: #242424;
+  --bs-btn-hover-border-color: #242424;
+  --bs-btn-hover-color: #fff;
+}
+.btn-secondary {
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #e0dee5;
+  --bs-btn-color: #0a0a0a;
+  --bs-btn-hover-bg: #f6f5f9;
+  --bs-btn-hover-border-color: #c9c5d2;
+  --bs-btn-hover-color: #0a0a0a;
+}
+.btn-outline-danger {
+  --bs-btn-color: #e5197f;
+  --bs-btn-border-color: #e5197f;
+  --bs-btn-hover-bg: #e5197f;
+  --bs-btn-hover-border-color: #e5197f;
+}
+.btn-outline-secondary {
+  --bs-btn-color: #0a0a0a;
+  --bs-btn-border-color: #e0dee5;
+  --bs-btn-hover-bg: #f6f5f9;
+  --bs-btn-hover-color: #0a0a0a;
+  --bs-btn-hover-border-color: #c9c5d2;
+}
+
+/* Formulários */
+.form-control {
+  min-height: 44px;
+  border-color: #e0dee5;
+  border-radius: 0.5rem;
+  color: #0a0a0a;
+  background-color: #fff;
+}
+.form-control:focus {
+  border-color: #5430bf;
+  box-shadow: 0 0 0 3px rgb(84 48 191 / 0.14);
+}
+.form-label, label { color: #0a0a0a; font-weight: 600; font-size: 0.875rem; }
+.form-control::placeholder { color: #8a8794; }
+
+/* Tabelas */
+.table {
+  --bs-table-border-color: #e0dee5;
+  --bs-table-striped-bg: #faf9fc;
+  --bs-table-hover-bg: rgb(84 48 191 / 0.05);
+  font-size: 0.875rem;
+}
+.table > :not(caption) > * > * { padding: 0.65rem 0.75rem; border-bottom-width: 1px; }
+.table thead th, .table-dark th {
+  background: #f6f5f9 !important;
+  color: #58555f !important;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e0dee5;
+  white-space: nowrap;
+}
+.table-dark {
+  --bs-table-bg: #f6f5f9;
+  --bs-table-color: #58555f;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * { --bs-table-accent-bg: #faf9fc; }
+
+/* Cards, alerts e badges */
+.card {
+  border-color: #e0dee5;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgb(10 10 10 / 0.03);
+}
+.card-header {
+  background: #f6f5f9;
+  border-bottom-color: #e0dee5;
+  border-radius: 1rem 1rem 0 0 !important;
+  font-weight: 600;
+  color: #0a0a0a;
+}
+.alert { border-radius: 0.75rem; border-width: 1px; }
+.alert-success { background: rgb(46 211 160 / 0.1); border-color: rgb(46 211 160 / 0.35); color: #0b6b52; }
+.badge { font-family: "Geist Mono", monospace; font-weight: 700; letter-spacing: 0.04em; }
+.spinner-border.text-primary { color: #5430bf !important; }
+.text-primary { color: #5430bf !important; }
+.bg-dark { background: #0a0a0a !important; }
+.text-success { color: #0b6b52 !important; }
+
+/* App Cidades (CSS próprio) */
+.app-header {
+  background: #ffffff !important;
+  color: #0a0a0a !important;
+  border-bottom: 1px solid #e0dee5;
+  padding: 18px 24px !important;
+}
+.app-header h1 { font-size: 1.35rem !important; margin: 0; color: #0a0a0a; }
+.app-header .endpoint-tag {
+  background: rgb(84 48 191 / 0.06) !important;
+  border-color: rgb(84 48 191 / 0.25) !important;
+  color: #5922a5 !important;
+  font-family: "Geist Mono", monospace;
+}
+.app-header .back-btn {
+  background: #f6f5f9 !important;
+  color: #0a0a0a !important;
+  border: 1px solid #e0dee5;
+  border-radius: 999px !important;
+}
+.app-main { max-width: 760px !important; }
+.info-bar {
+  background: #f6f5f9 !important;
+  border: 1px solid #e0dee5;
+  border-radius: 0.75rem;
+}
+.info-bar .titulo { color: #58555f !important; }
+ul#ulCidades { padding: 0; }
+ul#ulCidades li {
+  background: #fff;
+  border: 1px solid #e0dee5;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+  transition: border-color 160ms, transform 160ms;
+}
+ul#ulCidades li:hover { border-color: rgb(84 48 191 / 0.35); background: rgb(84 48 191 / 0.03); transform: translateY(-1px); }
+ul#ulCidades a { color: #0a0a0a; }
+.demo-box {
+  background: #f6f5f9 !important;
+  border: 1px solid #e0dee5;
+  border-radius: 1rem;
+}
+.demo-box .demo-titulo { color: #0a0a0a; }
+.info-bar .contagem { color: #5922a5 !important; background: rgb(84 48 191 / 0.08); border-radius: 999px; padding: 2px 10px; }
+.cidade-pop { color: #58555f !important; }
+.cidade-pop strong { color: #0a0a0a; }
+.demo-desc { color: #58555f !important; }
+#raw-data { color: #2ed3a0 !important; background: #0a0a0a !important; }
+.cidade-icone {
+  background: #5430bf !important;
+  align-items: center;
+  justify-content: center;
+}
+.cidade-icone::after { content: ""; width: 10px; height: 10px; border-radius: 999px; background: #ffc31a; }
+.demo-box input[type="text"]:focus { border-color: #5430bf !important; box-shadow: 0 0 0 3px rgb(84 48 191 / 0.14); }
+.badge-demo {
+  background: rgb(84 48 191 / 0.08) !important;
+  color: #5922a5 !important;
+  font-family: "Geist Mono", monospace;
+}
+.demo-row button, .demo-box button {
+  background: #5430bf;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+}
+
+/* App Login */
+.login-card {
+  background: #fff !important;
+  border: 1px solid #e0dee5;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 24px 60px rgb(10 10 10 / 0.12) !important;
+}
+.login-card h2 { color: #0a0a0a !important; font-weight: 800; }
+.btn-login {
+  background: #5430bf !important;
+  border-radius: 999px !important;
+  font-weight: 700;
+}
+.btn-login:hover { background: #6136cc !important; }
+
+/* App Mapa */
+#info-panel {
+  background: rgb(255 255 255 / 0.97) !important;
+  border: 1px solid #e0dee5;
+  border-radius: 1rem !important;
+  box-shadow: 0 8px 30px rgb(10 10 10 / 0.14) !important;
+  font-family: "Geist", sans-serif;
+}
+#info-panel h3 { color: #0a0a0a !important; font-family: "Montserrat", sans-serif; }
+#locais-lista li { border-bottom-color: #f0eef4 !important; color: #58555f !important; }
+#locais-lista li:hover { color: #5430bf !important; }
+#loading-msg {
+  border: 1px solid #e0dee5;
+  border-radius: 1rem !important;
+  color: #0a0a0a;
+  font-family: "Geist", sans-serif;
+}
+
+/* Link de retorno: aparece apenas fora do iframe do curso */
+.app-back { display: none; }
+.is-standalone .app-back {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #fff;
+  font: 600 13px "Geist", sans-serif;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgb(10 10 10 / 0.2);
+}
+.is-standalone .app-back:hover { background: #242424; color: #fff; }
+
+@media (max-width: 991px) {
+  .col-sm-12:has(> table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .col-sm-12:has(> table) > table { min-width: 680px; }
+  body:has(#grid-usuarios) .container { overflow-x: auto; }
+  #grid-usuarios { min-width: 520px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .btn:hover, ul#ulCidades li:hover { transform: none; }
+}

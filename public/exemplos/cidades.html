@@ -3,57 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cidades · Journey Intro Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../assets/js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <title>Parâmetros de URL — Cidades · Journey Intro Web</title>
+  <meta name="description" content="Passagem de parâmetros entre páginas com URLSearchParams, leitura de dados e busca no JSON Server.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Journey Intro Web · WebTech Network">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Parâmetros de URL — Cidades · Journey Intro Web">
+  <meta property="og:description" content="Passagem de parâmetros entre páginas com URLSearchParams, leitura de dados e busca no JSON Server.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Parâmetros de URL — Cidades · Journey Intro Web">
+  <meta name="twitter:description" content="Passagem de parâmetros entre páginas com URLSearchParams, leitura de dados e busca no JSON Server.">
+  <meta name="theme-color" content="#5430BF">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
 </head>
-<body class="bg-code text-code-text font-sans" data-base="/apps/cidades/">
+<body class="flex min-h-screen flex-col bg-white font-sans text-body antialiased" data-base="/apps/cidades/">
 
+  <a href="#conteudo" class="wt-skip">Pular para o conteúdo</a>
   <!-- NAVBAR  -->
   <div id="site-header" data-root="../" data-variant="detail" data-title="Parâmetros de URL – Cidades" data-open="/apps/cidades/"></div>
 
-<!-- SPLIT VIEW -->
+<main id="conteudo" class="flex-1">
+  <!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="inline-flex items-center gap-2 font-semibold text-[#B084FF]"><i class="fa-solid fa-eye" aria-hidden="true"></i> Preview</span>
         <span class="text-muted">/apps/cidades/</span>
-        <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
+        <button type="button" class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/apps/cidades/" title="App Cidades"></iframe>
     </div>
 
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-code-accent font-semibold">{ } Código</span>
-        <button class="file-tab active" onclick="loadFile('scripts/app.js','javascript',this)">scripts/app.js</button>
-        <button class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
-        <button class="file-tab" onclick="loadFile('detalhes.html','markup',this)">detalhes.html</button>
-        <button class="file-tab" onclick="loadFile('css/style.css','css',this)">css/style.css</button>
-        <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
+        <span class="inline-flex items-center gap-2 font-semibold text-[#B084FF]"><i class="fa-solid fa-code" aria-hidden="true"></i> Código</span>
+        <button type="button" class="file-tab active" onclick="loadFile('scripts/app.js','javascript',this)">scripts/app.js</button>
+        <button type="button" class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
+        <button type="button" class="file-tab" onclick="loadFile('detalhes.html','markup',this)">detalhes.html</button>
+        <button type="button" class="file-tab" onclick="loadFile('css/style.css','css',this)">css/style.css</button>
+        <button type="button" class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic"><i class="fa-solid fa-spinner fa-spin mr-2" aria-hidden="true"></i> Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-javascript"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-surface text-ink">
-    <div class="max-w-5xl mx-auto px-6 py-12">
+  <section class="wt-section border-t border-line">
+    <div class="wt-container max-w-5xl">
 
-      <div class="flex items-center gap-3 mb-6">
-        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m05)">M05</span>
-        <h1 class="text-2xl font-black text-ink">Passagem de Parâmetros entre Páginas</h1>
-      </div>
+      <div class="mb-6"><span class="wt-tag">M05</span><h1 class="wt-h2 mt-3">Passagem de Parâmetros entre Páginas</h1></div>
       <p class="text-body text-base leading-relaxed mb-8">
         Demonstra como passar dados de uma página para outra usando a
         <strong>query string</strong> da URL. A lista de cidades linka para
@@ -63,7 +72,7 @@
       </p>
 
       <!-- FLUXO -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Fluxo de navegação</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Fluxo de navegação</h2>
       <div class="step-list mb-10">
         <div class="step-item">
           <strong>index.html — Lista todas as cidades</strong>
@@ -96,7 +105,7 @@
       </div>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">URLSearchParams</p>
@@ -131,7 +140,7 @@
       </div>
 
       <!-- DADOS JSON -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
           <p class="text-sm text-muted mb-3">
@@ -180,12 +189,12 @@
       </div>
 
       <!-- PADRÃO: Ler param da URL -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2 mt-8">Padrão: ler parâmetro e buscar no servidor</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2 mt-8">Padrão: ler parâmetro e buscar no servidor</h2>
       <div class="code-block mb-10">
         <div class="code-header">
           <span class="lang-badge">javascript</span>
           <span class="text-faint text-xs">detalhes.html</span>
-          <button class="btn-copy">⎘ Copiar</button>
+          <button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button>
         </div>
         <pre><code class="language-javascript">// 1. Ler o parâmetro "id" da URL (detalhes.html?id=3)
 const params = new URLSearchParams(window.location.search);
@@ -197,34 +206,53 @@ if (!id) {
 } else {
   // 2. Buscar o registro específico no JSON Server
   fetch(`/api/cidades/${id}`)
-    .then(response => {
+    .then(response =&gt; {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
     })
-    .then(cidade => {
+    .then(cidade =&gt; {
       // 3. Preencher a página com os dados
       document.getElementById('nome').textContent  = cidade.cidade;
       document.getElementById('estado').textContent = cidade.estado;
       document.title = `Detalhes – ${cidade.cidade}`;
     })
-    .catch(err => {
+    .catch(err =&gt; {
       document.body.innerHTML = `&lt;p&gt;Erro: ${err.message}&lt;/p&gt;`;
     });
 }</code></pre>
       </div>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
       <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Adicione navegação entre cidades na página de detalhes: botões "Cidade anterior" e "Próxima cidade".</li>
         <li>Exiba na lista o número de cidades carregadas: <em>"5 cidades encontradas"</em>.</li>
         <li>Adicione um campo <code>curiosidade</code> ao JSON e exiba-o na página de detalhes.</li>
         <li>Implemente um mapa Mapbox na página de detalhes, posicionado nas coordenadas da cidade.</li>
-        <li>Adicione passagem de múltiplos parâmetros: <code>detalhes.html?id=1&origem=lista</code>.</li>
+        <li>Adicione passagem de múltiplos parâmetros: <code>detalhes.html?id=1&amp;origem=lista</code>.</li>
       </ol>
     </div>
-  </div>
+  </section>
 
+    <nav class="wt-container flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-sm" aria-label="Navegação entre exemplos">
+      <a href="contatos.html" class="wt-link ml-auto">Próximo: CRUD completo →</a>
+    </nav>
+
+    <section class="wt-cta wt-cta--art">
+      <div class="wt-container wt-cta__inner">
+        <div>
+          <p class="wt-eyebrow">Continue explorando</p>
+          <h2 class="mt-3">Veja outras aplicações completas.</h2>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="../exemplos.html" class="wt-btn wt-btn--dark">Todos os exemplos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a href="../recursos.html" class="wt-btn wt-btn--outline">Ver recursos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/detail.js"></script>
 </body>

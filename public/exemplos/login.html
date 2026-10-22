@@ -3,56 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login · Journey Intro Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../assets/js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <title>Sistema de Login · Journey Intro Web</title>
+  <meta name="description" content="Login e registro de usuários com JSON Server e sessão mantida no sessionStorage.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Journey Intro Web · WebTech Network">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Sistema de Login · Journey Intro Web">
+  <meta property="og:description" content="Login e registro de usuários com JSON Server e sessão mantida no sessionStorage.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sistema de Login · Journey Intro Web">
+  <meta name="twitter:description" content="Login e registro de usuários com JSON Server e sessão mantida no sessionStorage.">
+  <meta name="theme-color" content="#5430BF">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preload" href="../assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js" defer></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
 </head>
-<body class="bg-code text-code-text font-sans" data-base="/apps/login/">
+<body class="flex min-h-screen flex-col bg-white font-sans text-body antialiased" data-base="/apps/login/">
 
+  <a href="#conteudo" class="wt-skip">Pular para o conteúdo</a>
   <!-- NAVBAR -->
   <div id="site-header" data-root="../" data-variant="detail" data-title="Sistema de Login" data-open="/apps/login/login.html"></div>
 
-<!-- SPLIT VIEW -->
+<main id="conteudo" class="flex-1">
+  <!-- SPLIT VIEW -->
   <div class="detail-split" id="splitView">
 
     <div class="preview-pane">
       <div class="pane-header">
-        <span class="text-code-accent font-semibold">▶ Preview</span>
+        <span class="inline-flex items-center gap-2 font-semibold text-[#B084FF]"><i class="fa-solid fa-eye" aria-hidden="true"></i> Preview</span>
         <span class="text-muted">/apps/login/login.html</span>
-        <button class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
+        <button type="button" class="split-toggle-btn" onclick="toggleView('preview')">Tela cheia</button>
       </div>
       <iframe src="/apps/login/login.html" title="App Login"></iframe>
     </div>
 
     <div class="code-pane">
       <div class="pane-header">
-        <span class="text-code-accent font-semibold">{ } Código</span>
-        <button class="file-tab active" onclick="loadFile('scripts/login.js','javascript',this)">login.js</button>
-        <button class="file-tab" onclick="loadFile('login.html','markup',this)">login.html</button>
-        <button class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
-        <button class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
+        <span class="inline-flex items-center gap-2 font-semibold text-[#B084FF]"><i class="fa-solid fa-code" aria-hidden="true"></i> Código</span>
+        <button type="button" class="file-tab active" onclick="loadFile('scripts/login.js','javascript',this)">login.js</button>
+        <button type="button" class="file-tab" onclick="loadFile('login.html','markup',this)">login.html</button>
+        <button type="button" class="file-tab" onclick="loadFile('index.html','markup',this)">index.html</button>
+        <button type="button" class="split-toggle-btn" onclick="toggleView('code')">Tela cheia</button>
       </div>
       <div class="code-scroll">
-        <div id="codeLoading" class="p-6 text-faint text-sm italic">⏳ Carregando código…</div>
+        <div id="codeLoading" class="p-6 text-faint text-sm italic"><i class="fa-solid fa-spinner fa-spin mr-2" aria-hidden="true"></i> Carregando código…</div>
         <pre id="codeBlock" style="display:none"><code id="codeContent" class="language-javascript"></code></pre>
       </div>
     </div>
   </div>
 
   <!-- CONTEÚDO EDUCATIVO -->
-  <div class="bg-surface text-ink">
-    <div class="max-w-5xl mx-auto px-6 py-12">
+  <section class="wt-section border-t border-line">
+    <div class="wt-container max-w-5xl">
 
-      <div class="flex items-center gap-3 mb-6">
-        <span class="bg-mod-soft text-mod-ink text-xs font-bold px-3 py-1 rounded-full" style="--mod: var(--c-m08)">M08</span>
-        <h1 class="text-2xl font-black text-ink">Sistema de Login com sessionStorage</h1>
-      </div>
+      <div class="mb-6"><span class="wt-tag">M08</span><h1 class="wt-h2 mt-3">Sistema de Login com sessionStorage</h1></div>
       <p class="text-body text-base leading-relaxed mb-8">
         Implementa autenticação simples usando o JSON Server como repositório de usuários.
         Após o login, os dados da sessão são armazenados no <strong>sessionStorage</strong> —
@@ -61,7 +70,7 @@
       </p>
 
       <!-- FLUXO -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Fluxo de autenticação</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Fluxo de autenticação</h2>
       <div class="step-list mb-10">
         <div class="step-item">
           <strong>Usuário digita login e senha</strong>
@@ -93,7 +102,7 @@
       </div>
 
       <!-- CONCEITOS -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Conceitos trabalhados</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
         <div class="callout callout-info">
           <p class="callout-title">sessionStorage vs localStorage</p>
@@ -112,7 +121,7 @@
           </p>
         </div>
         <div class="callout callout-warning">
-          <p class="callout-title">⚠️ Atenção: segurança</p>
+          <p class="callout-title">Atenção: segurança</p>
           <p class="text-sm text-body">
             Esta implementação é <strong>educacional</strong>. Em produção, a senha nunca deve
             ser comparada no cliente — use autenticação no servidor com hash (bcrypt) e JWT.
@@ -128,7 +137,7 @@
       </div>
 
       <!-- DADOS JSON -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Dados do JSON Server</h2>
       <p class="text-sm text-muted mb-3">Endpoint: <code class="bg-line-soft px-2 py-0.5 rounded text-xs">GET /api/usuarios</code></p>
       <div class="code-block mb-10">
         <div class="code-header">
@@ -143,7 +152,7 @@
       </div>
 
       <!-- EXERCÍCIOS -->
-      <h2 class="text-lg font-bold text-ink mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
+      <h2 class="wt-h3 mb-4 border-b border-line pb-2">Exercícios sugeridos</h2>
       <ol class="list-decimal list-inside space-y-2 text-sm text-body">
         <li>Implemente controle de acesso por <strong>perfil</strong>: admin vê todos os usuários, aluno vê apenas o próprio.</li>
         <li>Adicione um campo <strong>último acesso</strong> e atualize-o via PATCH a cada login.</li>
@@ -152,8 +161,27 @@
         <li>Substitua <code>sessionStorage</code> por <code>localStorage</code> e observe a diferença de comportamento.</li>
       </ol>
     </div>
-  </div>
+  </section>
 
+    <nav class="wt-container flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-sm" aria-label="Navegação entre exemplos">
+      <a href="graficos.html" class="wt-link">← Anterior: Gráficos com Chart.js</a><a href="mapa.html" class="wt-link ml-auto">Próximo: Mapa com Mapbox →</a>
+    </nav>
+
+    <section class="wt-cta wt-cta--art">
+      <div class="wt-container wt-cta__inner">
+        <div>
+          <p class="wt-eyebrow">Continue explorando</p>
+          <h2 class="mt-3">Veja outras aplicações completas.</h2>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href="../exemplos.html" class="wt-btn wt-btn--dark">Todos os exemplos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a href="../recursos.html" class="wt-btn wt-btn--outline">Ver recursos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/detail.js"></script>
 </body>

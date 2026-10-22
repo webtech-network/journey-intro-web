@@ -24,7 +24,7 @@ async function loadFile(filename, lang, btn) {
     loading.style.display = 'none';
     block.style.display   = 'block';
   } catch (e) {
-    loading.textContent = `❌ Erro ao carregar ${filename}`;
+    loading.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-2" aria-hidden="true"></i> Erro ao carregar ${filename}`;
   }
 }
 

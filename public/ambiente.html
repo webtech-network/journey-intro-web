@@ -4,97 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Configuração do Ambiente · Journey Intro Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description" content="Guia completo para instalar, configurar e testar o JSON Server usado na disciplina.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Journey Intro Web · WebTech Network">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Configuração do Ambiente · Journey Intro Web">
+  <meta property="og:description" content="Guia completo para instalar, configurar e testar o JSON Server usado na disciplina.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Configuração do Ambiente · Journey Intro Web">
+  <meta name="twitter:description" content="Guia completo para instalar, configurar e testar o JSON Server usado na disciplina.">
+  <meta name="theme-color" content="#5430BF">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
 </head>
-<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
+<body class="flex min-h-screen flex-col bg-white font-sans text-body antialiased">
 
   <!-- NAVEGAÇÃO -->
 <div id="site-header"></div>
 
-<!-- HERO -->
-  <div class="wt-page-hero">
-    <div class="max-w-6xl mx-auto">
-      <div class="wt-breadcrumb mb-4">
-        <a href="index.html">Início</a>
-        <span class="mx-1.5">/</span>
-        <span class="text-ink">Configuração do Ambiente</span>
-      </div>
-      <div class="flex items-start gap-4">
-        <span class="wt-icon-circle text-xl">⚙️</span>
-        <div>
-          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-ink mb-2">Configuração do Ambiente</h1>
-          <p class="text-muted text-lg max-w-2xl">
-            Guia completo para instalar e executar o JSON Server — o backend da nossa disciplina.
-            Siga o passo a passo e tenha seu ambiente pronto em minutos.
-          </p>
+<main id="conteudo" class="flex-1">
+    <section class="wt-hero">
+      <div class="wt-container">
+        <nav class="wt-breadcrumb" aria-label="Trilha">
+          <a href="index.html">Início</a><span aria-hidden="true">/</span>
+          <span aria-current="page">Configuração do Ambiente</span>
+        </nav>
+        <div class="wt-hero__row">
+          <span class="wt-hero__icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></span>
+          <div>
+            <p class="wt-eyebrow">Ponto de partida</p>
+            <h1 class="wt-h1">Configuração do ambiente</h1>
+            <p class="wt-lead">Guia completo para instalar e executar o JSON Server — o backend da nossa disciplina. Siga o passo a passo e tenha seu ambiente pronto em minutos.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
   <!-- MENU LATERAL + CONTEÚDO -->
-  <div class="max-w-6xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-10">
-
-    <!-- Sumário (sidebar) -->
-    <aside class="lg:w-56 flex-shrink-0">
-      <div class="bg-surface rounded-xl border border-line p-4 sticky top-20">
-        <p class="text-xs font-bold text-faint uppercase tracking-wider mb-3">Neste guia</p>
-        <nav class="space-y-1 text-sm">
-          <a href="#o-que-e"         class="block py-1 text-body hover:text-success">O que é o JSON Server?</a>
-          <a href="#arquitetura"      class="block py-1 text-body hover:text-success">Arquitetura do Ambiente</a>
-          <a href="#prerequisitos"    class="block py-1 text-body hover:text-success">Pré-requisitos</a>
-          <a href="#instalacao"       class="block py-1 text-body hover:text-success">Instalação</a>
-          <a href="#db-json"          class="block py-1 text-body hover:text-success">Criando o db.json</a>
-          <a href="#executando"       class="block py-1 text-body hover:text-success">Executando o servidor</a>
-          <a href="#endpoints"        class="block py-1 text-body hover:text-success">Endpoints disponíveis</a>
-          <a href="#testando"         class="block py-1 text-body hover:text-success">Testando a API</a>
-          <a href="#fetch"            class="block py-1 text-body hover:text-success">Usando com Fetch</a>
-          <a href="#projeto"          class="block py-1 text-body hover:text-success">Config. deste projeto</a>
-          <a href="#erros-comuns"     class="block py-1 text-body hover:text-success">Erros Comuns</a>
-          <a href="#checklist"        class="block py-1 text-success-ink font-semibold hover:text-success">✓ Checklist Final</a>
+  <div class="wt-container flex flex-col gap-10 py-12 lg:flex-row lg:items-start">
+    <aside class="lg:w-60 lg:shrink-0">
+      <div class="sticky top-28 rounded-2xl border border-line bg-white p-5">
+        <p class="wt-meta mb-3">Neste guia</p>
+        <nav class="wt-toc" aria-label="Sumário do guia" data-toc>
+          <a href="#o-que-e">O que é o JSON Server?</a>
+          <a href="#arquitetura">Arquitetura do ambiente</a>
+          <a href="#prerequisitos">Pré-requisitos</a>
+          <a href="#instalacao">Instalação</a>
+          <a href="#db-json">Criando o db.json</a>
+          <a href="#executando">Executando o servidor</a>
+          <a href="#endpoints">Endpoints disponíveis</a>
+          <a href="#testando">Testando a API</a>
+          <a href="#fetch">Usando com Fetch</a>
+          <a href="#projeto">Configuração do projeto</a>
+          <a href="#erros-comuns">Erros comuns</a>
+          <a href="#checklist">Checklist final</a>
         </nav>
       </div>
     </aside>
 
-    <!-- Conteúdo principal -->
-    <main class="flex-1 min-w-0 space-y-12">
+    <div class="min-w-0 flex-1 space-y-14">
 
       <!-- O QUE É O JSON SERVER? -->
       <section id="o-que-e">
-        <h2 class="text-2xl font-bold text-ink mb-4">O que é o JSON Server?</h2>
+        <h2 class="wt-h2 mb-5">O que é o JSON Server?</h2>
         <p class="text-body leading-relaxed mb-4">
           O <strong>JSON Server</strong> é uma ferramenta Node.js que cria automaticamente uma API REST completa
           a partir de um simples arquivo <code class="bg-line-soft px-1 rounded text-sm">db.json</code>.
           Em menos de 5 minutos você tem um backend funcional, sem precisar programar uma linha de código no servidor.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div class="bg-success-soft border border-success-border rounded-xl p-4 text-center">
-            <p class="text-3xl mb-2">🚀</p>
-            <p class="font-bold text-sm text-success-ink">Zero configuração</p>
-            <p class="text-xs text-success mt-1">Crie um arquivo JSON e o servidor está pronto</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl border border-line bg-white p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+            <p class="mt-4 font-bold text-ink">Zero configuração</p>
+            <p class="mt-1 text-sm text-muted">Crie um arquivo JSON e o servidor está pronto.</p>
           </div>
-          <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center">
-            <p class="text-3xl mb-2">🔄</p>
-            <p class="font-bold text-sm text-blue-800">API REST completa</p>
-            <p class="text-xs text-blue-600 mt-1">GET, POST, PUT, PATCH e DELETE automáticos</p>
+          <div class="rounded-2xl border border-line bg-white p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+            <p class="mt-4 font-bold text-ink">API REST completa</p>
+            <p class="mt-1 text-sm text-muted">GET, POST, PUT, PATCH e DELETE automáticos.</p>
           </div>
-          <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-center">
-            <p class="text-3xl mb-2">💾</p>
-            <p class="font-bold text-sm text-purple-800">Persistência real</p>
-            <p class="text-xs text-brand mt-1">Dados são salvos no arquivo db.json</p>
+          <div class="rounded-2xl border border-line bg-white p-5">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
+            <p class="mt-4 font-bold text-ink">Persistência real</p>
+            <p class="mt-1 text-sm text-muted">Os dados são salvos no arquivo db.json.</p>
           </div>
         </div>
 
         <div class="callout callout-info">
-          <p class="callout-title">💡 Para que usamos?</p>
-          <p class="text-sm text-brand-ink">
+          <p class="callout-title">Para que usamos?</p>
+          <p class="text-sm text-body">
             Na disciplina, o JSON Server substitui um backend real (Node.js, Python, PHP etc.)
             para que possamos focar no aprendizado do frontend. Todas as operações de banco de dados
             (leitura, inserção, edição, exclusão) são feitas via requisições HTTP ao JSON Server.
@@ -104,14 +109,13 @@
 
       <!-- ARQUITETURA -->
       <section id="arquitetura">
-        <h2 class="text-2xl font-bold text-ink mb-4">Arquitetura do Ambiente</h2>
+        <h2 class="wt-h2 mb-5">Arquitetura do Ambiente</h2>
         <p class="text-body leading-relaxed mb-6">
           Nosso ambiente tem uma arquitetura simples de duas camadas:
         </p>
 
         <!-- Diagrama texto -->
-        <div class="bg-ink text-green-400 rounded-xl p-6 font-mono text-sm mb-6 overflow-x-auto">
-          <pre>
+        <div class="wt-code mt-0"><div class="wt-code__bar"><span class="wt-code__lang">arquitetura</span></div><pre class="!p-6">
 ┌─────────────────────────────────────────────────────────┐
 │                     NAVEGADOR (Cliente)                   │
 │                                                          │
@@ -145,35 +149,35 @@
 
         <img src="assets/images/arquitetura_ambiente.png"
              alt="Diagrama de Arquitetura do Ambiente JSON Server"
-             class="w-full rounded-xl border border-line shadow-sm"
+             class="mt-6 w-full rounded-xl border border-line"
              onerror="this.style.display='none'">
       </section>
 
       <!-- PRÉ-REQUISITOS -->
       <section id="prerequisitos">
-        <h2 class="text-2xl font-bold text-ink mb-4">Pré-requisitos</h2>
+        <h2 class="wt-h2 mb-5">Pré-requisitos</h2>
         <p class="text-body mb-6">Antes de instalar o JSON Server, você precisa ter estes programas instalados:</p>
 
         <div class="space-y-4">
           <!-- Node.js -->
           <div class="bg-surface border border-line rounded-xl p-5 flex items-start gap-4">
-            <span class="text-3xl">🟢</span>
-            <div class="flex-1">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-brands fa-node-js" aria-hidden="true"></i></span>
+            <div class="min-w-0 flex-1">
               <h3 class="font-bold text-ink">Node.js (versão 16 ou superior)</h3>
               <p class="text-sm text-muted mt-1 mb-3">
                 O Node.js é a plataforma que executa o JSON Server. O npm (gerenciador de pacotes)
                 já vem incluso na instalação.
               </p>
               <a href="https://nodejs.org" target="_blank"
-                 class="inline-flex items-center gap-2 text-sm bg-success-soft border border-success-border text-success-ink px-4 py-2 rounded-lg hover:bg-success-border transition-colors font-semibold">
-                ↓ Baixar Node.js (nodejs.org)
+                 class="wt-link inline-flex items-center gap-2 text-sm">
+                Baixar Node.js <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
               </a>
               <div class="mt-3">
                 <p class="text-xs text-faint mb-1">Verifique a instalação:</p>
                 <div class="code-block">
                   <div class="code-header">
                     <span class="lang-badge">bash</span>
-                    <button class="btn-copy">⎘ Copiar</button>
+                    <button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button>
                   </div>
                   <pre><code class="language-bash">node --version   # deve mostrar v16 ou superior
 npm --version    # deve mostrar a versão do npm</code></pre>
@@ -184,24 +188,24 @@ npm --version    # deve mostrar a versão do npm</code></pre>
 
           <!-- VS Code -->
           <div class="bg-surface border border-line rounded-xl p-5 flex items-start gap-4">
-            <span class="text-3xl">💙</span>
-            <div class="flex-1">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+            <div class="min-w-0 flex-1">
               <h3 class="font-bold text-ink">Visual Studio Code (recomendado)</h3>
               <p class="text-sm text-muted mt-1 mb-3">
                 Editor de código gratuito e poderoso. Instale as extensões
                 <strong>Live Server</strong> e <strong>Prettier</strong> para melhorar sua experiência.
               </p>
               <a href="https://code.visualstudio.com" target="_blank"
-                 class="inline-flex items-center gap-2 text-sm bg-blue-50 border border-blue-200 text-blue-700 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors font-semibold">
-                ↓ Baixar VS Code (code.visualstudio.com)
+                 class="wt-link inline-flex items-center gap-2 text-sm">
+                Baixar VS Code <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
               </a>
             </div>
           </div>
 
           <!-- Git (opcional) -->
           <div class="bg-surface border border-line rounded-xl p-5 flex items-start gap-4">
-            <span class="text-3xl">🔀</span>
-            <div class="flex-1">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-brands fa-git-alt" aria-hidden="true"></i></span>
+            <div class="min-w-0 flex-1">
               <h3 class="font-bold text-ink">Git <span class="text-faint font-normal text-sm">(recomendado)</span></h3>
               <p class="text-sm text-muted mt-1">
                 Necessário para clonar este repositório e versionar seu projeto.
@@ -213,19 +217,19 @@ npm --version    # deve mostrar a versão do npm</code></pre>
 
       <!-- INSTALAÇÃO -->
       <section id="instalacao">
-        <h2 class="text-2xl font-bold text-ink mb-4">Instalação</h2>
+        <h2 class="wt-h2 mb-5">Instalação</h2>
         <p class="text-body mb-6">
           Existem duas formas de usar o JSON Server: global (disponível em qualquer projeto)
           ou local (apenas no projeto atual). Recomendamos a instalação local via este repositório.
         </p>
 
-        <div data-tabs class="bg-surface border border-line rounded-xl overflow-hidden">
-          <div class="flex border-b border-line">
-            <button data-tab-btn="opcao1" class="px-5 py-3 text-sm font-semibold">
-              📦 Opção 1: Clonar este Repositório
+        <div data-tabs class="overflow-hidden rounded-2xl border border-line bg-white">
+          <div class="flex overflow-x-auto border-b border-line">
+            <button type="button" data-tab-btn="opcao1" class="px-5 py-3 text-sm font-semibold">
+              Opção 1: Clonar este repositório
             </button>
-            <button data-tab-btn="opcao2" class="px-5 py-3 text-sm font-semibold">
-              🌐 Opção 2: Instalar Globalmente
+            <button type="button" data-tab-btn="opcao2" class="px-5 py-3 text-sm font-semibold">
+              Opção 2: Instalar globalmente
             </button>
           </div>
 
@@ -238,7 +242,7 @@ npm --version    # deve mostrar a versão do npm</code></pre>
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Clone o repositório</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                   <pre><code class="language-bash">git clone https://github.com/SEU-USUARIO/lab-jsonserver.git
 cd lab-jsonserver</code></pre>
                 </div>
@@ -246,14 +250,14 @@ cd lab-jsonserver</code></pre>
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Instale as dependências</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                   <pre><code class="language-bash">npm install</code></pre>
                 </div>
               </div>
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Inicie o servidor</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                   <pre><code class="language-bash">npm start
 # Saída esperada:
 # JSON Server is running em http://localhost:3000</code></pre>
@@ -271,14 +275,14 @@ cd lab-jsonserver</code></pre>
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Instale globalmente</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                   <pre><code class="language-bash">npm install -g json-server@0.17.4</code></pre>
                 </div>
               </div>
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Crie a pasta do projeto e o db.json</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                   <pre><code class="language-bash">mkdir meu-projeto
 cd meu-projeto
 # Crie o arquivo db.json (veja a próxima seção)</code></pre>
@@ -287,8 +291,8 @@ cd meu-projeto
               <div class="step-item">
                 <h4 class="font-bold text-ink mb-2">Execute o servidor</h4>
                 <div class="code-block">
-                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
-                  <pre><code class="language-bash">json-server --watch db.json --port 3000 --static ./public</code></pre>
+                  <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
+                  <pre><code class="language-bash">json-server --watch db.json --port 3000 --static./public</code></pre>
                 </div>
               </div>
             </div>
@@ -299,7 +303,7 @@ cd meu-projeto
 
       <!-- DB.JSON -->
       <section id="db-json">
-        <h2 class="text-2xl font-bold text-ink mb-4">Criando o banco de dados (db.json)</h2>
+        <h2 class="wt-h2 mb-5">Criando o banco de dados (db.json)</h2>
         <p class="text-body leading-relaxed mb-4">
           O arquivo <code class="bg-line-soft px-1 rounded text-sm font-mono">db.json</code> é o banco de dados do JSON Server.
           Cada chave de nível superior vira uma <strong>coleção</strong> (equivalente a uma tabela no banco relacional),
@@ -307,7 +311,7 @@ cd meu-projeto
         </p>
 
         <div class="callout callout-tip">
-          <p class="callout-title">✅ Regra de ouro</p>
+          <p class="callout-title">Regra de ouro</p>
           <p class="text-sm">
             Todo registro precisa ter um campo <code class="bg-success-border px-1 rounded">id</code> único.
             Se você omitir o <code class="bg-success-border px-1 rounded">id</code> ao criar (POST), o JSON Server gera um automaticamente.
@@ -318,7 +322,7 @@ cd meu-projeto
           <div class="code-header">
             <span class="lang-badge">json</span>
             <span class="text-muted text-xs">server/db/db.json</span>
-            <button class="btn-copy">⎘ Copiar</button>
+            <button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button>
           </div>
           <pre><code class="language-json">{
   "contatos": [
@@ -353,7 +357,7 @@ cd meu-projeto
         </div>
 
         <div class="callout callout-warning mt-4">
-          <p class="callout-title">⚠️ Atenção com senhas</p>
+          <p class="callout-title">Atenção com senhas</p>
           <p class="text-sm">
             Armazenar senhas em texto puro no db.json é aceitável apenas para fins de aprendizado.
             Em projetos reais, sempre use hashing (bcrypt, argon2 etc.) e nunca exponha o db.json publicamente.
@@ -363,36 +367,36 @@ cd meu-projeto
 
       <!-- EXECUTANDO -->
       <section id="executando">
-        <h2 class="text-2xl font-bold text-ink mb-4">Executando o Servidor</h2>
+        <h2 class="wt-h2 mb-5">Executando o Servidor</h2>
         <p class="text-body mb-4">
           Com as dependências instaladas, inicie o servidor com:
         </p>
 
         <div class="code-block">
-          <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+          <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
           <pre><code class="language-bash">npm start</code></pre>
         </div>
 
         <p class="text-sm text-muted mt-3 mb-4">Você verá algo assim no terminal:</p>
 
-        <div class="bg-ink text-green-400 rounded-xl p-5 font-mono text-sm">
-          <p class="text-faint"># Saída do terminal</p>
+        <div class="wt-code mt-0"><div class="wt-code__bar"><span class="wt-code__lang">terminal</span></div><div class="p-5 font-mono text-sm text-[#EDEAF4]">
+          <p class="text-[#8A8794]"># Saída do terminal</p>
           <p>JSON Server is running em http://localhost:3000</p>
           <br>
-          <p class="text-faint">Resources</p>
+          <p class="text-[#8A8794]">Resources</p>
           <p>http://localhost:3000/api/contatos</p>
           <p>http://localhost:3000/api/usuarios</p>
           <p>http://localhost:3000/api/locais</p>
           <p>http://localhost:3000/api/lancamentos</p>
           <p>http://localhost:3000/api/cidades</p>
           <br>
-          <p class="text-faint">Home</p>
+          <p class="text-[#8A8794]">Home</p>
           <p>http://localhost:3000</p>
-        </div>
+        </div></div>
 
         <div class="callout callout-info mt-6">
-          <p class="callout-title">💡 Como o servidor está configurado neste projeto</p>
-          <p class="text-sm text-brand-ink">
+          <p class="callout-title">Como o servidor está configurado neste projeto</p>
+          <p class="text-sm text-body">
             Este projeto usa o <code class="bg-brand-soft px-1 rounded">json-server</code> via CLI para
             servir os arquivos estáticos (pasta <code class="bg-brand-soft px-1 rounded">public/</code>) a partir da raiz
             e a API na rota <code class="bg-brand-soft px-1 rounded">/api</code>. Veja a configuração
@@ -403,7 +407,7 @@ cd meu-projeto
 
       <!-- ENDPOINTS -->
       <section id="endpoints">
-        <h2 class="text-2xl font-bold text-ink mb-4">Endpoints Disponíveis</h2>
+        <h2 class="wt-h2 mb-5">Endpoints Disponíveis</h2>
         <p class="text-body mb-6">
           Para cada coleção no <code class="bg-line-soft px-1 rounded text-sm">db.json</code>, o JSON Server
           gera automaticamente os seguintes endpoints (substituindo <code class="bg-line-soft px-1 rounded text-sm">:recurso</code>
@@ -419,7 +423,7 @@ cd meu-projeto
                 <th class="px-4 py-3 text-left font-semibold text-xs tracking-wider">Descrição</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-100">
+            <tbody class="divide-y divide-line">
               <tr class="hover:bg-surface-alt">
                 <td class="px-4 py-3"><span class="method-badge method-get">GET</span></td>
                 <td class="px-4 py-3 font-mono text-xs">/api/:recurso</td>
@@ -437,7 +441,7 @@ cd meu-projeto
               </tr>
               <tr class="hover:bg-surface-alt">
                 <td class="px-4 py-3"><span class="method-badge method-get">GET</span></td>
-                <td class="px-4 py-3 font-mono text-xs">/api/:recurso?_page=1&_limit=10</td>
+                <td class="px-4 py-3 font-mono text-xs">/api/:recurso?_page=1&amp;_limit=10</td>
                 <td class="px-4 py-3 text-body">Paginação dos resultados</td>
               </tr>
               <tr class="hover:bg-surface-alt">
@@ -472,7 +476,7 @@ cd meu-projeto
 
       <!-- TESTANDO A API -->
       <section id="testando">
-        <h2 class="text-2xl font-bold text-ink mb-4">Testando a API</h2>
+        <h2 class="wt-h2 mb-5">Testando a API</h2>
         <p class="text-body mb-6">
           Com o servidor rodando, você pode testar diretamente no navegador ou usar ferramentas dedicadas:
         </p>
@@ -480,19 +484,19 @@ cd meu-projeto
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Navegador -->
           <div class="bg-surface border border-line rounded-xl p-5">
-            <h3 class="font-bold text-ink mb-3">🌐 Via Navegador (apenas GET)</h3>
+            <h3 class="font-bold text-ink mb-3">Via navegador (apenas GET)</h3>
             <p class="text-sm text-muted mb-3">Abra no browser e veja o JSON retornado:</p>
             <div class="space-y-2 font-mono text-xs">
               <a href="http://localhost:3000/api/contatos" target="_blank"
-                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-blue-600 hover:bg-line-soft truncate">
+                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-brand-ink hover:bg-surface-alt truncate">
                 localhost:3000/api/contatos
               </a>
               <a href="http://localhost:3000/api/contatos/1" target="_blank"
-                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-blue-600 hover:bg-line-soft truncate">
+                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-brand-ink hover:bg-surface-alt truncate">
                 localhost:3000/api/contatos/1
               </a>
               <a href="http://localhost:3000/api/contatos?categoria=amigos" target="_blank"
-                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-blue-600 hover:bg-line-soft truncate">
+                 class="block bg-surface-alt border border-line rounded-lg px-3 py-2 text-brand-ink hover:bg-surface-alt truncate">
                 localhost:3000/api/contatos?categoria=amigos
               </a>
             </div>
@@ -500,19 +504,19 @@ cd meu-projeto
 
           <!-- Console -->
           <div class="bg-surface border border-line rounded-xl p-5">
-            <h3 class="font-bold text-ink mb-3">🔧 Via Console do Navegador (F12)</h3>
+            <h3 class="font-bold text-ink mb-3">Via console do navegador (F12)</h3>
             <p class="text-sm text-muted mb-3">Abra o DevTools (F12) → Console e teste:</p>
             <div class="code-block">
-              <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">js</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">fetch('http://localhost:3000/api/contatos')
-  .then(r => r.json())
-  .then(dados => console.table(dados));</code></pre>
+  .then(r =&gt; r.json())
+  .then(dados =&gt; console.table(dados));</code></pre>
             </div>
           </div>
         </div>
 
         <div class="callout callout-tip mt-6">
-          <p class="callout-title">🛠️ Ferramentas recomendadas para testes</p>
+          <p class="callout-title">Ferramentas recomendadas para testes</p>
           <p class="text-sm">
             <strong>Insomnia</strong> (gratuito, <a href="https://insomnia.rest" target="_blank" class="underline">insomnia.rest</a>)
             ou <strong>Postman</strong> (<a href="https://postman.com" target="_blank" class="underline">postman.com</a>)
@@ -524,7 +528,7 @@ cd meu-projeto
 
       <!-- FETCH API -->
       <section id="fetch">
-        <h2 class="text-2xl font-bold text-ink mb-4">Usando com a Fetch API</h2>
+        <h2 class="wt-h2 mb-5">Usando com a Fetch API</h2>
         <p class="text-body mb-6">
           A <strong>Fetch API</strong> é a forma moderna de fazer requisições HTTP no navegador.
           Veja os exemplos completos para cada operação CRUD:
@@ -532,16 +536,16 @@ cd meu-projeto
 
         <div data-tabs class="border border-line rounded-xl overflow-hidden">
           <div class="flex bg-surface-alt border-b border-line overflow-x-auto">
-            <button data-tab-btn="get-all"    class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">GET (listar)</button>
-            <button data-tab-btn="get-one"    class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">GET (buscar)</button>
-            <button data-tab-btn="post"       class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">POST (criar)</button>
-            <button data-tab-btn="put"        class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">PUT (editar)</button>
-            <button data-tab-btn="delete-op"  class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">DELETE</button>
+            <button type="button" data-tab-btn="get-all"    class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">GET (listar)</button>
+            <button type="button" data-tab-btn="get-one"    class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">GET (buscar)</button>
+            <button type="button" data-tab-btn="post"       class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">POST (criar)</button>
+            <button type="button" data-tab-btn="put"        class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">PUT (editar)</button>
+            <button type="button" data-tab-btn="delete-op"  class="px-4 py-2.5 text-xs font-bold border-b-2 border-transparent text-muted whitespace-nowrap">DELETE</button>
           </div>
 
           <div data-tab-panel="get-all" class="hidden">
             <div class="code-block" style="border:none;border-radius:0">
-              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">// GET - Listar todos os contatos
 async function listarContatos() {
   try {
@@ -578,7 +582,7 @@ async function pesquisar(termo) {
 
           <div data-tab-panel="get-one" class="hidden">
             <div class="code-block" style="border:none;border-radius:0">
-              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">// GET - Buscar um contato específico pelo ID
 async function buscarContato(id) {
   const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`);
@@ -599,7 +603,7 @@ console.log(contato); // { id: 1, nome: "Bernardo", ... }</code></pre>
 
           <div data-tab-panel="post" class="hidden">
             <div class="code-block" style="border:none;border-radius:0">
-              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">// POST - Criar um novo contato
 async function criarContato(novoContato) {
   const resposta = await fetch('http://localhost:3000/api/contatos', {
@@ -629,7 +633,7 @@ await criarContato({
 
           <div data-tab-panel="put" class="hidden">
             <div class="code-block" style="border:none;border-radius:0">
-              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">// PUT - Substituir completamente um contato
 async function atualizarContato(id, dadosAtualizados) {
   const resposta = await fetch(`http://localhost:3000/api/contatos/${id}`, {
@@ -657,7 +661,7 @@ await atualizarCampos(1, { telefone: '31-7777-6666' });</code></pre>
 
           <div data-tab-panel="delete-op" class="hidden">
             <div class="code-block" style="border:none;border-radius:0">
-              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+              <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
               <pre><code class="language-javascript">// DELETE - Remover um contato
 async function deletarContato(id) {
   const confirmacao = confirm(`Deseja realmente excluir o contato ${id}?`);
@@ -675,8 +679,8 @@ async function deletarContato(id) {
 }
 
 // Exemplo: deletar ao clicar em um botão
-document.querySelectorAll('.btn-deletar').forEach(btn => {
-  btn.addEventListener('click', () => {
+document.querySelectorAll('.btn-deletar').forEach(btn =&gt; {
+  btn.addEventListener('click', () =&gt; {
     deletarContato(btn.dataset.id);
   });
 });</code></pre>
@@ -687,7 +691,7 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
 
       <!-- CONFIG. DESTE PROJETO -->
       <section id="projeto">
-        <h2 class="text-2xl font-bold text-ink mb-4">Configuração deste Projeto</h2>
+        <h2 class="wt-h2 mb-5">Configuração deste Projeto</h2>
         <p class="text-body mb-4">
           Este repositório roda o JSON Server pelo CLI. O script <code class="bg-line-soft px-1 rounded text-sm font-mono">start</code>
           do <code class="bg-line-soft px-1 rounded text-sm font-mono">package.json</code> e os arquivos em
@@ -704,17 +708,17 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
           <div class="code-header">
             <span class="lang-badge">json</span>
             <span class="text-muted text-xs">package.json</span>
-            <button class="btn-copy">⎘ Copiar</button>
+            <button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button>
           </div>
           <pre><code class="language-json">"scripts": {
   "prestart": "node server/db/seed.js",
-  "start": "json-server --watch ./server/db/db.json --static ./public \
-    --port 3000 --routes ./server/api/routes.json"
+  "start": "json-server --watch./server/db/db.json --static./public \
+    --port 3000 --routes./server/api/routes.json"
 }</code></pre>
         </div>
 
         <div class="callout callout-warning mt-4">
-          <p class="callout-title">⚠️ Atenção: rota /api</p>
+          <p class="callout-title">Atenção: rota /api</p>
           <p class="text-sm">
             Diferente da instalação padrão (onde seria <code>/contatos</code>), neste projeto
             todos os endpoints têm o prefixo <code>/api</code>. Use sempre
@@ -725,19 +729,19 @@ document.querySelectorAll('.btn-deletar').forEach(btn => {
 
       <!-- ERROS COMUNS -->
       <section id="erros-comuns">
-        <h2 class="text-2xl font-bold text-ink mb-4">Erros Comuns e Soluções</h2>
+        <h2 class="wt-h2 mb-5">Erros comuns e soluções</h2>
 
-        <div data-accordion class="space-y-3">
+        <div data-accordion class="border-t border-line">
           <!-- Erro 1 -->
-          <div class="accordion-item border border-line rounded-xl overflow-hidden">
-            <div class="accordion-header bg-surface px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-ink text-sm">❌ "EADDRINUSE: address already in use :::3000"</span>
-              <span class="accordion-icon text-faint text-lg">▼</span>
+          <div class="accordion-item border-b border-line last:border-b-0">
+            <div class="accordion-header">
+              <span class="font-semibold text-ink text-sm">"EADDRINUSE: address already in use :::3000"</span>
+              <span class="accordion-icon text-lg text-brand">+</span>
             </div>
-            <div class="accordion-content bg-surface-alt px-5 py-4 border-t border-line">
+            <div class="accordion-content pb-5">
               <p class="text-sm text-body mb-3">A porta 3000 já está sendo usada por outro processo.</p>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-bash"># Windows: descobrir qual processo usa a porta
 netstat -ano | findstr :3000
 taskkill /PID &lt;numero&gt; /F
@@ -753,27 +757,27 @@ kill -9 &lt;PID&gt;
           </div>
 
           <!-- Erro 2 -->
-          <div class="accordion-item border border-line rounded-xl overflow-hidden">
-            <div class="accordion-header bg-surface px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-ink text-sm">❌ "Cannot find module 'json-server'"</span>
-              <span class="accordion-icon text-faint text-lg">▼</span>
+          <div class="accordion-item border-b border-line last:border-b-0">
+            <div class="accordion-header">
+              <span class="font-semibold text-ink text-sm">"Cannot find module 'json-server'"</span>
+              <span class="accordion-icon text-lg text-brand">+</span>
             </div>
-            <div class="accordion-content bg-surface-alt px-5 py-4 border-t border-line">
+            <div class="accordion-content pb-5">
               <p class="text-sm text-body mb-3">As dependências não foram instaladas. Execute:</p>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">bash</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-bash">npm install</code></pre>
               </div>
             </div>
           </div>
 
           <!-- Erro 3 -->
-          <div class="accordion-item border border-line rounded-xl overflow-hidden">
-            <div class="accordion-header bg-surface px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-ink text-sm">❌ Erro de CORS ao fazer fetch no browser</span>
-              <span class="accordion-icon text-faint text-lg">▼</span>
+          <div class="accordion-item border-b border-line last:border-b-0">
+            <div class="accordion-header">
+              <span class="font-semibold text-ink text-sm">Erro de CORS ao fazer fetch no browser</span>
+              <span class="accordion-icon text-lg text-brand">+</span>
             </div>
-            <div class="accordion-content bg-surface-alt px-5 py-4 border-t border-line">
+            <div class="accordion-content pb-5">
               <p class="text-sm text-body mb-3">
                 O navegador bloqueia requisições de uma origem para outra por segurança.
                 O json-server já libera CORS por padrão.
@@ -785,12 +789,12 @@ kill -9 &lt;PID&gt;
           </div>
 
           <!-- Erro 4 -->
-          <div class="accordion-item border border-line rounded-xl overflow-hidden">
-            <div class="accordion-header bg-surface px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-ink text-sm">❌ Alterações no db.json não aparecem</span>
-              <span class="accordion-icon text-faint text-lg">▼</span>
+          <div class="accordion-item border-b border-line last:border-b-0">
+            <div class="accordion-header">
+              <span class="font-semibold text-ink text-sm">Alterações no db.json não aparecem</span>
+              <span class="accordion-icon text-lg text-brand">+</span>
             </div>
-            <div class="accordion-content bg-surface-alt px-5 py-4 border-t border-line">
+            <div class="accordion-content pb-5">
               <p class="text-sm text-body">
                 Se editou o db.json enquanto o servidor estava rodando, reinicie o servidor
                 (<kbd class="bg-line px-1 rounded text-xs">Ctrl+C</kbd> e <code class="bg-line-soft px-1 rounded text-xs">npm start</code>)
@@ -800,12 +804,12 @@ kill -9 &lt;PID&gt;
           </div>
 
           <!-- Erro 5 -->
-          <div class="accordion-item border border-line rounded-xl overflow-hidden">
-            <div class="accordion-header bg-surface px-5 py-4 flex items-center justify-between">
-              <span class="font-semibold text-ink text-sm">❌ POST retorna 404 ou dados não são salvos</span>
-              <span class="accordion-icon text-faint text-lg">▼</span>
+          <div class="accordion-item border-b border-line last:border-b-0">
+            <div class="accordion-header">
+              <span class="font-semibold text-ink text-sm">POST retorna 404 ou dados não são salvos</span>
+              <span class="accordion-icon text-lg text-brand">+</span>
             </div>
-            <div class="accordion-content bg-surface-alt px-5 py-4 border-t border-line">
+            <div class="accordion-content pb-5">
               <p class="text-sm text-body mb-3">Verifique:</p>
               <ul class="text-sm text-body list-disc list-inside space-y-1">
                 <li>O header <code class="bg-line-soft px-1 rounded">'Content-Type': 'application/json'</code> está presente</li>
@@ -820,99 +824,101 @@ kill -9 &lt;PID&gt;
 
       <!-- CHECKLIST FINAL -->
       <section id="checklist">
-        <h2 class="text-2xl font-bold text-ink mb-4">✅ Checklist: Ambiente Configurado</h2>
-        <p class="text-body mb-4">Marque cada item conforme for concluindo. Seu progresso é salvo automaticamente!</p>
+        <h2 class="wt-h2 mb-5">Checklist: ambiente configurado</h2>
+        <p class="mb-6 text-body">Marque cada item conforme for concluindo. Seu progresso é salvo automaticamente.</p>
 
         <!-- Barra de progresso -->
         <div class="mb-6">
           <div class="flex justify-between text-sm text-muted mb-2">
             <span>Progresso</span>
-            <span data-progress-label="ambiente">0 / 8 concluídos</span>
+            <span data-progress-label="ambiente" class="font-mono text-xs font-bold">0 / 8</span>
           </div>
-          <div class="bg-line rounded-full h-3">
-            <div data-progress-bar="ambiente" class="bg-success h-3 rounded-full transition-all duration-500" style="width:0%"></div>
+          <div class="h-2 rounded-full bg-line">
+            <div data-progress-bar="ambiente" class="h-2 rounded-full bg-brand transition-all duration-500" style="width:0%"></div>
           </div>
         </div>
 
         <div data-checklist="ambiente" data-complete="#checklist-complete" class="space-y-3">
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="nodejs" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">Node.js instalado</p>
-              <p class="text-xs text-faint"><code>node --version</code> retorna v16 ou superior</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="nodejs">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">Node.js instalado</span>
+              <span class="block text-xs text-faint"><code>node --version</code> retorna v16 ou superior</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="vscode" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">VS Code instalado com extensão Live Server</p>
-              <p class="text-xs text-faint">Editor pronto para desenvolvimento web</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="vscode">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">VS Code instalado com extensão Live Server</span>
+              <span class="block text-xs text-faint">Editor pronto para desenvolvimento web</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="clone" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">Repositório clonado</p>
-              <p class="text-xs text-faint">Código do projeto em pasta local</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="clone">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">Repositório clonado</span>
+              <span class="block text-xs text-faint">Código do projeto em pasta local</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="npm-install" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">npm install executado</p>
-              <p class="text-xs text-faint">Pasta node_modules criada</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="npm-install">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">npm install executado</span>
+              <span class="block text-xs text-faint">Pasta node_modules criada</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="npm-start" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">npm start funcionando</p>
-              <p class="text-xs text-faint">Terminal mostra "JSON Server is running"</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="npm-start">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">npm start funcionando</span>
+              <span class="block text-xs text-faint">Terminal mostra "JSON Server is running"</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="browser-api" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">API testada no navegador</p>
-              <p class="text-xs text-faint">localhost:3000/api/contatos retorna JSON</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="browser-api">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">API testada no navegador</span>
+              <span class="block text-xs text-faint">localhost:3000/api/contatos retorna JSON</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="fetch-test" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">Fetch testado no console</p>
-              <p class="text-xs text-faint">fetch(...).then(r=>r.json()).then(console.log) funcionou</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="fetch-test">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">Fetch testado no console</span>
+              <span class="block text-xs text-faint">fetch(...).then(r=>r.json()).then(console.log) funcionou</span>
+            </span>
           </label>
-          <label class="flex items-center gap-3 bg-surface border border-line rounded-xl p-4 cursor-pointer hover:border-success-border transition-colors">
-            <input type="checkbox" data-id="app-contatos" class="w-5 h-5 text-success rounded">
-            <div>
-              <p class="font-semibold text-sm text-ink">App de Contatos funcionando</p>
-              <p class="text-xs text-faint">localhost:3000/apps/contatos/ exibe lista de contatos</p>
-            </div>
+          <label class="wt-check-row">
+            <input type="checkbox" class="wt-check" data-id="app-contatos">
+            <span class="block">
+              <span class="block font-semibold text-sm text-ink">App de Contatos funcionando</span>
+              <span class="block text-xs text-faint">localhost:3000/apps/contatos/ exibe lista de contatos</span>
+            </span>
           </label>
         </div>
 
-        <div class="mt-6 p-4 bg-success-soft border border-success-border rounded-xl text-center" id="checklist-complete" style="display:none">
-          <p class="text-2xl mb-2">🎉</p>
-          <p class="font-bold text-success-ink">Parabéns! Ambiente configurado com sucesso!</p>
+        <div class="mt-6 rounded-2xl border border-success-border bg-success-soft p-6 text-center" id="checklist-complete" style="display:none">
+          <i class="fa-solid fa-circle-check mb-3 text-3xl text-success-ink" aria-hidden="true"></i>
+          <p class="font-bold text-success-ink">Parabéns! Ambiente configurado com sucesso.</p>
           <p class="text-sm text-success mt-1">Agora você está pronto para os módulos da disciplina.</p>
-          <a href="modulos.html" class="inline-block mt-3 bg-success text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-success-ink transition-colors">
-            Ir para os Módulos →
-          </a>
+          <a href="modulos.html" class="wt-btn wt-btn--primary wt-btn--sm mt-4">Ir para os módulos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </section>
-
-    </main>
+    </div>
   </div>
 
-  <!-- FOOTER -->
-  <div id="site-footer"></div>
+    <section class="wt-cta wt-cta--art">
+      <div class="wt-container wt-cta__inner">
+        <div>
+          <p class="wt-eyebrow">Próximo passo</p>
+          <h2 class="mt-3">Ambiente pronto? Comece pelos fundamentos.</h2>
+        </div>
+        <a href="modulos.html" class="wt-btn wt-btn--dark">Ir para os módulos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <div id="site-footer"></div>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

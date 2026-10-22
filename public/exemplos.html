@@ -4,63 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exemplos de Código · Journey Intro Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description" content="Seis aplicações completas com código comentado, sandbox interativo e demonstrações.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Journey Intro Web · WebTech Network">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Exemplos de Código · Journey Intro Web">
+  <meta property="og:description" content="Seis aplicações completas com código comentado, sandbox interativo e demonstrações.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Exemplos de Código · Journey Intro Web">
+  <meta name="twitter:description" content="Seis aplicações completas com código comentado, sandbox interativo e demonstrações.">
+  <meta name="theme-color" content="#5430BF">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
 </head>
-<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
+<body class="flex min-h-screen flex-col bg-white font-sans text-body antialiased">
+  <a href="#conteudo" class="wt-skip">Pular para o conteúdo</a>
+  <div id="site-header"></div>
 
-  <!-- ======================================================
-       NAVEGAÇÃO (WebTech style)
-  ====================================================== -->
-<div id="site-header"></div>
-
-<!-- HERO -->
-  <div class="wt-page-hero">
-    <div class="max-w-6xl mx-auto">
-      <div class="wt-breadcrumb mb-4">
-        <a href="index.html">Início</a>
-        <span class="mx-1.5">/</span>
-        <span class="text-ink">Exemplos de Código</span>
-      </div>
-      <div class="flex items-start gap-4">
-        <span class="wt-icon-circle text-xl">💻</span>
-        <div>
-          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-ink mb-2">Exemplos de Código</h1>
-          <p class="text-muted text-lg max-w-2xl">
-            Aplicações completas e trechos de código para estudar, copiar e adaptar.
-            Todos integrados com o JSON Server.
-          </p>
+  <main id="conteudo" class="flex-1">
+    <section class="wt-hero">
+      <div class="wt-container">
+        <nav class="wt-breadcrumb" aria-label="Trilha">
+          <a href="index.html">Início</a><span aria-hidden="true">/</span>
+          <span aria-current="page">Exemplos</span>
+        </nav>
+        <div class="wt-hero__row">
+          <span class="wt-hero__icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+          <div>
+            <p class="wt-eyebrow">Aprender fazendo</p>
+            <h1 class="wt-h1">Exemplos de código</h1>
+            <p class="wt-lead">Aplicações completas e trechos de código para estudar, copiar e adaptar. Todos integrados com o JSON Server.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="max-w-6xl mx-auto px-4 py-10">
-
-    <!-- MINI SANDBOX — seção educativa -->
-    <div class="mb-14">
-      <h2 class="text-2xl font-bold text-ink mb-2">Experimente: Mini Sandbox Interativo</h2>
-      <p class="text-muted text-sm mb-6">
-        Edite o código abaixo e clique em <strong>▶ Executar</strong> para ver o resultado em tempo real.
+    <section class="wt-section">
+      <div class="wt-container">
+        <div class="mb-14">
+<h2 class="wt-h2 mb-3">Experimente: Mini Sandbox Interativo</h2>
+<p class="mb-6 text-muted">
+        Edite o código abaixo e clique em <strong><i class="fa-solid fa-play" aria-hidden="true"></i> Executar</strong> para ver o resultado em tempo real.
         Este é o mesmo princípio que ferramentas como CodePen e JSFiddle usam!
       </p>
-
-      <!-- SANDBOX 1: HTML + CSS + JS básico -->
-      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
-        <div class="sandbox-tabs">
-          <button class="sandbox-tab active" data-lang="html">HTML</button>
-          <button class="sandbox-tab" data-lang="css">CSS</button>
-          <button class="sandbox-tab" data-lang="js">JavaScript</button>
-          <button class="sandbox-run-btn">▶ Executar</button>
-        </div>
-
-        <div class="sandbox-panel active" data-lang="html">
-          <pre><code class="language-html">&lt;!-- Lista de cards com Tailwind --&gt;
+<!-- SANDBOX 1: HTML + CSS + JS básico -->
+<div class="sandbox mb-8">
+<div class="sandbox-tabs">
+<button type="button" class="sandbox-tab active" data-lang="html">HTML</button>
+<button type="button" class="sandbox-tab" data-lang="css">CSS</button>
+<button type="button" class="sandbox-tab" data-lang="js">JavaScript</button>
+<button type="button" class="sandbox-run-btn"><i class="fa-solid fa-play" aria-hidden="true"></i> Executar</button>
+</div>
+<div class="sandbox-panel active" data-lang="html">
+<pre><code class="language-html">&lt;!-- Lista de cards com Tailwind --&gt;
 &lt;div class="container"&gt;
   &lt;h1&gt;Lista de Tarefas&lt;/h1&gt;
 
@@ -74,10 +76,9 @@
 
   &lt;p id="contagem"&gt;0 tarefas&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="css">
-          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+</div>
+<div class="sandbox-panel" data-lang="css">
+<pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: sans-serif; padding: 20px; background: #f8fafc; }
 
 .container {
@@ -149,17 +150,16 @@ button:hover { background: #4f46e5; }
 }
 
 #contagem { font-size: 0.8rem; color: #94a3b8; text-align: right; }</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="js">
-          <pre><code class="language-javascript">const form   = document.getElementById('form-tarefa');
+</div>
+<div class="sandbox-panel" data-lang="js">
+<pre><code class="language-javascript">const form   = document.getElementById('form-tarefa');
 const input  = document.getElementById('input-tarefa');
 const lista  = document.getElementById('lista');
 const contagem = document.getElementById('contagem');
 
 let tarefas = [];
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', (e) =&gt; {
   e.preventDefault();
   const texto = input.value.trim();
   if (!texto) return;
@@ -172,13 +172,13 @@ form.addEventListener('submit', (e) => {
 function renderizar() {
   lista.innerHTML = '';
 
-  tarefas.forEach(t => {
+  tarefas.forEach(t =&gt; {
     const li  = document.createElement('li');
     if (t.feito) li.classList.add('feito');
 
     const span = document.createElement('span');
     span.textContent = t.texto;
-    span.addEventListener('click', () => {
+    span.addEventListener('click', () =&gt; {
       t.feito = !t.feito;
       renderizar();
     });
@@ -186,8 +186,8 @@ function renderizar() {
     const btn = document.createElement('button');
     btn.textContent = 'Excluir';
     btn.className   = 'btn-del';
-    btn.addEventListener('click', () => {
-      tarefas = tarefas.filter(x => x.id !== t.id);
+    btn.addEventListener('click', () =&gt; {
+      tarefas = tarefas.filter(x =&gt; x.id !== t.id);
       renderizar();
     });
 
@@ -196,29 +196,27 @@ function renderizar() {
     lista.appendChild(li);
   });
 
-  const feitas = tarefas.filter(t => t.feito).length;
+  const feitas = tarefas.filter(t =&gt; t.feito).length;
   contagem.textContent = `${feitas} / ${tarefas.length} concluídas`;
 }</code></pre>
-        </div>
-
-        <div class="sandbox-preview" style="display:none">
-          <div class="sandbox-preview-label">
-            <span>▶</span> Resultado
+</div>
+<div class="sandbox-preview" style="display:none">
+<div class="sandbox-preview-label">
+<i class="fa-solid fa-play text-brand" aria-hidden="true"></i> Resultado
           </div>
-          <iframe></iframe>
-        </div>
-      </div>
-      <!-- SANDBOX 2: Calculadora -->
-      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
-        <div class="sandbox-tabs">
-          <button class="sandbox-tab active" data-lang="html">HTML</button>
-          <button class="sandbox-tab" data-lang="css">CSS</button>
-          <button class="sandbox-tab" data-lang="js">JavaScript</button>
-          <button class="sandbox-run-btn">▶ Executar</button>
-        </div>
-
-        <div class="sandbox-panel active" data-lang="html">
-          <pre><code class="language-html">&lt;div class="calc"&gt;
+<iframe title="Resultado — Lista de tarefas"></iframe>
+</div>
+</div>
+<!-- SANDBOX 2: Calculadora -->
+<div class="sandbox mb-8">
+<div class="sandbox-tabs">
+<button type="button" class="sandbox-tab active" data-lang="html">HTML</button>
+<button type="button" class="sandbox-tab" data-lang="css">CSS</button>
+<button type="button" class="sandbox-tab" data-lang="js">JavaScript</button>
+<button type="button" class="sandbox-run-btn"><i class="fa-solid fa-play" aria-hidden="true"></i> Executar</button>
+</div>
+<div class="sandbox-panel active" data-lang="html">
+<pre><code class="language-html">&lt;div class="calc"&gt;
   &lt;div id="display"&gt;0&lt;/div&gt;
   &lt;div class="teclado"&gt;
     &lt;button class="btn-cinza" onclick="limpar()"&gt;C&lt;/button&gt;
@@ -242,10 +240,9 @@ function renderizar() {
     &lt;button class="btn-igual" onclick="calcular()"&gt;=&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="css">
-          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+</div>
+<div class="sandbox-panel" data-lang="css">
+<pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #1c1c2e; display: flex; justify-content: center; padding: 24px; font-family: sans-serif; }
 
 .calc { width: 260px; background: #16213e; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
@@ -280,10 +277,9 @@ button:active { background: #e94560; }
 .btn-zero  { grid-column: span 2; }
 .btn-igual { background: #e94560; font-weight: bold; }
 .btn-igual:hover { background: #c73652; }</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="js">
-          <pre><code class="language-javascript">let expr = '';
+</div>
+<div class="sandbox-panel" data-lang="js">
+<pre><code class="language-javascript">let expr = '';
 let novo  = true; // true = próximo dígito reinicia a expressão
 
 function inserir(tecla) {
@@ -316,38 +312,34 @@ function calcular() {
     expr = '';
   }
 }</code></pre>
-        </div>
-
-        <div class="sandbox-preview" style="display:none">
-          <div class="sandbox-preview-label"><span>▶</span> Resultado — Calculadora</div>
-          <iframe></iframe>
-        </div>
-      </div>
-
-      <!-- SANDBOX 3: Cronômetro -->
-      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
-        <div class="sandbox-tabs">
-          <button class="sandbox-tab active" data-lang="html">HTML</button>
-          <button class="sandbox-tab" data-lang="css">CSS</button>
-          <button class="sandbox-tab" data-lang="js">JavaScript</button>
-          <button class="sandbox-run-btn">▶ Executar</button>
-        </div>
-
-        <div class="sandbox-panel active" data-lang="html">
-          <pre><code class="language-html">&lt;div class="crono"&gt;
+</div>
+<div class="sandbox-preview" style="display:none">
+<div class="sandbox-preview-label"><i class="fa-solid fa-play text-brand" aria-hidden="true"></i> Resultado — Calculadora</div>
+<iframe title="Resultado — Calculadora"></iframe>
+</div>
+</div>
+<!-- SANDBOX 3: Cronômetro -->
+<div class="sandbox mb-8">
+<div class="sandbox-tabs">
+<button type="button" class="sandbox-tab active" data-lang="html">HTML</button>
+<button type="button" class="sandbox-tab" data-lang="css">CSS</button>
+<button type="button" class="sandbox-tab" data-lang="js">JavaScript</button>
+<button type="button" class="sandbox-run-btn"><i class="fa-solid fa-play" aria-hidden="true"></i> Executar</button>
+</div>
+<div class="sandbox-panel active" data-lang="html">
+<pre><code class="language-html">&lt;div class="crono"&gt;
   &lt;h2&gt;⏱ Cronômetro&lt;/h2&gt;
   &lt;div id="display"&gt;00:00&lt;/div&gt;
   &lt;div class="controles"&gt;
-    &lt;button id="btn-play"  onclick="iniciar()"&gt;▶ Iniciar&lt;/button&gt;
+    &lt;button id="btn-play"  onclick="iniciar()"&gt;Iniciar&lt;/button&gt;
     &lt;button id="btn-pause" onclick="pausar()" disabled&gt;⏸ Pausar&lt;/button&gt;
     &lt;button onclick="zerar()"&gt;↺ Zerar&lt;/button&gt;
   &lt;/div&gt;
   &lt;div id="historico"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="css">
-          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+</div>
+<div class="sandbox-panel" data-lang="css">
+<pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: sans-serif; background: #0f172a; min-height: 100px; display: flex; align-items: center; justify-content: center; padding: 20px; }
 
 .crono {
@@ -389,10 +381,9 @@ button:disabled { opacity: 0.35; cursor: default; }
 
 #historico { font-size: 0.8rem; color: #475569; }
 .volta { padding: 4px 0; border-top: 1px solid #334155; display: flex; justify-content: space-between; }</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="js">
-          <pre><code class="language-javascript">let segundos  = 0;
+</div>
+<div class="sandbox-panel" data-lang="js">
+<pre><code class="language-javascript">let segundos  = 0;
 let intervalo = null;
 
 // setInterval executa uma função repetidamente a cada N milissegundos
@@ -401,7 +392,7 @@ function iniciar() {
   document.getElementById('btn-play').disabled  = true;
   document.getElementById('btn-pause').disabled = false;
 
-  intervalo = setInterval(() => {
+  intervalo = setInterval(() =&gt; {
     segundos++;
     atualizar();
   }, 1000); // dispara a cada 1000ms = 1 segundo
@@ -442,25 +433,22 @@ function formatar(s) {
   const seg = String(s % 60).padStart(2, '0');
   return `${min}:${seg}`;
 }</code></pre>
-        </div>
-
-        <div class="sandbox-preview" style="display:none">
-          <div class="sandbox-preview-label"><span>▶</span> Resultado — Cronômetro</div>
-          <iframe></iframe>
-        </div>
-      </div>
-
-      <!-- SANDBOX 4: Conversor de Temperatura -->
-      <div class="sandbox rounded-xl overflow-hidden border border-line shadow-sm mb-8">
-        <div class="sandbox-tabs">
-          <button class="sandbox-tab active" data-lang="html">HTML</button>
-          <button class="sandbox-tab" data-lang="css">CSS</button>
-          <button class="sandbox-tab" data-lang="js">JavaScript</button>
-          <button class="sandbox-run-btn">▶ Executar</button>
-        </div>
-
-        <div class="sandbox-panel active" data-lang="html">
-          <pre><code class="language-html">&lt;div class="conversor"&gt;
+</div>
+<div class="sandbox-preview" style="display:none">
+<div class="sandbox-preview-label"><i class="fa-solid fa-play text-brand" aria-hidden="true"></i> Resultado — Cronômetro</div>
+<iframe title="Resultado — Cronômetro"></iframe>
+</div>
+</div>
+<!-- SANDBOX 4: Conversor de Temperatura -->
+<div class="sandbox mb-8">
+<div class="sandbox-tabs">
+<button type="button" class="sandbox-tab active" data-lang="html">HTML</button>
+<button type="button" class="sandbox-tab" data-lang="css">CSS</button>
+<button type="button" class="sandbox-tab" data-lang="js">JavaScript</button>
+<button type="button" class="sandbox-run-btn"><i class="fa-solid fa-play" aria-hidden="true"></i> Executar</button>
+</div>
+<div class="sandbox-panel active" data-lang="html">
+<pre><code class="language-html">&lt;div class="conversor"&gt;
   &lt;h2&gt;🌡️ Conversor de Temperatura&lt;/h2&gt;
 
   &lt;div class="campo"&gt;
@@ -481,10 +469,9 @@ function formatar(s) {
 
   &lt;div id="info"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="css">
-          <pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
+</div>
+<div class="sandbox-panel" data-lang="css">
+<pre><code class="language-css">* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: sans-serif; background: linear-gradient(135deg, #1e1b4b, #312e81); min-height: 100px; display: flex; align-items: center; justify-content: center; padding: 20px; }
 
 .conversor {
@@ -531,18 +518,17 @@ input:focus { border-color: #6366f1; }
   min-height: 20px;
   font-weight: 600;
 }</code></pre>
-        </div>
-
-        <div class="sandbox-panel" data-lang="js">
-          <pre><code class="language-javascript">// oninput dispara a cada caractere digitado — ideal para conversão em tempo real
+</div>
+<div class="sandbox-panel" data-lang="js">
+<pre><code class="language-javascript">// oninput dispara a cada caractere digitado — ideal para conversão em tempo real
 function converter(origem) {
   const val = parseFloat(document.getElementById(origem).value);
 
   if (isNaN(val)) {
     // Limpa os outros campos se o input estiver vazio
     ['celsius', 'fahrenheit', 'kelvin']
-      .filter(id => id !== origem)
-      .forEach(id => document.getElementById(id).value = '');
+      .filter(id =&gt; id !== origem)
+      .forEach(id =&gt; document.getElementById(id).value = '');
     document.getElementById('info').textContent = '';
     return;
   }
@@ -566,258 +552,177 @@ function converter(origem) {
   let info = '';
   if      (celsius &lt;= 0)             info = '🧊 Ponto de congelamento da água';
   else if (celsius &gt;= 100)           info = '♨️ Ponto de ebulição da água';
-  else if (celsius &gt;= 36 && celsius &lt;= 37.5) info = '🧑 Temperatura corporal normal';
-  else if (celsius &gt;= 20 && celsius &lt;= 26)   info = '😊 Temperatura ambiente agradável';
+  else if (celsius &gt;= 36 &amp;&amp; celsius &lt;= 37.5) info = '🧑 Temperatura corporal normal';
+  else if (celsius &gt;= 20 &amp;&amp; celsius &lt;= 26)   info = '😊 Temperatura ambiente agradável';
   document.getElementById('info').textContent = info;
 }</code></pre>
-        </div>
-
-        <div class="sandbox-preview" style="display:none">
-          <div class="sandbox-preview-label"><span>▶</span> Resultado — Conversor de Temperatura</div>
-          <iframe></iframe>
-        </div>
+</div>
+<div class="sandbox-preview" style="display:none">
+<div class="sandbox-preview-label"><i class="fa-solid fa-play text-brand" aria-hidden="true"></i> Resultado — Conversor de Temperatura</div>
+<iframe title="Resultado — Conversor de temperatura"></iframe>
+</div>
+</div>
+</div>
       </div>
+    </section>
 
-    </div>
-
-    <!-- ====================================================
-         APLICAÇÕES COMPLETAS (cards)
-    ==================================================== -->
-    <h2 class="text-2xl font-bold text-ink mb-2">Aplicações Completas</h2>
-    <p class="text-muted text-sm mb-6">
-      Estas aplicações estão disponíveis no servidor local. Certifique-se de que o JSON Server está rodando
-      (<code class="bg-line-soft px-1 rounded text-xs">npm start</code>).
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-
-      <!-- App 1: Contatos CRUD -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_contatos_crud.png"
-             alt="Cadastro de Contatos CRUD"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.src=''; this.className='w-full h-44 bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center text-5xl'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Cadastro de Contatos – CRUD</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m06)">M06/M07</span>
-          </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            CRUD completo de contatos com inserção, edição, exclusão e listagem via JSON Server.
-            Usa Fetch API com async/await e manipulação dinâmica do DOM.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">HTML</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">CSS</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JavaScript</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Fetch API</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/contatos.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/contatos/" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
-          </div>
+    <section class="wt-section wt-section--subtle" id="aplicacoes">
+      <div class="wt-container">
+        <div class="max-w-2xl">
+          <p class="wt-eyebrow">Projetos completos</p>
+          <h2 class="wt-h2 mt-4">Aplicações completas</h2>
+          <p class="wt-lead mt-4">Seis aplicações disponíveis no servidor local. Certifique-se de que o JSON Server está rodando com <code>npm start</code>.</p>
         </div>
-      </div>
 
-      <!-- App 2: Filtro/Pesquisa -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_contatos_filter.png"
-             alt="Filtro de Contatos"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.style.display='none'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Contatos – Filtro/Pesquisa</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m07)">M07</span>
+        <form id="filtro-exemplos" class="wt-filter mt-8" role="search">
+          <label class="wt-field sm:col-span-2 lg:col-span-2">Buscar
+            <input type="search" class="wt-input" placeholder="Título, tema ou tecnologia" data-filter-search>
+          </label>
+          <label class="wt-field">Módulo
+            <select class="wt-select" data-filter-module>
+              <option value="">Todos</option>
+              <option value="M06">M06</option>
+              <option value="M07">M07</option>
+              <option value="M08">M08</option>
+              <option value="M09">M09</option>
+            </select>
+          </label>
+          <div class="flex items-end gap-3 lg:col-span-2">
+            <button type="submit" class="wt-btn wt-btn--dark wt-btn--sm">Filtrar</button>
+            <button type="reset" class="wt-filter__clear">Limpar filtros</button>
           </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            Filtragem de contatos por cidade e categoria usando os parâmetros de query do JSON Server.
-            Demonstra busca com filtros combinados.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Filtros</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Query Params</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
+        </form>
+        <p id="exemplos-count" class="mt-6 font-mono text-xs text-muted">6 aplicações</p>
+
+        <div class="mt-4 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="wt-card" data-exemplo data-titulo="cadastro de contatos – crud" data-modulo="M06/M07">
+          <a href="exemplos/contatos.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_contatos_crud.png" alt="Cadastro de Contatos CRUD" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Cadastro de Contatos – CRUD</h3>
+              <span class="wt-tag shrink-0">M06/M07</span>
+            </div>
+            <p class="wt-card__text">CRUD completo de contatos com inserção, edição, exclusão e listagem via JSON Server.
+            Usa Fetch API com async/await e manipulação dinâmica do DOM.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">HTML</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">CSS</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">JavaScript</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Fetch API</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">JSON Server</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/contatos.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/contatos/" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
           </div>
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/pesquisa.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/contatos/search.html" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
+        </article>
+        <article class="wt-card" data-exemplo data-titulo="contatos – filtro/pesquisa" data-modulo="M07">
+          <a href="exemplos/pesquisa.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_contatos_filter.png" alt="Filtro de Contatos" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Contatos – Filtro/Pesquisa</h3>
+              <span class="wt-tag shrink-0">M07</span>
+            </div>
+            <p class="wt-card__text">Filtragem de contatos por cidade e categoria usando os parâmetros de query do JSON Server.
+            Demonstra busca com filtros combinados.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Filtros</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Query Params</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">JSON Server</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/pesquisa.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/contatos/search.html" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
           </div>
+        </article>
+        <article class="wt-card" data-exemplo data-titulo="sistema de login" data-modulo="M08">
+          <a href="exemplos/login.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_login.png" alt="Login do Sistema" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Sistema de Login</h3>
+              <span class="wt-tag shrink-0">M08</span>
+            </div>
+            <p class="wt-card__text">Login e registro de usuários com JSON Server. Sessão mantida no
+            sessionStorage. Permite cadastro de novos usuários e logout.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Autenticação</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">sessionStorage</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">JSON Server</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/login.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/login/login.html" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="wt-card" data-exemplo data-titulo="mapas com mapbox" data-modulo="M09">
+          <a href="exemplos/mapa.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_mapa.png" alt="Mapa com Mapbox" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Mapas com Mapbox</h3>
+              <span class="wt-tag shrink-0">M09</span>
+            </div>
+            <p class="wt-card__text">Exibição de locais no mapa usando a API Mapbox. Os dados dos locais
+            vêm do JSON Server (coleção locais). Requer conta Mapbox.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Mapbox GL JS</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">API Key</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">GeoJSON</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/mapa.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/mapa/" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="wt-card" data-exemplo data-titulo="gráficos com chart.js" data-modulo="M09">
+          <a href="exemplos/graficos.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_grafico.png" alt="Gráficos com Chart.js" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Gráficos com Chart.js</h3>
+              <span class="wt-tag shrink-0">M09</span>
+            </div>
+            <p class="wt-card__text">Dashboard de gráficos usando Chart.js com dados vindos do JSON Server
+            (coleção lancamentos). Gráficos de barras e pizza.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Chart.js</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Canvas API</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">JSON Server</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/graficos.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/graficos/" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
+        <article class="wt-card" data-exemplo data-titulo="passagem de parâmetros" data-modulo="M07">
+          <a href="exemplos/cidades.html" class="wt-card__media" aria-hidden="true" tabindex="-1">
+            <img src="assets/images/app_cidades.png" alt="Passagem de Parâmetros" loading="lazy">
+          </a>
+          <div class="wt-card__body">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="wt-card__title">Passagem de Parâmetros</h3>
+              <span class="wt-tag shrink-0">M07</span>
+            </div>
+            <p class="wt-card__text">Técnica de navegar entre páginas passando dados via URL (query string).
+            Lista de cidades carregada do JSON Server com página de detalhes.</p>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">URLSearchParams</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Query String</span><span class="rounded border border-line px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-muted">Roteamento</span></div>
+            <div class="wt-card__footer">
+              <a href="exemplos/cidades.html" class="wt-card__link !pt-0">Ver detalhes <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a>
+              <a href="/apps/cidades/" target="_blank" rel="noopener" class="wt-btn wt-btn--dark wt-btn--sm">Abrir app <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </article>
         </div>
+        <p id="exemplos-empty" class="hidden rounded-2xl border border-line bg-white p-10 text-center text-muted">Nenhuma aplicação encontrada. Ajuste os filtros.</p>
       </div>
+    </section>
 
-      <!-- App 3: Login -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_login.png"
-             alt="Login do Sistema"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.style.display='none'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Sistema de Login</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m08)">M08</span>
-          </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            Login e registro de usuários com JSON Server. Sessão mantida no
-            sessionStorage. Permite cadastro de novos usuários e logout.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Autenticação</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">sessionStorage</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/login.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/login/login.html" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- App 4: Mapa -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_mapa.png"
-             alt="Mapa com Mapbox"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.style.display='none'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Mapas com Mapbox</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m09)">M09</span>
-          </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            Exibição de locais no mapa usando a API Mapbox. Os dados dos locais
-            vêm do JSON Server (coleção locais). Requer conta Mapbox.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Mapbox GL JS</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">API Key</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">GeoJSON</span>
-          </div>
-
-          <div class="callout callout-info py-2 px-3 mb-3" style="margin:0 0 12px">
-            <p class="text-xs text-brand-ink">
-              Crie conta gratuita com o e-mail <strong>XXXXXX@sga.pucminas.br</strong>
-              em <a href="https://mapbox.com" target="_blank" class="underline">mapbox.com</a>
-              para obter a API Key.
-            </p>
-          </div>
-
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/mapa.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/mapa/" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- App 5: Gráficos -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_grafico.png"
-             alt="Gráficos com Chart.js"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.style.display='none'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Gráficos com Chart.js</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m09)">M09</span>
-          </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            Dashboard de gráficos usando Chart.js com dados vindos do JSON Server
-            (coleção lancamentos). Gráficos de barras e pizza.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Chart.js</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Canvas API</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">JSON Server</span>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/graficos.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/graficos/" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- App 6: Passagem de parâmetros -->
-      <div class="bg-surface rounded-2xl shadow-sm border border-line-soft overflow-hidden module-card">
-        <img src="assets/images/app_cidades.png"
-             alt="Passagem de Parâmetros"
-             class="w-full h-44 object-cover bg-line-soft"
-             onerror="this.style.display='none'">
-        <div class="p-5">
-          <div class="flex items-start justify-between mb-2">
-            <h3 class="font-bold text-ink">Passagem de Parâmetros</h3>
-            <span class="bg-mod-soft text-mod-ink text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2" style="--mod: var(--c-m07)">M07</span>
-          </div>
-          <p class="text-sm text-muted leading-relaxed mb-4">
-            Técnica de navegar entre páginas passando dados via URL (query string).
-            Lista de cidades carregada do JSON Server com página de detalhes.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">URLSearchParams</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Query String</span>
-            <span class="bg-line-soft text-body text-xs px-2 py-0.5 rounded">Roteamento</span>
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <a href="exemplos/cidades.html"
-               class="flex-1 text-center bg-brand hover:bg-brand-hover text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Ver Detalhes
-            </a>
-            <a href="/apps/cidades/" target="_blank"
-               class="bg-line-soft hover:bg-line text-body px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
-              Abrir App
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- fim dos cards -->
-
-    <!-- ====================================================
-         TRECHOS DE CÓDIGO (referência rápida)
-    ==================================================== -->
-    <h2 class="text-2xl font-bold text-ink mb-2">Referência Rápida</h2>
-    <p class="text-muted text-sm mb-6">Padrões de código que você usará com frequência na disciplina.</p>
+    <section class="wt-section">
+      <div class="wt-container">
+        <h2 class="wt-h2 mb-3">Referência rápida</h2>
+    <p class="mb-8 text-muted">Padrões de código que você usará com frequência na disciplina.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
 
       <!-- Padrão: Renderizar lista -->
       <div>
-        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
-          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">1</span>
+        <h3 class="mb-3 flex items-center gap-2 text-lg font-bold text-ink">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-brand font-mono text-[11px] font-bold text-white">1</span>
           Renderizar lista de itens
         </h3>
         <div class="code-block">
-          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
           <pre><code class="language-javascript">function renderizarLista(itens, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = ''; // Limpa antes de renderizar
@@ -828,7 +733,7 @@ function converter(origem) {
     return;
   }
 
-  itens.forEach(item => {
+  itens.forEach(item =&gt; {
     const el = document.createElement('div');
     el.className  = 'card';
     el.dataset.id = item.id; // Guarda o ID no elemento
@@ -846,15 +751,15 @@ function converter(origem) {
 
       <!-- Padrão: Formulário -->
       <div>
-        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
-          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">2</span>
+        <h3 class="mb-3 flex items-center gap-2 text-lg font-bold text-ink">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-brand font-mono text-[11px] font-bold text-white">2</span>
           Capturar e enviar formulário
         </h3>
         <div class="code-block">
-          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
           <pre><code class="language-javascript">document
   .getElementById('meu-form')
-  .addEventListener('submit', async (e) => {
+  .addEventListener('submit', async (e) =&gt; {
     e.preventDefault(); // Evita reload da página
 
     // Lê os valores dos campos
@@ -889,12 +794,12 @@ function converter(origem) {
 
       <!-- Padrão: Modal de edição -->
       <div>
-        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
-          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">3</span>
+        <h3 class="mb-3 flex items-center gap-2 text-lg font-bold text-ink">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-brand font-mono text-[11px] font-bold text-white">3</span>
           Modal de edição (preencher e salvar)
         </h3>
         <div class="code-block">
-          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
           <pre><code class="language-javascript">// Guarda o ID do item sendo editado
 let idEditando = null;
 
@@ -933,12 +838,12 @@ async function salvarEdicao() {
 
       <!-- Padrão: Loading state -->
       <div>
-        <h3 class="font-bold text-ink mb-2 flex items-center gap-2">
-          <span class="bg-brand-soft text-brand w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black">4</span>
+        <h3 class="mb-3 flex items-center gap-2 text-lg font-bold text-ink">
+          <span class="flex h-7 w-7 items-center justify-center rounded-full bg-brand font-mono text-[11px] font-bold text-white">4</span>
           Estado de carregamento (Loading)
         </h3>
         <div class="code-block">
-          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+          <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
           <pre><code class="language-javascript">function mostrarLoading(containerId) {
   document.getElementById(containerId).innerHTML = `
     &lt;div class="loading"&gt;
@@ -962,7 +867,7 @@ async function carregarDados() {
 
   try {
     const dados = await fetch('/api/itens')
-      .then(r => r.json());
+      .then(r =&gt; r.json());
     renderizarLista(dados, 'container');
   } catch (e) {
     mostrarErro('container', 'Não foi possível carregar os dados.');
@@ -971,14 +876,22 @@ async function carregarDados() {
         </div>
       </div>
 
-    </div>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <section class="wt-cta wt-cta--art">
+      <div class="wt-container wt-cta__inner">
+        <div>
+          <p class="wt-eyebrow">Continue explorando</p>
+          <h2 class="mt-3">Precisa de uma referência rápida?</h2>
+        </div>
+        <a href="recursos.html" class="wt-btn wt-btn--dark">Ver recursos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
 
   <div id="site-footer"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

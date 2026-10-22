@@ -9,7 +9,12 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: sans-serif; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+        #map {
+            position: absolute; top: 0; bottom: 0; width: 100%;
+            background:
+                radial-gradient(circle at 18% 12%, rgb(84 48 191 / 0.10), transparent 42%),
+                #f6f5f9;
+        }
         #info-panel {
             position: absolute;
             top: 10px;
@@ -34,18 +39,26 @@
         .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
         #loading-msg {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-            background: white; padding: 1.5rem 2rem; border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2); text-align: center;
-            z-index: 20;
+            width: calc(100% - 2rem); max-width: 430px;
+            background: white; padding: 1.5rem 1.75rem; border-radius: 16px;
+            border: 1px solid #e0dee5;
+            box-shadow: 0 8px 30px rgb(10 10 10 / 0.14); text-align: center;
+            z-index: 20; line-height: 1.5;
         }
+        #loading-msg strong { display: block; margin-bottom: .35rem; }
+        #loading-msg code { font-size: .78rem; background: #f6f5f9; border-radius: 6px; padding: .15rem .35rem; }
     </style>
+    <link rel="stylesheet" href="../assets/app-shell.css">
 </head>
 <body>
+    <h1 class="sr-only">Mapa interativo com Mapbox</h1>
+    <a href="/exemplos.html" class="app-back">← Voltar ao curso</a>
+    <script>if (window.self === window.top) document.documentElement.classList.add("is-standalone");</script>
     <div id="map"></div>
-    <div id="loading-msg">🗺️ Carregando mapa e dados…</div>
+    <div id="loading-msg">Carregando mapa e dados…</div>
 
     <div id="info-panel" style="display:none">
-        <h3>🏫 Unidades PUC Minas</h3>
+        <h3>Unidades PUC Minas</h3>
         <p class="text-muted" style="font-size:0.75rem;color:#6b7280">Dados via JSON Server</p>
         <ul id="locais-lista"></ul>
         <p style="margin-top:8px;font-size:0.7rem;color:#9ca3af">
@@ -58,41 +71,69 @@
         const centralLatLong = [-43.9397233, -19.9332786]; // Belo Horizonte
         let map;
 
+        // Token do Mapbox: cole aqui ou abra a demo com ?token=pk...
+        const MAPBOX_TOKEN = "";
+
+        function showMessage(title, html) {
+            const box = document.getElementById("loading-msg");
+            box.style.display = "block";
+            box.innerHTML = `<strong>${title}</strong>${html}`;
+        }
+
         // Carrega locais do JSON Server e monta o mapa
-        window.onload = () => {
-            fetch('/api/locais')
-                .then(r => r.json())
-                .then(data => {
-                    document.getElementById('loading-msg').style.display = 'none';
-                    montarMapa(data);
-                })
-                .catch(err => {
-                    document.getElementById('loading-msg').innerHTML =
-                        `<strong>❌ Erro</strong><br>Verifique se o servidor está rodando.<br>
-                         <small>${err.message}</small>`;
-                });
+        window.onload = async () => {
+            let locais;
+
+            try {
+                const response = await fetch("/api/locais");
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                locais = await response.json();
+            } catch (err) {
+                showMessage("Servidor indisponível", `Verifique se o JSON Server está rodando.<br><small>${err.message}</small>`);
+                return;
+            }
+
+            const token = MAPBOX_TOKEN || new URLSearchParams(window.location.search).get("token") || "";
+
+            if (!token) {
+                showMessage(
+                    "Mapbox não configurado",
+                    `Esta demo precisa de um token de acesso.<br>
+                     Abra a página com <code>?token=pk...</code> ou defina
+                     <code>MAPBOX_TOKEN</code> em <code>apps/mapa/index.html</code>.<br>
+                     <small>Obtenha um token gratuito em mapbox.com.</small>`
+                );
+                return;
+            }
+
+            mapboxgl.accessToken = token;
+
+            try {
+                montarMapa(locais);
+                document.getElementById("loading-msg").style.display = "none";
+            } catch (err) {
+                showMessage("Não foi possível carregar o mapa", `<small>${err.message}</small>`);
+            }
         };
 
         function montarMapa(locais) {
-            // mapboxgl.accessToken = '';
-
             map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v12',
+                container: "map",
+                style: "mapbox://styles/mapbox/streets-v12",
                 center: centralLatLong,
                 zoom: 10
             });
 
-            map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+            map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
             // Adiciona marcadores para cada local
             locais.forEach(local => {
                 const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
                     <h3 style="font-size:0.9rem;margin:0 0 4px">
-                      <a href="${local.url}" target="_blank" style="color:#4f46e5">${local.descricao}</a>
+                      <a href="${local.url}" target="_blank" style="color:#5922a5">${local.descricao}</a>
                     </h3>
-                    <p style="margin:0;font-size:0.8rem;color:#6b7280">${local.endereco}</p>
-                    <p style="margin:2px 0 0;font-size:0.75rem;color:#9ca3af">${local.cidade}</p>
+                    <p style="margin:0;font-size:0.8rem;color:#58555f">${local.endereco}</p>
+                    <p style="margin:2px 0 0;font-size:0.75rem;color:#8a8794">${local.cidade}</p>
                 `);
 
                 new mapboxgl.Marker({ color: local.cor })
@@ -102,23 +143,23 @@
             });
 
             // Popula o painel lateral com a lista de locais
-            const ul = document.getElementById('locais-lista');
+            const ul = document.getElementById("locais-lista");
             locais.forEach(local => {
-                const li = document.createElement('li');
+                const li = document.createElement("li");
                 li.innerHTML = `<span class="dot" style="background:${local.cor}"></span>${local.descricao}`;
-                li.addEventListener('click', () => {
+                li.addEventListener("click", () => {
                     map.flyTo({ center: local.latlong, zoom: 14, duration: 1200 });
                 });
                 ul.appendChild(li);
             });
 
-            document.getElementById('info-panel').style.display = 'block';
+            document.getElementById("info-panel").style.display = "block";
 
             // Tenta obter posição do usuário
             navigator.geolocation.getCurrentPosition(pos => {
-                new mapboxgl.Marker({ color: '#f59e0b' })
+                new mapboxgl.Marker({ color: "#f59e0b" })
                     .setLngLat([pos.coords.longitude, pos.coords.latitude])
-                    .setPopup(new mapboxgl.Popup().setHTML('<strong>📍 Você está aqui!</strong>'))
+                    .setPopup(new mapboxgl.Popup().setHTML("<strong>Você está aqui</strong>"))
                     .addTo(map);
             }, () => {});
         }

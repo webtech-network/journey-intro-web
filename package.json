@@ -2,15 +2,11 @@
   "name": "lab-jsonserver",
   "version": "1.0.0",
   "description": "Aplicação Web com backend baseado no JSON Server",
-  "main": "index.js",
   "scripts": {
-    "prestart": "node server/db/seed.js",
-    "start": "npx json-server@0.17.4 --watch ./server/db/db.json --static ./public --host 0.0.0.0 --port 3000 --routes ./server/api/routes.json",
-    "test": "jest",
-    "test:unit": "jest tests/unit",
-    "test:integration": "jest tests/integration",
-    "test:e2e": "playwright test",
-    "test:coverage": "jest --coverage"
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/assets/css/app.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/assets/css/app.css --watch",
+    "prestart": "node server/db/seed.js && npm run build:css",
+    "start": "npx json-server@0.17.4 --watch ./server/db/db.json --static ./public --host 0.0.0.0 --port 3000 --routes ./server/api/routes.json"
   },
   "keywords": [],
   "author": "Rommel Vieira Carneiro",
@@ -18,5 +14,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "json-server": "^0.17.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
   }
 }
