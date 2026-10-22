@@ -17,8 +17,11 @@
             color: #6b7280; font-style: italic;
         }
     </style>
+    <link rel="stylesheet" href="../assets/app-shell.css">
 </head>
 <body>
+    <a href="/exemplos.html" class="app-back">← Voltar ao curso</a>
+    <script>if (window.self === window.top) document.documentElement.classList.add("is-standalone");</script>
 
     <div id="loading-msg">⏳ Carregando dados da cidade…</div>
     <div id="erro" style="display:none"></div>
@@ -56,7 +59,7 @@
             </div>
             <div class="detalhe-field">
                 <label>ID no JSON Server</label>
-                <value id="idCidade" style="font-family:monospace;color:#6366f1"></value>
+                <value id="idCidade" style="font-family:monospace;color:#5922a5"></value>
             </div>
         </div>
 
@@ -86,7 +89,7 @@
                     document.getElementById('conteudo').style.display = 'block';
 
                     document.title = `DIW | ${cidade.cidade}`;
-                    document.getElementById('nomeCidade').textContent = `📍 ${cidade.cidade}`;
+                    document.getElementById('nomeCidade').textContent = cidade.cidade;
                     document.getElementById('endpointInfo').textContent = `GET /api/cidades/${id}`;
 
                     document.getElementById('estado').textContent    = cidade.estado   || '—';
