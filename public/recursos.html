@@ -4,67 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recursos · Journey Intro Web</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/tailwind-config.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description" content="Cheat sheets, ferramentas, vídeos e referências bibliográficas para acompanhar a disciplina.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Journey Intro Web · WebTech Network">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Recursos · Journey Intro Web">
+  <meta property="og:description" content="Cheat sheets, ferramentas, vídeos e referências bibliográficas para acompanhar a disciplina.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Recursos · Journey Intro Web">
+  <meta name="twitter:description" content="Cheat sheets, ferramentas, vídeos e referências bibliográficas para acompanhar a disciplina.">
+  <meta name="theme-color" content="#5430BF">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
 </head>
-<body class="bg-app text-body font-sans antialiased min-h-screen flex flex-col">
+<body class="flex min-h-screen flex-col bg-white font-sans text-body antialiased">
+  <a href="#conteudo" class="wt-skip">Pular para o conteúdo</a>
+  <div id="site-header"></div>
 
-  <!-- ======================================================
-       NAVEGAÇÃO (WebTech style)
-  ====================================================== -->
-<div id="site-header"></div>
-
-<!-- HERO -->
-  <div class="wt-page-hero">
-    <div class="max-w-6xl mx-auto">
-      <div class="wt-breadcrumb mb-4">
-        <a href="index.html">Início</a>
-        <span class="mx-1.5">/</span>
-        <span class="text-ink">Recursos</span>
-      </div>
-      <div class="flex items-start gap-4">
-        <span class="wt-icon-circle text-xl">🔗</span>
-        <div>
-          <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-ink mb-2">Recursos e Referências</h1>
-          <p class="text-muted text-lg max-w-2xl">
-            Documentações, ferramentas, cheat sheets e referências bibliográficas para apoiar seu aprendizado.
-          </p>
+  <main id="conteudo" class="flex-1">
+    <section class="wt-hero">
+      <div class="wt-container">
+        <nav class="wt-breadcrumb" aria-label="Trilha">
+          <a href="index.html">Início</a><span aria-hidden="true">/</span>
+          <span aria-current="page">Recursos</span>
+        </nav>
+        <div class="wt-hero__row">
+          <span class="wt-hero__icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+          <div>
+            <p class="wt-eyebrow">Apoio ao estudo</p>
+            <h1 class="wt-h1">Recursos e referências</h1>
+            <p class="wt-lead">Documentações, ferramentas, cheat sheets e referências bibliográficas para apoiar seu aprendizado.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="max-w-6xl mx-auto px-4 py-10 space-y-14">
+    <section class="wt-section">
+      <div class="wt-container space-y-16">
 
-    <!-- ====================================================
-         CHEAT SHEETS
-    ==================================================== -->
-    <section>
-      <h2 class="text-2xl font-bold text-ink mb-2">Cheat Sheets</h2>
-      <p class="text-muted text-sm mb-6">Referências rápidas para as principais tecnologias da disciplina.</p>
+    <section id="cheat-sheets">
+      <p class="wt-eyebrow">Consulta rápida</p>
+      <h2 class="wt-h2 mt-4">Cheat sheets</h2>
+      <p class="mb-8 mt-3 text-muted">Referências rápidas para as principais tecnologias da disciplina.</p>
 
       <!-- TABS das cheat sheets -->
-      <div data-tabs class="bg-surface border border-line rounded-2xl overflow-hidden shadow-sm">
-        <div class="flex bg-surface-alt border-b border-line overflow-x-auto">
-          <button data-tab-btn="cs-html"  class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-muted whitespace-nowrap">HTML5</button>
-          <button data-tab-btn="cs-css"   class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-muted whitespace-nowrap">CSS / Flex / Grid</button>
-          <button data-tab-btn="cs-js"    class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-muted whitespace-nowrap">JavaScript ES6+</button>
-          <button data-tab-btn="cs-fetch" class="px-5 py-3 text-sm font-semibold whitespace-nowrap">Fetch API</button>
-          <button data-tab-btn="cs-json"  class="px-5 py-3 text-sm font-semibold border-b-2 border-transparent text-muted whitespace-nowrap">JSON Server</button>
+      <div data-tabs class="overflow-hidden rounded-2xl border border-line bg-white">
+        <div class="flex overflow-x-auto border-b border-line">
+          <button type="button" data-tab-btn="cs-html">HTML5</button>
+          <button type="button" data-tab-btn="cs-css">CSS / Flex / Grid</button>
+          <button type="button" data-tab-btn="cs-js">JavaScript ES6+</button>
+          <button type="button" data-tab-btn="cs-fetch">Fetch API</button>
+          <button type="button" data-tab-btn="cs-json">JSON Server</button>
         </div>
 
         <!-- HTML5 -->
-        <div data-tab-panel="cs-html" class="hidden p-6">
+        <div data-tab-panel="cs-html" class="hidden p-5 sm:p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Estrutura Básica</h3>
+              <h3 class="wt-meta mb-3">Estrutura Básica</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pt-br"&gt;
 &lt;head&gt;
@@ -83,7 +88,7 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Tags Semânticas</h3>
+              <h3 class="wt-meta mb-3">Tags Semânticas</h3>
               <div class="space-y-1 text-sm font-mono">
                 <div class="bg-surface-alt rounded-lg px-3 py-2 flex justify-between">
                   <code class="text-brand">&lt;header&gt;</code><span class="text-faint">cabeçalho da página</span>
@@ -109,9 +114,9 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Formulário Completo</h3>
+              <h3 class="wt-meta mb-3">Formulário Completo</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-html">&lt;form id="meu-form"&gt;
   &lt;input type="text" id="nome"
     placeholder="Nome" required&gt;
@@ -134,9 +139,9 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Tabela de Dados</h3>
+              <h3 class="wt-meta mb-3">Tabela de Dados</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">html</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-html">&lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -154,12 +159,12 @@
         </div>
 
         <!-- CSS / Flex / Grid -->
-        <div data-tab-panel="cs-css" class="hidden p-6">
+        <div data-tab-panel="cs-css" class="hidden p-5 sm:p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Flexbox</h3>
+              <h3 class="wt-meta mb-3">Flexbox</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-css">.container {
   display: flex;
 
@@ -184,9 +189,9 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">CSS Grid</h3>
+              <h3 class="wt-meta mb-3">CSS Grid</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-css">.grid {
   display: grid;
 
@@ -210,9 +215,9 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Media Queries (Mobile First)</h3>
+              <h3 class="wt-meta mb-3">Media Queries (Mobile First)</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">css</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-css">/* Mobile: 1 coluna (padrão) */
 .grid { grid-template-columns: 1fr; }
 
@@ -230,7 +235,7 @@
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Tailwind CSS Essencial</h3>
+              <h3 class="wt-meta mb-3">Tailwind CSS Essencial</h3>
               <div class="space-y-1 text-xs font-mono">
                 <div class="bg-surface-alt rounded px-3 py-1.5 flex justify-between">
                   <code class="text-brand">flex items-center gap-4</code><span class="text-faint">linha com gap</span>
@@ -271,12 +276,12 @@
         </div>
 
         <!-- JavaScript ES6+ -->
-        <div data-tab-panel="cs-js" class="hidden p-6">
+        <div data-tab-panel="cs-js" class="hidden p-5 sm:p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Variáveis e Tipos</h3>
+              <h3 class="wt-meta mb-3">Variáveis e Tipos</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">let nome   = 'Ana';         // string
 let idade  = 25;             // number
 let ativo  = true;           // boolean
@@ -295,14 +300,14 @@ const msg = `Olá, ${nome}! Você tem ${idade} anos.`;</code></pre>
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Funções</h3>
+              <h3 class="wt-meta mb-3">Funções</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">// Tradicional
 function somar(a, b) { return a + b; }
 
 // Arrow function
-const somar = (a, b) => a + b;
+const somar = (a, b) =&gt; a + b;
 
 // Parâmetro padrão
 function greet(nome = 'visitante') {
@@ -311,7 +316,7 @@ function greet(nome = 'visitante') {
 
 // Spread operator
 function soma(...nums) {
-  return nums.reduce((acc, n) => acc + n, 0);
+  return nums.reduce((acc, n) =&gt; acc + n, 0);
 }
 
 // Async/await
@@ -322,41 +327,41 @@ async function buscar(url) {
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Arrays (métodos principais)</h3>
+              <h3 class="wt-meta mb-3">Arrays (métodos principais)</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">const nums = [1, 2, 3, 4, 5];
 
 // map: transforma cada elemento
-nums.map(n => n * 2);        // [2,4,6,8,10]
+nums.map(n =&gt; n * 2);        // [2,4,6,8,10]
 
 // filter: filtra por condição
-nums.filter(n => n > 2);     // [3,4,5]
+nums.filter(n =&gt; n &gt; 2);     // [3,4,5]
 
 // find: acha o primeiro que bate
-nums.find(n => n > 3);       // 4
+nums.find(n =&gt; n &gt; 3);       // 4
 
 // findIndex: índice do primeiro
-nums.findIndex(n => n === 3); // 2
+nums.findIndex(n =&gt; n === 3); // 2
 
 // reduce: acumula um valor
-nums.reduce((acc, n) => acc + n, 0); // 15
+nums.reduce((acc, n) =&gt; acc + n, 0); // 15
 
 // includes: verifica existência
 nums.includes(3);            // true
 
 // some / every
-nums.some(n => n > 4);       // true
-nums.every(n => n > 0);      // true
+nums.some(n =&gt; n &gt; 4);       // true
+nums.every(n =&gt; n &gt; 0);      // true
 
 // sort (cuidado: altera o array!)
-[3,1,2].sort((a,b) => a - b); // [1,2,3]</code></pre>
+[3,1,2].sort((a,b) =&gt; a - b); // [1,2,3]</code></pre>
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">DOM – Principais Métodos</h3>
+              <h3 class="wt-meta mb-3">DOM – Principais Métodos</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">// Selecionar elementos
 document.getElementById('id')
 document.querySelector('.classe')   // primeiro
@@ -392,48 +397,48 @@ el.removeEventListener('click', handler)</code></pre>
         </div>
 
         <!-- Fetch API -->
-        <div data-tab-panel="cs-fetch" class="hidden p-6">
+        <div data-tab-panel="cs-fetch" class="hidden p-5 sm:p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">GET (Listar / Buscar)</h3>
+              <h3 class="wt-meta mb-3">GET (Listar / Buscar)</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">// GET simples
 const dados = await fetch('/api/itens')
-  .then(r => r.json());
+  .then(r =&gt; r.json());
 
 // GET com filtro
 const url = new URL('/api/itens', location.origin);
 url.searchParams.set('categoria', 'A');
-const filtrados = await fetch(url).then(r => r.json());
+const filtrados = await fetch(url).then(r =&gt; r.json());
 
 // GET por ID
 const item = await fetch(`/api/itens/${id}`)
-  .then(r => {
+  .then(r =&gt; {
     if (!r.ok) throw new Error('Não encontrado');
     return r.json();
   });</code></pre>
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">POST (Criar)</h3>
+              <h3 class="wt-meta mb-3">POST (Criar)</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">const novoItem = { nome: 'Teste', valor: 42 };
 
 const criado = await fetch('/api/itens', {
   method:  'POST',
   headers: { 'Content-Type': 'application/json' },
   body:    JSON.stringify(novoItem)
-}).then(r => r.json());
+}).then(r =&gt; r.json());
 
 console.log('ID gerado:', criado.id);</code></pre>
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">PUT / PATCH (Editar)</h3>
+              <h3 class="wt-meta mb-3">PUT / PATCH (Editar)</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">// PUT - substitui completamente
 await fetch(`/api/itens/${id}`, {
   method:  'PUT',
@@ -450,13 +455,13 @@ await fetch(`/api/itens/${id}`, {
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">DELETE e Tratamento de Erros</h3>
+              <h3 class="wt-meta mb-3">DELETE e Tratamento de Erros</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">javascript</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-javascript">// DELETE
 const ok = await fetch(`/api/itens/${id}`, {
   method: 'DELETE'
-}).then(r => r.ok);
+}).then(r =&gt; r.ok);
 
 // Tratamento robusto de erros
 async function chamarAPI(url, opts = {}) {
@@ -486,10 +491,10 @@ async function chamarAPI(url, opts = {}) {
         </div>
 
         <!-- JSON Server -->
-        <div data-tab-panel="cs-json" class="hidden p-6">
+        <div data-tab-panel="cs-json" class="hidden p-5 sm:p-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Endpoints Padrão</h3>
+              <h3 class="wt-meta mb-3">Endpoints Padrão</h3>
               <div class="overflow-hidden rounded-xl border border-line">
                 <table class="w-full text-xs endpoint-table">
                   <thead>
@@ -511,7 +516,7 @@ async function chamarAPI(url, opts = {}) {
               </div>
             </div>
             <div>
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Parâmetros de Query</h3>
+              <h3 class="wt-meta mb-3">Parâmetros de Query</h3>
               <div class="space-y-2 text-xs font-mono">
                 <div class="bg-surface-alt rounded-lg p-3">
                   <p class="text-brand mb-1">/api/contatos?categoria=amigos</p>
@@ -522,23 +527,23 @@ async function chamarAPI(url, opts = {}) {
                   <p class="text-faint">Busca full-text em todos os campos</p>
                 </div>
                 <div class="bg-surface-alt rounded-lg p-3">
-                  <p class="text-brand mb-1">/api/contatos?_page=1&_limit=5</p>
+                  <p class="text-brand mb-1">/api/contatos?_page=1&amp;_limit=5</p>
                   <p class="text-faint">Paginação (página 1, 5 por página)</p>
                 </div>
                 <div class="bg-surface-alt rounded-lg p-3">
-                  <p class="text-brand mb-1">/api/contatos?_sort=nome&_order=asc</p>
+                  <p class="text-brand mb-1">/api/contatos?_sort=nome&amp;_order=asc</p>
                   <p class="text-faint">Ordenar por campo</p>
                 </div>
                 <div class="bg-surface-alt rounded-lg p-3">
-                  <p class="text-brand mb-1">/api/contatos?cidade=BH&categoria=amigos</p>
+                  <p class="text-brand mb-1">/api/contatos?cidade=BH&amp;categoria=amigos</p>
                   <p class="text-faint">Múltiplos filtros combinados</p>
                 </div>
               </div>
             </div>
             <div class="md:col-span-2">
-              <h3 class="font-bold text-body text-sm mb-3 uppercase tracking-wider">Estrutura do db.json</h3>
+              <h3 class="wt-meta mb-3">Estrutura do db.json</h3>
               <div class="code-block">
-                <div class="code-header"><span class="lang-badge">json</span><button class="btn-copy">⎘ Copiar</button></div>
+                <div class="code-header"><span class="lang-badge">json</span><button class="btn-copy" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button></div>
                 <pre><code class="language-json">{
   "usuarios": [
     { "id": "uuid-1", "login": "admin", "senha": "123", "nome": "Admin", "email": "admin@site.com" }
@@ -561,183 +566,141 @@ async function chamarAPI(url, opts = {}) {
       </div>
     </section>
 
-    <!-- ====================================================
-         FERRAMENTAS
-    ==================================================== -->
-    <section>
-      <h2 class="text-2xl font-bold text-ink mb-2">Ferramentas Recomendadas</h2>
-      <p class="text-muted text-sm mb-6">Programas e serviços que facilitam o desenvolvimento web.</p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-        <a href="https://code.visualstudio.com" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">💙</span>
-            <div>
-              <p class="font-bold text-ink text-sm">VS Code</p>
-              <p class="text-xs text-faint">code.visualstudio.com</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Editor de código gratuito. Instale as extensões: <strong>Live Server</strong>, <strong>Prettier</strong> e <strong>ESLint</strong>.</p>
-        </a>
-
-        <a href="https://insomnia.rest" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-purple-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">😴</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Insomnia</p>
-              <p class="text-xs text-faint">insomnia.rest</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Cliente REST para testar APIs com interface visual. Alternativa gratuita ao Postman.</p>
-        </a>
-
-        <a href="https://postman.com" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-orange-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">📮</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Postman</p>
-              <p class="text-xs text-faint">postman.com</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Ferramenta completa para testar, documentar e colaborar em APIs REST.</p>
-        </a>
-
-        <a href="https://nodejs.org" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-green-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">🟢</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Node.js</p>
-              <p class="text-xs text-faint">nodejs.org</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Plataforma JavaScript no servidor. Necessária para executar o JSON Server.</p>
-        </a>
-
-        <a href="https://github.com/typicode/json-server" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-gray-400 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">📦</span>
-            <div>
-              <p class="font-bold text-ink text-sm">JSON Server</p>
-              <p class="text-xs text-faint">github.com/typicode/json-server</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Documentação oficial do JSON Server. Versão 0.17.x usada neste projeto.</p>
-        </a>
-
-        <a href="https://tailwindcss.com" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-cyan-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">🌊</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Tailwind CSS</p>
-              <p class="text-xs text-faint">tailwindcss.com</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Framework CSS utilitário. Documentação completa de todas as classes disponíveis.</p>
-        </a>
-
-        <a href="https://www.chartjs.org" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-red-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">📊</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Chart.js</p>
-              <p class="text-xs text-faint">chartjs.org</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Biblioteca de gráficos. Fácil de usar e com diversos tipos: linha, barra, pizza, etc.</p>
-        </a>
-
-        <a href="https://docs.mapbox.com" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-cyan-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">🗺️</span>
-            <div>
-              <p class="font-bold text-ink text-sm">Mapbox GL JS</p>
-              <p class="text-xs text-faint">docs.mapbox.com</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">API de mapas interativos. Crie conta gratuita com e-mail @sga.pucminas.br.</p>
-        </a>
-
-        <a href="https://developer.mozilla.org/pt-BR/" target="_blank"
-           class="bg-surface border border-line rounded-xl p-5 hover:border-blue-300 hover:shadow-md transition-all block module-card">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-3xl">📖</span>
-            <div>
-              <p class="font-bold text-ink text-sm">MDN Web Docs</p>
-              <p class="text-xs text-faint">developer.mozilla.org/pt-BR</p>
-            </div>
-          </div>
-          <p class="text-sm text-muted">Referência completa em português para HTML, CSS e JavaScript. Use sempre!</p>
-        </a>
 
       </div>
     </section>
 
-    <!-- ====================================================
-         VÍDEOS COMPLEMENTARES
-    ==================================================== -->
-    <section>
-      <h2 class="text-2xl font-bold text-ink mb-2">Vídeos Complementares</h2>
-      <p class="text-muted text-sm mb-6">Material de apoio produzido para acompanhar a disciplina.</p>
+    <section class="wt-section wt-section--subtle">
+      <div class="wt-container">
+        <p class="wt-eyebrow">Ferramentas</p>
+        <h2 class="wt-h2 mt-4">Ferramentas recomendadas</h2>
+        <p class="mb-8 mt-3 text-muted">Programas e serviços que facilitam o desenvolvimento web.</p>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">VS Code</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">code.visualstudio.com</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Editor de código gratuito. Instale as extensões: Live Server, Prettier e ESLint.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://insomnia.rest" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Insomnia</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">insomnia.rest</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Cliente REST para testar APIs com interface visual. Alternativa gratuita ao Postman.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://postman.com" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Postman</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">postman.com</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Ferramenta completa para testar, documentar e colaborar em APIs REST.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://nodejs.org" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-brands fa-node-js" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Node.js</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">nodejs.org</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Plataforma JavaScript no servidor. Necessária para executar o JSON Server.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://github.com/typicode/json-server" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">JSON Server</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">github.com/typicode/json-server</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Documentação oficial do JSON Server. Versão 0.17.x usada neste projeto.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-wind" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Tailwind CSS</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">tailwindcss.com</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Framework CSS utilitário. Documentação completa de todas as classes disponíveis.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://www.chartjs.org" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Chart.js</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">chartjs.org</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Biblioteca de gráficos. Fácil de usar e com diversos tipos: linha, barra, pizza, etc.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://docs.mapbox.com" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">Mapbox GL JS</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">docs.mapbox.com</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">API de mapas interativos. Crie conta gratuita com e-mail @sga.pucminas.br.</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        <a href="https://developer.mozilla.org/pt-BR/" target="_blank" rel="noopener" class="wt-card p-6">
+          <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+          <span class="mt-4 font-display text-lg font-bold text-ink">MDN Web Docs</span>
+          <span class="mt-1 font-mono text-[11px] text-muted">developer.mozilla.org/pt-BR</span>
+          <span class="mt-3 text-sm leading-relaxed text-muted">Referência completa em português para HTML, CSS e JavaScript. Use sempre!</span>
+          <span class="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-brand-ink">Acessar <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></span>
+        </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wt-section">
+      <div class="wt-container space-y-16">
+
+    <section id="videos">
+      <p class="wt-eyebrow">Aulas em vídeo</p>
+      <h2 class="wt-h2 mt-4">Vídeos complementares</h2>
+      <p class="mb-8 mt-3 text-muted">Material de apoio produzido para acompanhar a disciplina.</p>
 
       <div class="space-y-4">
 
-        <div class="bg-surface border border-line rounded-xl p-5">
+        <div class="wt-card wt-card--static p-5">
           <div class="flex items-start gap-4">
-            <div class="bg-blue-100 text-blue-600 w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">▶</div>
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white"><i class="fa-solid fa-play" aria-hidden="true"></i></div>
             <div class="flex-1">
-              <p class="text-xs font-bold text-faint uppercase tracking-wider mb-1">Sequência 1</p>
+              <p class="wt-meta mb-1">Sequência 1</p>
               <h3 class="font-bold text-ink mb-1">Projeto com JavaScript, JSON e Local Storage</h3>
               <p class="text-sm text-muted mb-3">Construção de aplicação completa usando Local Storage como banco de dados antes de integrar com JSON Server.</p>
               <div class="flex flex-wrap gap-3">
                 <a href="https://www.loom.com/share/da5ff9cc1e674bec9f85da058e3631c6" target="_blank"
-                   class="text-sm text-blue-600 hover:text-blue-800 font-medium">
-                  ▶ Banco de Dados com JSON e Local Storage
+                   class="wt-link inline-flex items-center gap-2 text-sm">
+                  Banco de dados com JSON e Local Storage <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
                 </a>
                 <a href="https://drive.google.com/file/d/1XCG-gt9RmJuE4emVqowYXU9aFTmdeEIi/view" target="_blank"
-                   class="text-sm text-muted hover:text-body">
-                  ↓ Código Fonte
+                   class="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink">
+                  Código-fonte <i class="fa-solid fa-download" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-surface border border-line rounded-xl p-5">
+        <div class="wt-card wt-card--static p-5">
           <div class="flex items-start gap-4">
-            <div class="bg-success-soft text-success w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">▶</div>
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white"><i class="fa-solid fa-play" aria-hidden="true"></i></div>
             <div class="flex-1">
-              <p class="text-xs font-bold text-faint uppercase tracking-wider mb-1">Sequência 2</p>
+              <p class="wt-meta mb-1">Sequência 2</p>
               <h3 class="font-bold text-ink mb-1">Projeto Completo com JavaScript, JSON e AJAX</h3>
               <p class="text-sm text-muted mb-3">Série de 3 partes: criação do projeto, manipulação de dados e comunicação com servidor via AJAX.</p>
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3">
                 <a href="https://drive.google.com/file/d/1bzPVkQTe_KLWLzKAK008SKVHFeMTAseH/view" target="_blank"
-                   class="bg-surface-alt border border-line rounded-lg p-3 hover:border-success-border transition-colors">
+                   class="rounded-lg border border-line bg-surface-alt p-3 transition-colors hover:border-brand/30">
                   <p class="text-xs font-bold text-body mb-0.5">Parte 1/3</p>
                   <p class="text-xs text-muted">Iniciando com HTML e CSS</p>
                 </a>
                 <a href="https://drive.google.com/file/d/1NT3OtQz_fJ1RgiuMq4QXf2ZT6ulZ58C6/view" target="_blank"
-                   class="bg-surface-alt border border-line rounded-lg p-3 hover:border-success-border transition-colors">
+                   class="rounded-lg border border-line bg-surface-alt p-3 transition-colors hover:border-brand/30">
                   <p class="text-xs font-bold text-body mb-0.5">Parte 2/3</p>
                   <p class="text-xs text-muted">Manipulando dados com JS e JSON</p>
                 </a>
                 <a href="https://drive.google.com/file/d/1aYhm0E3gn0LfauSpEoBj3AN2ilWuVs_B/view" target="_blank"
-                   class="bg-surface-alt border border-line rounded-lg p-3 hover:border-success-border transition-colors">
+                   class="rounded-lg border border-line bg-surface-alt p-3 transition-colors hover:border-brand/30">
                   <p class="text-xs font-bold text-body mb-0.5">Parte 3/3</p>
                   <p class="text-xs text-muted">Obtendo dados via AJAX</p>
                 </a>
               </div>
               <a href="https://drive.google.com/file/d/1KrnaFnMEQ1bvyH3ijncL12B7fyMhPkB_/view" target="_blank"
                  class="inline-block mt-3 text-sm text-muted hover:text-body">
-                ↓ Código Fonte Completo
+                Código-fonte completo <i class="fa-solid fa-download" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -746,64 +709,69 @@ async function chamarAPI(url, opts = {}) {
       </div>
     </section>
 
-    <!-- ====================================================
-         REFERÊNCIAS BIBLIOGRÁFICAS
-    ==================================================== -->
-    <section>
-      <h2 class="text-2xl font-bold text-ink mb-2">Referências Bibliográficas</h2>
-      <p class="text-muted text-sm mb-6">Obras de referência adotadas na disciplina. Disponíveis na biblioteca da PUC Minas.</p>
 
-      <div class="space-y-4">
 
-        <div class="bg-surface border border-line rounded-xl p-5 flex gap-4">
-          <span class="text-3xl flex-shrink-0">📗</span>
+    <section id="bibliografia">
+      <p class="wt-eyebrow">Leituras</p>
+      <h2 class="wt-h2 mt-4">Referências bibliográficas</h2>
+      <p class="mb-8 mt-3 text-muted">Obras de referência adotadas na disciplina. Disponíveis na biblioteca da PUC Minas.</p>
+
+      <div class="divide-y divide-line border-y border-line">
+
+        <div class="flex gap-4 py-5">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
           <div>
-            <p class="font-bold text-ink text-sm">JavaScript: O Guia Definitivo</p>
+            <p class="font-display text-lg font-bold text-ink">JavaScript: O Guia Definitivo</p>
             <p class="text-sm text-body mt-1">
               FLANAGAN, David. <em>JavaScript: o guia definitivo</em>. 6. ed. Porto Alegre, RS: Bookman, 2014.
               1062 p. ISBN 9788565837484.
             </p>
-            <p class="text-xs text-faint mt-1">E-book disponível na Biblioteca PUC Minas</p>
+            <p class="mt-2 font-mono text-[11px] text-muted">E-book disponível na Biblioteca PUC Minas</p>
           </div>
         </div>
 
-        <div class="bg-surface border border-line rounded-xl p-5 flex gap-4">
-          <span class="text-3xl flex-shrink-0">📘</span>
+        <div class="flex gap-4 py-5">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
           <div>
-            <p class="font-bold text-ink text-sm">Desenvolvimento de Software II</p>
+            <p class="font-display text-lg font-bold text-ink">Desenvolvimento de Software II</p>
             <p class="text-sm text-body mt-1">
               MILETTO, Evandro Manara. <em>Desenvolvimento de software II: introdução ao desenvolvimento web com HTML,
               CSS, JavaScript e PHP</em>. Porto Alegre: Bookman, 2014. ISBN 9788582601969.
             </p>
-            <p class="text-xs text-faint mt-1">E-book disponível na Biblioteca PUC Minas</p>
+            <p class="mt-2 font-mono text-[11px] text-muted">E-book disponível na Biblioteca PUC Minas</p>
           </div>
         </div>
 
-        <div class="bg-surface border border-line rounded-xl p-5 flex gap-4">
-          <span class="text-3xl flex-shrink-0">📙</span>
+        <div class="flex gap-4 py-5">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
           <div>
-            <p class="font-bold text-ink text-sm">CSS3: Desenvolva Aplicações Web Profissionais</p>
+            <p class="font-display text-lg font-bold text-ink">CSS3: Desenvolva Aplicações Web Profissionais</p>
             <p class="text-sm text-body mt-1">
               SILVA, Maurício Samy. <em>CSS3: desenvolva aplicações web profissionais com uso dos poderosos recursos
               de estilização das CSS3</em>. São Paulo: Novatec, 2012. 494 p. ISBN 9788575222898.
             </p>
-            <p class="text-xs text-faint mt-1">2 exemplares disponíveis na Biblioteca PUC Minas</p>
+            <p class="mt-2 font-mono text-[11px] text-muted">2 exemplares disponíveis na Biblioteca PUC Minas</p>
           </div>
         </div>
 
       </div>
     </section>
 
-  </div>
+      </div>
+    </section>
 
-  <!-- ======================================================
-       FOOTER
-  ====================================================== -->
+    <section class="wt-cta wt-cta--art">
+      <div class="wt-container wt-cta__inner">
+        <div>
+          <p class="wt-eyebrow">De volta à prática</p>
+          <h2 class="mt-3">Transforme referência em código.</h2>
+        </div>
+        <a href="modulos.html" class="wt-btn wt-btn--dark">Ir para os módulos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+  </main>
+
   <div id="site-footer"></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
