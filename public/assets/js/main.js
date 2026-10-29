@@ -4,6 +4,7 @@
    1. Navegação                  5. Mini sandbox
    2. Cópia de código            6. Checklist (localStorage)
    3. Tabs                       7. Scroll suave   8. Tooltips
+   9. Explicação dos tópicos (quadro em modulos.html)
    ============================================================ */
 
 const JOURNEY_URL = "https://site-novo.apps.webtech.network/journey";
@@ -485,6 +486,98 @@ function initTooltips() {
 }
 
 // ============================================================
+// 9. EXPLICAÇÃO DOS TÓPICOS (modulos.html)
+//    Conteúdo em assets/js/topicos.js (window.TOPICOS)
+// ============================================================
+function initTopicDialog() {
+  const dialog = document.getElementById("topico-dialog");
+  const data = window.TOPICOS;
+  if (!dialog || !data || typeof dialog.showModal !== "function") return;
+
+  const $ = (name) => dialog.querySelector(`[data-topico-${name}]`);
+  const prevBtn = $("anterior");
+  const nextBtn = $("proximo");
+  let siblings = [];
+  let index = 0;
+  let opener = null;
+
+  const show = (el, visible) => { el.hidden = !visible; };
+
+  function render() {
+    const btn = siblings[index];
+    const key = btn.dataset.topic;
+    const topic = data[key] || {};
+
+    $("modulo").textContent = btn.dataset.modulo || "";
+    $("titulo").textContent = btn.querySelector(".wt-topic__label")?.textContent.trim() || "";
+
+    const textos = topic.texto?.length ? topic.texto : ["Explicação deste tópico em breve."];
+    $("texto").innerHTML = textos.map((t) => `<p>${t}</p>`).join("");
+
+    show($("pontos-wrap"), !!topic.pontos?.length);
+    $("pontos").innerHTML = (topic.pontos || []).map((p) => `<li>${p}</li>`).join("");
+
+    const code = $("codigo");
+    show($("codigo-wrap"), !!topic.codigo);
+    if (topic.codigo) {
+      const lang = topic.codigo.lang || "javascript";
+      $("lang").textContent = lang;
+      code.className = `language-${lang}`;
+      code.textContent = topic.codigo.src;
+      if (window.Prism) Prism.highlightElement(code);
+    }
+
+    show($("dica-wrap"), !!topic.dica);
+    $("dica").innerHTML = topic.dica || "";
+
+    $("posicao").textContent = `${index + 1} de ${siblings.length}`;
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === siblings.length - 1;
+
+    document.querySelectorAll(".wt-topic.is-current").forEach((b) => b.classList.remove("is-current"));
+    btn.classList.add("is-current");
+    $("corpo").scrollTop = 0;
+  }
+
+  function open(btn) {
+    opener = btn;
+    siblings = [...btn.closest(".wt-topics").querySelectorAll(".wt-topic")];
+    index = siblings.indexOf(btn);
+    render();
+    if (!dialog.open) {
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+    }
+  }
+
+  document.querySelectorAll(".wt-topic").forEach((btn) => {
+    btn.addEventListener("click", () => open(btn));
+  });
+
+  prevBtn.addEventListener("click", () => { if (index > 0) { index -= 1; render(); } });
+  nextBtn.addEventListener("click", () => { if (index < siblings.length - 1) { index += 1; render(); } });
+  $("fechar").addEventListener("click", () => dialog.close());
+
+  // Fecha ao clicar fora do quadro (no fundo escurecido)
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  // Setas do teclado navegam entre tópicos do módulo
+  dialog.addEventListener("keydown", (event) => {
+    if (event.target.closest("pre")) return;
+    if (event.key === "ArrowRight") nextBtn.click();
+    if (event.key === "ArrowLeft") prevBtn.click();
+  });
+
+  dialog.addEventListener("close", () => {
+    document.documentElement.style.overflow = "";
+    document.querySelectorAll(".wt-topic.is-current").forEach((b) => b.classList.remove("is-current"));
+    (siblings[index] || opener)?.focus({ preventScroll: true });
+  });
+}
+
+// ============================================================
 // INICIALIZAÇÃO
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -500,4 +593,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionNav();
   initExampleFilter();
   initTooltips();
+  initTopicDialog();
 });

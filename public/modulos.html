@@ -61,7 +61,7 @@
           <span class="wt-tag wt-tag--success">Em andamento</span>
           <span class="wt-tag wt-tag--warning">Próximo</span>
           <span class="wt-tag wt-tag--muted">Pendente</span>
-          <span class="text-sm text-muted">Abra um módulo para ver tópicos, atividades e exemplo.</span>
+          <span class="text-sm text-muted">Abra um módulo e clique em um tópico para ver a explicação com exemplo.</span>
         </div>
 
         <nav class="mb-6 flex gap-2 overflow-x-auto pb-1" aria-label="Ir para um módulo">
@@ -92,13 +92,13 @@
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Estrutura básica de uma página HTML</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Tags semânticas: header, nav, main, footer</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Títulos, parágrafos, listas e links</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Imagens e mídia</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Formulários e campos de entrada</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Tabelas de dados</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m01-1" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Estrutura básica de uma página HTML</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m01-2" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Tags semânticas: header, nav, main, footer</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m01-3" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Títulos, parágrafos, listas e links</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m01-4" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Imagens e mídia</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m01-5" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Formulários e campos de entrada</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m01-6" data-modulo="M01 · Fundamentos HTML" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Tabelas de dados</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -152,13 +152,13 @@
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Seletores e especificidade</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Box Model (margin, border, padding)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Flexbox: alinhamento e distribuição</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>CSS Grid: layouts bidimensionais</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Media Queries e responsividade</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Tailwind CSS via CDN</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m02-1" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Seletores e especificidade</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m02-2" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Box Model (margin, border, padding)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m02-3" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Flexbox: alinhamento e distribuição</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m02-4" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">CSS Grid: layouts bidimensionais</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m02-5" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Media Queries e responsividade</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m02-6" data-modulo="M02 · CSS e Layouts" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Tailwind CSS via CDN</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -217,13 +217,13 @@
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Variáveis: var, let, const</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Tipos de dados e operadores</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Condicionais (if, switch)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Loops (for, while, forEach)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Funções e arrow functions</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Arrays e objetos literais</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m03-1" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Variáveis: var, let, const</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m03-2" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Tipos de dados e operadores</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m03-3" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Condicionais (if, switch)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m03-4" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Loops (for, while, forEach)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m03-5" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Funções e arrow functions</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m03-6" data-modulo="M03 · JavaScript Básico" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Arrays e objetos literais</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -279,13 +279,13 @@ console.log(caros);
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Seleção de elementos (querySelector)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Leitura e escrita de propriedades</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Criação e remoção de elementos</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>addEventListener e tipos de eventos</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Formulários: captura e validação</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Event delegation</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m04-1" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Seleção de elementos (querySelector)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m04-2" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Leitura e escrita de propriedades</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m04-3" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Criação e remoção de elementos</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m04-4" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">addEventListener e tipos de eventos</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m04-5" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Formulários: captura e validação</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m04-6" data-modulo="M04 · DOM e Eventos" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Event delegation</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -342,12 +342,12 @@ adicionarItem(&#x27;Estudar HTML&#x27;);</code></pre>
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Formato JSON: sintaxe e regras</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>JSON.stringify e JSON.parse</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>localStorage: persistência local</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>sessionStorage: dados de sessão</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Diferenças e casos de uso</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m05-1" data-modulo="M05 · JSON e Storage" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Formato JSON: sintaxe e regras</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m05-2" data-modulo="M05 · JSON e Storage" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">JSON.stringify e JSON.parse</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m05-3" data-modulo="M05 · JSON e Storage" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">localStorage: persistência local</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m05-4" data-modulo="M05 · JSON e Storage" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">sessionStorage: dados de sessão</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m05-5" data-modulo="M05 · JSON e Storage" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Diferenças e casos de uso</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -406,13 +406,13 @@ console.log(salvo.nome); // &#x27;Ana&#x27;</code></pre>
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Conceito de API REST</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Verbos HTTP (GET, POST, PUT, DELETE)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Instalação e configuração do JSON Server</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Estruturação do db.json</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Filtros, busca e paginação</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Relacionamento entre coleções</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m06-1" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Conceito de API REST</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m06-2" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Verbos HTTP (GET, POST, PUT, DELETE)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m06-3" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Instalação e configuração do JSON Server</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m06-4" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Estruturação do db.json</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m06-5" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Filtros, busca e paginação</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m06-6" data-modulo="M06 · JSON Server e API REST" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Relacionamento entre coleções</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -453,13 +453,13 @@ console.log(salvo.nome); // &#x27;Ana&#x27;</code></pre>
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Promises: then/catch/finally</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>async/await</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Fetch API completa (options)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Tratamento de erros (try/catch)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Loading states na UI</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Promise.all para múltiplas requisições</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m07-1" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Promises: then/catch/finally</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m07-2" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">async/await</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m07-3" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Fetch API completa (options)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m07-4" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Tratamento de erros (try/catch)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m07-5" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Loading states na UI</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m07-6" data-modulo="M07 · Fetch API e Programação Assíncrona" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Promise.all para múltiplas requisições</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -521,13 +521,13 @@ async function carregarDados() {
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Fluxo de autenticação web</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Login com JSON Server (/usuarios)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>sessionStorage para manter sessão</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Proteção de páginas (redirect)</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Registro de novo usuário</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Logout e limpeza de sessão</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m08-1" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Fluxo de autenticação web</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m08-2" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Login com JSON Server (/usuarios)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m08-3" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">sessionStorage para manter sessão</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m08-4" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Proteção de páginas (redirect)</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m08-5" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Registro de novo usuário</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m08-6" data-modulo="M08 · Autenticação de Usuários" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Logout e limpeza de sessão</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -567,12 +567,12 @@ async function carregarDados() {
         <div class="grid gap-6 md:grid-cols-3">
           <div>
             <p class="wt-meta mb-3">Tópicos</p>
-            <ul class="space-y-2 text-sm text-body">
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>O que são APIs públicas</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Autenticação por API Key</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Mapbox: mapas interativos</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Chart.js: gráficos de dados</span></li>
-            <li class="flex gap-2.5"><i class="fa-solid fa-angle-right mt-1.5 text-[10px] text-brand" aria-hidden="true"></i><span>Integração de dados do JSON Server com APIs externas</span></li>
+            <ul class="wt-topics">
+            <li><button type="button" class="wt-topic" data-topic="m09-1" data-modulo="M09 · Integração com APIs Externas" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">O que são APIs públicas</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m09-2" data-modulo="M09 · Integração com APIs Externas" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Autenticação por API Key</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m09-3" data-modulo="M09 · Integração com APIs Externas" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Mapbox: mapas interativos</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m09-4" data-modulo="M09 · Integração com APIs Externas" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Chart.js: gráficos de dados</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
+            <li><button type="button" class="wt-topic" data-topic="m09-5" data-modulo="M09 · Integração com APIs Externas" aria-haspopup="dialog"><i class="fa-solid fa-angle-right wt-topic__icon" aria-hidden="true"></i><span class="wt-topic__label">Integração de dados do JSON Server com APIs externas</span><i class="fa-regular fa-lightbulb wt-topic__hint" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div>
@@ -651,7 +651,50 @@ async function carregarDados() {
     </section>
   </main>
 
+  <dialog id="topico-dialog" class="wt-topic-dialog" aria-labelledby="topico-titulo">
+    <div class="wt-topic-dialog__head">
+      <div class="min-w-0">
+        <p class="wt-meta" data-topico-modulo></p>
+        <h2 id="topico-titulo" class="wt-topic-dialog__title" data-topico-titulo></h2>
+      </div>
+      <button type="button" class="wt-topic-dialog__close" data-topico-fechar aria-label="Fechar explicação">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="wt-topic-dialog__body" data-topico-corpo>
+      <div data-topico-texto></div>
+      <div data-topico-pontos-wrap>
+        <p class="wt-meta mb-3 mt-6">Pontos-chave</p>
+        <ul class="wt-topic-points" data-topico-pontos></ul>
+      </div>
+      <div data-topico-codigo-wrap>
+        <p class="wt-meta mt-6">Exemplo</p>
+        <div class="wt-code mt-3">
+          <div class="wt-code__bar">
+            <span class="wt-code__lang" data-topico-lang></span>
+            <button class="btn-copy ml-auto" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar</button>
+          </div>
+          <pre><code data-topico-codigo></code></pre>
+        </div>
+      </div>
+      <div class="callout callout-tip mb-0" data-topico-dica-wrap>
+        <p class="callout-title">Dica</p>
+        <p class="text-sm" data-topico-dica></p>
+      </div>
+    </div>
+    <div class="wt-topic-dialog__foot">
+      <button type="button" class="wt-btn wt-btn--outline wt-btn--sm" data-topico-anterior>
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Anterior
+      </button>
+      <span class="font-mono text-xs font-bold text-muted" data-topico-posicao></span>
+      <button type="button" class="wt-btn wt-btn--primary wt-btn--sm" data-topico-proximo>
+        Próximo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </dialog>
+
   <div id="site-footer"></div>
+  <script src="assets/js/topicos.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

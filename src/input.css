@@ -458,6 +458,71 @@
   .wt-module[open] .wt-module__chev { transform: rotate(180deg); }
   .wt-module__body { @apply border-t border-line px-5 pb-6 pt-5 sm:px-6; }
 
+  /* Tópicos clicáveis */
+  .wt-topics { @apply -mx-2 space-y-0.5 text-sm text-body; }
+  .wt-topic {
+    @apply flex w-full items-start gap-2.5 rounded-lg px-2 py-1.5 text-left transition-colors;
+  }
+  .wt-topic:hover, .wt-topic:focus-visible { @apply bg-brand-soft text-ink; }
+  .wt-topic:focus-visible { outline-offset: 0; }
+  .wt-topic__icon { @apply mt-1.5 shrink-0 text-[10px] text-brand transition-transform; }
+  .wt-topic:hover .wt-topic__icon { transform: translateX(2px); }
+  .wt-topic__label {
+    @apply flex-1 underline decoration-dotted decoration-1 underline-offset-4;
+    text-decoration-color: rgb(var(--wt-purple) / 0.35);
+  }
+  .wt-topic:hover .wt-topic__label { text-decoration-color: rgb(var(--wt-purple)); }
+  .wt-topic__hint { @apply mt-1 shrink-0 text-xs text-brand opacity-0 transition-opacity; }
+  .wt-topic:hover .wt-topic__hint, .wt-topic:focus-visible .wt-topic__hint { @apply opacity-100; }
+  .wt-topic.is-current { @apply bg-brand-soft font-semibold text-brand-ink; }
+
+  /* Quadro de explicação do tópico */
+  .wt-topic-dialog {
+    @apply m-auto flex-col overflow-hidden rounded-2xl border border-line bg-white p-0 text-body;
+    width: min(46rem, calc(100vw - 2rem));
+    max-height: min(88vh, 52rem);
+    box-shadow: 0 30px 80px -20px rgb(10 10 10 / 0.35);
+  }
+  .wt-topic-dialog[open] { display: flex; animation: fadeInUp 0.22s ease-out both; }
+  .wt-topic-dialog::backdrop {
+    background: rgb(10 10 10 / 0.55);
+    backdrop-filter: blur(2px);
+  }
+  .wt-topic-dialog__head {
+    @apply flex items-start justify-between gap-4 border-b border-line px-5 py-4 sm:px-7 sm:py-5;
+  }
+  .wt-topic-dialog__title {
+    @apply mt-1.5 font-display text-xl font-bold leading-snug text-ink sm:text-2xl;
+  }
+  .wt-topic-dialog__close {
+    @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-brand hover:text-brand;
+  }
+  .wt-topic-dialog__body {
+    @apply flex-1 overflow-y-auto px-5 py-5 text-[15px] leading-relaxed sm:px-7 sm:py-6;
+    overscroll-behavior: contain;
+  }
+  .wt-topic-dialog__body [data-topico-texto] p + p { @apply mt-3; }
+  .wt-topic-dialog__body .wt-code { @apply mb-0; }
+  .wt-topic-dialog__body .callout { @apply mt-6; }
+  .wt-topic-points { @apply space-y-2 text-sm; }
+  .wt-topic-points li { @apply relative pl-5; }
+  .wt-topic-points li::before {
+    content: "";
+    @apply absolute left-0 top-[0.6em] h-1.5 w-1.5 rounded-full bg-brand;
+  }
+  .wt-topic-dialog__foot {
+    @apply flex items-center justify-between gap-3 border-t border-line bg-surface-alt px-5 py-3 sm:px-7;
+  }
+  .wt-topic-dialog__foot .wt-btn:disabled { @apply pointer-events-none opacity-40; }
+  @media (max-width: 639px) {
+    .wt-topic-dialog {
+      @apply mb-0 rounded-b-none;
+      width: 100vw;
+      max-width: 100vw;
+      max-height: 92vh;
+    }
+  }
+
   .wt-chip {
     @apply inline-flex h-8 shrink-0 items-center rounded-full border border-line bg-white px-3 font-mono text-[11px] font-bold text-muted transition-colors hover:border-brand/30 hover:text-brand;
   }
