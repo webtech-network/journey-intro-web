@@ -292,6 +292,43 @@
   .wt-subheader__title { @apply truncate text-sm font-semibold text-ink; }
   .wt-subheader__actions { @apply ml-auto flex items-center gap-2; }
 
+  /* Hero da jornada (página inicial) */
+  .wt-jhero {
+    @apply border-b border-line bg-white;
+    padding-block: 2.75rem 4rem;
+  }
+  .wt-jhero__title { @apply flex items-center gap-4 sm:gap-5; }
+  .wt-jhero__title h1 {
+    @apply font-display font-extrabold leading-[1.05] tracking-tight text-ink;
+    font-size: clamp(2.1rem, 5.6vw, 3.75rem);
+  }
+  .wt-jhero__icon {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white sm:h-14 sm:w-14;
+  }
+  .wt-jhero__icon i { font-size: 1.2rem; }
+  .wt-jhero__body { @apply mt-6; }
+  @media (min-width: 640px) {
+    .wt-jhero__body { padding-left: 4.75rem; }
+  }
+  .wt-btn--lg { @apply px-7 text-base; min-height: 3rem; }
+  .wt-textlink {
+    @apply border-b border-current pb-1 text-sm font-bold text-brand transition-colors hover:text-brand-ink;
+  }
+
+  /* Faixa de números */
+  .wt-stats { @apply border-b border-line bg-white; }
+  .wt-stats__inner {
+    @apply grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-3 lg:grid-cols-[repeat(3,minmax(0,13rem))_1fr] lg:items-center;
+  }
+  .wt-stat { @apply flex flex-col gap-2; }
+  .wt-stat__num {
+    @apply font-display text-[2.4rem] font-extrabold leading-none text-brand;
+  }
+  .wt-stat__label { @apply text-sm leading-snug text-muted; }
+  .wt-stats__note {
+    @apply col-span-2 max-w-[16rem] text-sm font-bold leading-snug text-ink sm:col-span-3 lg:col-span-1 lg:justify-self-end;
+  }
+
   /* Home hero */
   .wt-home-hero {
     @apply relative overflow-hidden;
@@ -428,7 +465,7 @@
 
   /* Painel de caminhos numerados */
   .wt-pillars {
-    @apply grid overflow-hidden rounded-xl border border-line bg-white/15 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(180px,1fr))];
+    @apply grid overflow-hidden rounded-2xl border border-line bg-white sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(180px,1fr))];
   }
   .wt-pillar {
     @apply flex min-h-[280px] flex-col border-b border-r border-line p-6 transition-colors last:border-r-0 hover:bg-brand/5 lg:border-b-0;
